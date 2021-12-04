@@ -3,6 +3,7 @@ title: "One-carat Blog"
 theme: style.css
 description: |
   From science articles to R tutorials
+base_url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
 output_dir: "docs"
 navbar:
   search: true
