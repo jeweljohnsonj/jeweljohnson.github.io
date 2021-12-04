@@ -4,6 +4,14 @@ theme: style.css
 description: |
   From science articles to R tutorials
 base_url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
+collections:
+  posts:
+    categories: true
+    categories_metadata: true
+    authors_metadata: false
+    disqus: reproducible-finance-with-r
+    share: [twitter]
+    subscribe: _subscribe.html
 output_dir: "docs"
 navbar:
   search: true
@@ -25,3 +33,9 @@ output:
     highlight_downlit: FALSE
     toc: TRUE
     toc_depth: 2
+categories:
+  - R
+  - ggplot2
+  - dplyr
+  - data visualization
+  
