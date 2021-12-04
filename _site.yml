@@ -1,0 +1,26 @@
+name: "jeweljohnson.in"
+title: "One-carat Blog"
+theme: style.css
+description: |
+  From science articles to R tutorials
+output_dir: "docs"
+navbar:
+  search: true
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+    - text: "R Tutorials"
+      href: project1.html
+    - text: "CV"
+      href: Jewel_cv_2021.pdf
+    - icon: fa fa-rss
+      href: index.xml
+output: 
+  distill::distill_article:
+    df_print: paged
+    highlight: kate
+    highlight_downlit: FALSE
+    toc: TRUE
+    toc_depth: 2
