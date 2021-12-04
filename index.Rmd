@@ -16,6 +16,65 @@ knitr::opts_chunk$set(echo = TRUE)
 # Hello world!
 </div>
 
-Welcome to my blog! My name is Jewel Johnson. You can find all sorts of interesting science stuff here. If you are looking for R tutorials please click [here](https://jeweljohnsonj.github.io/jeweljohnson.github.io/project1.html). 
+Welcome to my blog! My name is Jewel Johnson and I hope you are doing well. You can find all sorts of interesting science stuff here. If you are looking for R tutorials please click [here](https://jeweljohnsonj.github.io/jeweljohnson.github.io/project1.html). 
 
 I am yet to post other content but will try to finish them as soon as possible. Have a good day!
+
+<style>
+.twitter-border {
+ border: 1px dashed black;
+ width: 300px;
+ position : relative;
+ border-radius: 5px;
+ margin: 0 auto;
+}
+.twitter-border::before {
+ content: "\f099";
+ font-family: "Font Awesome 5 Brands";
+ font-weight: 900; 
+ font-size: 1.5rem;
+ position: absolute;
+ top: -15px;
+ left: -15px;
+}
+
+.twitter-border > p {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-bottom: 0em;
+}
+.home-with-sidebar {
+  padding-left: 45px;
+  padding-right: 45px;
+}
+@media (min-width: 1024px) {
+  .home-with-sidebar .home-main {
+    float: left;
+    width: 60%;
+  }
+}
+.home-main {
+  margin-top: 60px;
+  margin-bottom: 24px;
+}
+@media (min-width: 1024px) {
+  .home-with-sidebar .home-sidebar {
+    float: right;
+    width: 30%;
+    margin-top: 60px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+.home-sidebar {
+  font-size: 16px;
+}
+</style>
+
+</div>
+
+<div class="home-sidebar">
+<div class="twitter-border">
+
+<a class="twitter-timeline" data-width="300" data-height="600" data-theme="dark" href="https://twitter.com/jeweljohnsonj?ref_src=twsrc%5Etfw">Tweets by jeweljohnsonj</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
