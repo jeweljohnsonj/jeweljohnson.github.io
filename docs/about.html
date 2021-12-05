@@ -881,6 +881,24 @@
               margin: 0 0 12px 0;
               line-height: 1.5em;
               font-size: 20px;
+          }
+
+          html a {
+              text-decoration: none;
+              background-image: linear-gradient(currentColor, currentColor);
+              background-position: 0% 100%;
+              background-repeat: no-repeat;
+              background-size: 0% 2px;
+              color: #EA660C;
+              transition: background-size .3s;
+          }
+
+          html a:hover, html a:focus {
+            background-size: 100% 2px;
+          }
+
+          a:hover {
+              text-decoration: none;
           }</style>
           <style type="text/css">
           /* base style */
