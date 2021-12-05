@@ -12,6 +12,7 @@ collections:
     disqus: reproducible-finance-with-r
     share: [twitter]
     subscribe: _subscribe.html
+    custom: _custom.html
 output_dir: "docs"
 navbar:
   search: true

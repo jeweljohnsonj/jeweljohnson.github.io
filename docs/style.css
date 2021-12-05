@@ -159,3 +159,16 @@ d-article p {
   color: #2b2212; /*-- Dark brown --*/
 }
 
+/* post list date font size */
+.posts-list .metadata {
+    font-size: 16px;
+    line-height: 1.4em;
+    font-weight: bold;
+}
+
+/* post list subtitle text size */
+.posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.5em;
+    font-size: 20px;
+}

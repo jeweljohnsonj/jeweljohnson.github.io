@@ -2206,7 +2206,20 @@
   d-article p {
     color: #2b2212; /*-- Dark brown --*/
   }
-  </style>
+
+  /* post list date font size */
+  .posts-list .metadata {
+      font-size: 16px;
+      line-height: 1.4em;
+      font-weight: bold;
+  }
+
+  /* post list subtitle text size */
+  .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 20px;
+  }</style>
   <style type="text/css">
   /* base style */
 
@@ -2563,6 +2576,23 @@ reading what we have to say!</p>
 </a>
 </div>
 <div class="posts-sidebar">
+<div><!--This html code will add a twitter feed above the subscribe windows in the side bar (only for Rmd files with site: distill_website)-->
+<!--go to https://publish.twitter.com and input your twitter user name and customize your feed window and get the html code-->
+<!--inpu the code between the div tags-->
+
+
+
+<div class="sidebar-section custom">
+<!--replace the below twitter html feed code with your code-->
+<a class="twitter-timeline" data-width="300" data-height="600" data-theme="dark" href="https://twitter.com/jeweljohnsonj?ref_src=twsrc%5Etfw">Tweets by jeweljohnsonj</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+</div>
+
+<!--in your _site.yml file-->
+<!--collections:
+  posts:
+    subscribe: _subscribe.html (subscribe html file, check out the _subscribe.html file in my repo)
+    custom: _custom.html (you have to place this html file name to whatever name you have saved with this current html page)
+--></div>
 <div class="sidebar-section subscribe">
 <h3>Subscribe</h3>
 <form method='post' action='https://blogtrottr.com'>
@@ -2595,63 +2625,6 @@ reading what we have to say!</p>
 </section>
 <p>Welcome to my blog! My name is Jewel Johnson and I hope you are doing well. You can find all sorts of interesting science stuff here. If you are looking for R tutorials please click <a href="https://jeweljohnsonj.github.io/jeweljohnson.github.io/project1.html">here</a>.</p>
 <p>I am yet to post other content but will try to finish them as soon as possible. Have a good day!</p>
-<style>
-.twitter-border {
- border: 1px dashed black;
- width: 300px;
- position : relative;
- border-radius: 5px;
- margin: 0 auto;
-}
-.twitter-border::before {
- content: "\f099";
- font-family: "Font Awesome 5 Brands";
- font-weight: 900; 
- font-size: 1.5rem;
- position: absolute;
- top: -15px;
- left: -15px;
-}
-
-.twitter-border > p {
-  margin-block-start: 0em;
-  margin-block-end: 0em;
-  margin-bottom: 0em;
-}
-.home-with-sidebar {
-  padding-left: 45px;
-  padding-right: 45px;
-}
-@media (min-width: 1024px) {
-  .home-with-sidebar .home-main {
-    float: left;
-    width: 60%;
-  }
-}
-.home-main {
-  margin-top: 60px;
-  margin-bottom: 24px;
-}
-@media (min-width: 1024px) {
-  .home-with-sidebar .home-sidebar {
-    float: right;
-    width: 30%;
-    margin-top: 60px;
-    padding-top: 24px;
-    padding-bottom: 24px;
-  }
-}
-
-.home-sidebar {
-  font-size: 16px;
-}
-</style>
-</div>
-<div class="home-sidebar">
-<div class="twitter-border">
-
-<a class="twitter-timeline" data-width="300" data-height="600" data-theme="dark" href="https://twitter.com/jeweljohnsonj?ref_src=twsrc%5Etfw">Tweets by jeweljohnsonj</a>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
