@@ -3,7 +3,7 @@
   <channel>
     <title>One-carat Blog</title>
     <link>https://jeweljohnsonj.github.io/jeweljohnson.github.io/</link>
-    <atom:link href="https://jeweljohnsonj.github.io/jeweljohnson.github.io/index.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://jeweljohnsonj.github.io/jeweljohnson.github.io/blog_posts.xml" rel="self" type="application/rss+xml"/>
     <description>From science articles to R tutorials
 </description>
     <generator>Distill</generator>

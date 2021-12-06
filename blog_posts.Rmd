@@ -1,0 +1,13 @@
+---
+title: "Blog Posts"
+output: 
+  distill::distill_article:
+    toc: FALSE
+site: distill::distill_website
+css: [style.css, bg_image.css]
+listing: posts
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```

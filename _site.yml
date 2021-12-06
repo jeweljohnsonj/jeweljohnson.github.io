@@ -9,7 +9,7 @@ collections:
     categories: true
     categories_metadata: true
     authors_metadata: false
-    disqus: reproducible-finance-with-r
+    disqus: One-carat Blog
     share: [twitter]
     subscribe: _subscribe.html
     custom: _custom.html
@@ -19,10 +19,12 @@ navbar:
   right:
     - text: "Home"
       href: index.html
-    - text: "About"
-      href: about.html
+    - text: "Blog"
+      href: blog_posts.html
     - text: "R Tutorials"
       href: project1.html
+    - text: "About"
+      href: about.html
     - text: "CV"
       href: Jewel_cv_2021.pdf
     - icon: fa fa-rss
