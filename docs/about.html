@@ -743,8 +743,8 @@
             --title-color:     #150927; /*-- Dark blue --*/
             --header-color:    #150927; /*-- Dark blue --*/
             --body-color:      #000000; /*-- Black --*/
-            --aside-color:     #150927; /*-- Dark blue --*/
-            --fig-cap-color:   #150927; /*-- Dark blue --*/
+            --aside-color:     #000000; /*-- Dark blue --*/
+            --fig-cap-color:   #000000; /*-- Dark blue --*/
             /*-- Specify custom fonts ~~~ must be imported above   --*/
             --heading-font:    "Lato", serif;
             --mono-font:       "Source Code Pro", monospace;
@@ -844,7 +844,7 @@
           }
 
           /* Non-postcard links */
-          d-article a{
+          d-article a {
             border-bottom: 0px;
             color: #EA660C; /*-- orange --*/
           }
@@ -852,6 +852,9 @@
           /* mouse over link */
           d-article a:hover {
             color: #DC6513; /*-- light orange --*/
+            border-bottom: none; /*-- removes the black line which appers while hovering over hyperlink --*/
+            cursor: pointer;
+            color: #DC6513;
           }
 
           /* selected link */
@@ -883,6 +886,7 @@
               font-size: 20px;
           }
 
+          /* to have link lines apperaing below the hyperlinks */
           html a {
               text-decoration: none;
               background-image: linear-gradient(currentColor, currentColor);
@@ -899,6 +903,23 @@
 
           a:hover {
               text-decoration: none;
+          }
+
+          /* to add background colour and change text colour of codes in text and not in chunks */
+          p code, li code {
+              color: #000000; /* text colour of the in text code */
+              background: #e0e0eb; /* background colour of the in text code */
+              border-radius: 3px;
+              padding: 0 3px;
+              margin: 0 4px;
+              word-wrap: break-word;
+              letter-spacing: normal;
+          }
+
+          .d-contents {
+            --heading-size:    1.2rem;
+            --contents-size:   1.2rem;
+            border-bottom: none;
           }</style>
           <style type="text/css">
           /* base style */

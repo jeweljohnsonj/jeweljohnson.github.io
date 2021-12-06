@@ -96,8 +96,8 @@ code span.wa { color: #bf0303; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-12-05"/>
-  <meta property="article:created" itemprop="dateCreated" content="2021-12-05"/>
+  <meta property="article:published" itemprop="datePublished" content="2021-12-06"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-12-06"/>
   <meta name="article:author" content="Jewel Johnson"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -116,7 +116,7 @@ code span.wa { color: #bf0303; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Data visualization using ggplot2"]},{"type":"character","attributes":{},"value":["Plot you first graph with this tutorial using the ggplot2 R-package.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jewel Johnson"]}]}]},{"type":"character","attributes":{},"value":["2021-12-05"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Data visualization using ggplot2"]},{"type":"character","attributes":{},"value":["Plot you first graph with this tutorial using the ggplot2 R-package.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jewel Johnson"]}]}]},{"type":"character","attributes":{},"value":["2021-12-06"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2156,8 +2156,8 @@ code span.wa { color: #bf0303; } /* Warning */
     --title-color:     #150927; /*-- Dark blue --*/
     --header-color:    #150927; /*-- Dark blue --*/
     --body-color:      #000000; /*-- Black --*/
-    --aside-color:     #150927; /*-- Dark blue --*/
-    --fig-cap-color:   #150927; /*-- Dark blue --*/
+    --aside-color:     #000000; /*-- Dark blue --*/
+    --fig-cap-color:   #000000; /*-- Dark blue --*/
     /*-- Specify custom fonts ~~~ must be imported above   --*/
     --heading-font:    "Lato", serif;
     --mono-font:       "Source Code Pro", monospace;
@@ -2257,7 +2257,7 @@ code span.wa { color: #bf0303; } /* Warning */
   }
 
   /* Non-postcard links */
-  d-article a{
+  d-article a {
     border-bottom: 0px;
     color: #EA660C; /*-- orange --*/
   }
@@ -2265,6 +2265,9 @@ code span.wa { color: #bf0303; } /* Warning */
   /* mouse over link */
   d-article a:hover {
     color: #DC6513; /*-- light orange --*/
+    border-bottom: none; /*-- removes the black line which appers while hovering over hyperlink --*/
+    cursor: pointer;
+    color: #DC6513;
   }
 
   /* selected link */
@@ -2296,6 +2299,7 @@ code span.wa { color: #bf0303; } /* Warning */
       font-size: 20px;
   }
 
+  /* to have link lines apperaing below the hyperlinks */
   html a {
       text-decoration: none;
       background-image: linear-gradient(currentColor, currentColor);
@@ -2312,6 +2316,23 @@ code span.wa { color: #bf0303; } /* Warning */
 
   a:hover {
       text-decoration: none;
+  }
+
+  /* to add background colour and change text colour of codes in text and not in chunks */
+  p code, li code {
+      color: #000000; /* text colour of the in text code */
+      background: #e0e0eb; /* background colour of the in text code */
+      border-radius: 3px;
+      padding: 0 3px;
+      margin: 0 4px;
+      word-wrap: break-word;
+      letter-spacing: normal;
+  }
+
+  .d-contents {
+    --heading-size:    1.2rem;
+    --contents-size:   1.2rem;
+    border-bottom: none;
   }</style>
   <style type="text/css">
   /* base style */
@@ -2490,7 +2511,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Data visualization using ggplot2","description":"Plot you first graph with this tutorial using the ggplot2 R-package.","authors":[{"author":"Jewel Johnson","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-05T00:00:00.000+05:30","citationText":"Johnson, 2021"}
+{"title":"Data visualization using ggplot2","description":"Plot you first graph with this tutorial using the ggplot2 R-package.","authors":[{"author":"Jewel Johnson","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-06T00:00:00.000+05:30","citationText":"Johnson, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2527,7 +2548,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <div class="d-byline">
   Jewel Johnson  
   
-<br/>2021-12-05
+<br/>2021-12-06
 </div>
 
 <div class="d-article">

@@ -2081,8 +2081,8 @@
     --title-color:     #150927; /*-- Dark blue --*/
     --header-color:    #150927; /*-- Dark blue --*/
     --body-color:      #000000; /*-- Black --*/
-    --aside-color:     #150927; /*-- Dark blue --*/
-    --fig-cap-color:   #150927; /*-- Dark blue --*/
+    --aside-color:     #000000; /*-- Dark blue --*/
+    --fig-cap-color:   #000000; /*-- Dark blue --*/
     /*-- Specify custom fonts ~~~ must be imported above   --*/
     --heading-font:    "Lato", serif;
     --mono-font:       "Source Code Pro", monospace;
@@ -2182,7 +2182,7 @@
   }
 
   /* Non-postcard links */
-  d-article a{
+  d-article a {
     border-bottom: 0px;
     color: #EA660C; /*-- orange --*/
   }
@@ -2190,6 +2190,9 @@
   /* mouse over link */
   d-article a:hover {
     color: #DC6513; /*-- light orange --*/
+    border-bottom: none; /*-- removes the black line which appers while hovering over hyperlink --*/
+    cursor: pointer;
+    color: #DC6513;
   }
 
   /* selected link */
@@ -2221,6 +2224,7 @@
       font-size: 20px;
   }
 
+  /* to have link lines apperaing below the hyperlinks */
   html a {
       text-decoration: none;
       background-image: linear-gradient(currentColor, currentColor);
@@ -2237,6 +2241,23 @@
 
   a:hover {
       text-decoration: none;
+  }
+
+  /* to add background colour and change text colour of codes in text and not in chunks */
+  p code, li code {
+      color: #000000; /* text colour of the in text code */
+      background: #e0e0eb; /* background colour of the in text code */
+      border-radius: 3px;
+      padding: 0 3px;
+      margin: 0 4px;
+      word-wrap: break-word;
+      letter-spacing: normal;
+  }
+
+  .d-contents {
+    --heading-size:    1.2rem;
+    --contents-size:   1.2rem;
+    border-bottom: none;
   }</style>
   <style type="text/css">
   /* base style */
@@ -2594,11 +2615,20 @@ reading what we have to say!</p>
 </a>
 </div>
 <div class="posts-sidebar">
-<div><!--This html code will add a twitter feed above the subscribe windows in the side bar (only for Rmd files with site: distill_website)-->
+<div><!-- adding a site visit counter-->
+<!-- go to https://www.freecounterstat.com/ and get your free link-->
+
+<div class="sidebar-section custom">
+    <h3>Visitors</h3>
+<!-- paste your link here-->
+<div id="sfcxqmebarkplgkzwtm8bz2lp8pnnllbeal"></div>
+<script type="text/javascript" src="https://counter7.stat.ovh/private/counter.js?c=xqmebarkplgkzwtm8bz2lp8pnnllbeal&down=async" async></script>
+<noscript><a href="https://www.freecounterstat.com" title="website counter code"><img src="https://counter7.stat.ovh/private/freecounterstat.php?c=xqmebarkplgkzwtm8bz2lp8pnnllbeal" border="0" title="website counter code" alt="website counter code"></a></noscript>
+</div>
+
+<!--This html code will add a twitter feed above the subscribe windows in the side bar (only for Rmd files with site: distill_website)-->
 <!--go to https://publish.twitter.com and input your twitter user name and customize your feed window and get the html code-->
 <!--inpu the code between the div tags-->
-
-
 
 <div class="sidebar-section custom">
 <!--replace the below twitter html feed code with your code-->
