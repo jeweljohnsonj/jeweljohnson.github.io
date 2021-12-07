@@ -292,7 +292,7 @@ Now let us also see how to change the labels in a graph
 
 ### Changing labels in the axes
 
-* Use `xlab()` to change x-axis title, `ylab()` to change y-axis title, `ggtitle()` with `label` and `subtitle` add title and subtitle respectively.
+* Use `xlab()` to change x-axis title, `ylab()` to change y-axis title, `ggtitle()` with `label` and `subtitle` to add title and subtitle respectively.
 
 ```{r}
 library(ggplot2)
@@ -346,7 +346,7 @@ ggplot(data = Hawks, aes(x = Weight, y = Wing, colour = Species)) +
                                                    ylim = c(200,350))
 ```
 
-* Use `coord_flip()` to flip the x and y axis.
+* Use `coord_flip()` to flip the x and y axes.
 
 ```{r}
 library(ggplot2)
@@ -378,7 +378,7 @@ ggplot(data = Hawks, aes(x = Weight, y = Wing, colour = Species)) +
   scale_x_continuous(breaks = c(0,1000,2000),label = c("low", "medium", "high"))
 ```
 
-* Use `scale_y_reverse()` to display the y values in descending order. Same command applies to x-axis also.
+* Use `scale_y_reverse()` to display the y values in the descending order. Same command applies to x-axis also.
 
 ```{r}
 library(ggplot2)
@@ -399,5 +399,3 @@ In this tutorial we learned how to modify aesthetic present for different geoms 
 
 2. Ann Cannon, George Cobb, Bradley Hartlaub, Julie Legler, Robin Lock, Thomas Moore, Allan Rossman and Jeffrey Witmer (2019).
   Stat2Data: Datasets for Stat2. R package version 2.0.0. https://CRAN.R-project.org/package=Stat2Data
-
-3. 
