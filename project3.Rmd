@@ -219,27 +219,6 @@ ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) +
   theme_bw()
 ```
 
-## Saving you ggplot2 graphs
-
-* Use the command `ggsave()` to save the graph locally. In the code below, plot is the ggplot element containing your graph. The plot will be saved in your working directory.
-
-```{r, eval=FALSE}
-library(ggplot2)
-library(palmerpenguins)
-
-plot <- ggplot(data = penguins, aes(x = species, y = body_mass_g,
-                                    fill = species)) + 
-  xlab("Species") + ylab("Body mass (g)") + 
-  ggtitle("Body mass in three diferent species of penguins") + 
-  geom_violin(aes(colour = species), trim = TRUE) + 
-  geom_boxplot(width = 0.2) +
-  theme_bw()
-
-ggsave(plot, filename = "your_graph_name.png", width = 20, height = 20,
-       units = "cm")
-```
-
-
 ## Summary
 
 I hope this tutorial helped you to get familiarise with `ggplot2` commands. There are many more different types of graphs that you can plot using `ggplot2`. The tutorial only showed some of the commonly used ones. The best way to learn R is through actually doing it yourself. Try to recreate the examples given in this tutorial by yourself and then try what you learned with the different datasets available in R. Have a good day!

@@ -11,7 +11,7 @@ css: [style.css]
 knitr::opts_chunk$set(echo = TRUE)
 ```
 <iframe scrolling = "no" src = "https://richpauloo.github.io/htmlwidgets/waves/index.html" style="border: 0px white;" width="100%"></iframe>
-> Animation by [Rich Pauloo](https://www.richpauloo.com/)
+> Animation by [Dr. Rich Pauloo](https://www.richpauloo.com/)
 
 Welcome to my blog! My name is Jewel Johnson. In this blog you will find cool science literature and R language articles. So give this blog a try and let me know how it is! Thanks for visiting. Have a good day!
 

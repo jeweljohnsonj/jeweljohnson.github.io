@@ -22,7 +22,11 @@ navbar:
     - text: "Blog"
       href: blog_posts.html
     - text: "R Tutorials"
-      href: project1.html
+      menu:
+        - text: "Mastering geometry in ggplot2"
+          href: project1.html
+        - text: "Tweaking graphs in ggplot2"
+          href: project2.html
     - text: "About"
       href: about.html
     - text: "CV"

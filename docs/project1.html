@@ -96,8 +96,8 @@ code span.wa { color: #bf0303; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-12-06"/>
-  <meta property="article:created" itemprop="dateCreated" content="2021-12-06"/>
+  <meta property="article:published" itemprop="datePublished" content="2021-12-07"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-12-07"/>
   <meta name="article:author" content="Jewel Johnson"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -116,7 +116,7 @@ code span.wa { color: #bf0303; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Data visualization using ggplot2"]},{"type":"character","attributes":{},"value":["Plot you first graph with this tutorial using the ggplot2 R-package.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jewel Johnson"]}]}]},{"type":"character","attributes":{},"value":["2021-12-06"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Data visualization using ggplot2"]},{"type":"character","attributes":{},"value":["Plot you first graph with this tutorial using the ggplot2 R-package.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jewel Johnson"]}]}]},{"type":"character","attributes":{},"value":["2021-12-07"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2511,7 +2511,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Data visualization using ggplot2","description":"Plot you first graph with this tutorial using the ggplot2 R-package.","authors":[{"author":"Jewel Johnson","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-06T00:00:00.000+05:30","citationText":"Johnson, 2021"}
+{"title":"Data visualization using ggplot2","description":"Plot you first graph with this tutorial using the ggplot2 R-package.","authors":[{"author":"Jewel Johnson","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-07T00:00:00.000+05:30","citationText":"Johnson, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2525,7 +2525,17 @@ code span.wa { color: #bf0303; } /* Warning */
 <div class="nav-right">
 <a href="index.html">Home</a>
 <a href="blog_posts.html">Blog</a>
-<a href="project1.html">R Tutorials</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+R Tutorials
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="project1.html">Mastering geometry in ggplot2</a>
+<a href="project2.html">Tweaking graphs in ggplot2</a>
+</div>
+</div>
 <a href="about.html">About</a>
 <a href="Jewel_cv_2021.pdf">CV</a>
 <a href="index.xml">
@@ -2549,7 +2559,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <div class="d-byline">
   Jewel Johnson  
   
-<br/>2021-12-06
+<br/>2021-12-07
 </div>
 
 <div class="d-article">
@@ -2567,6 +2577,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <li><a href="#rug-plot">7. Rug-plot</a></li>
 <li><a href="#box-plot">8. Box-plot</a></li>
 <li><a href="#violin-plot">9. Violin-plot</a></li>
+<li><a href="#saving-you-ggplot2-graphs">Saving you ggplot2 graphs</a></li>
 <li><a href="#summary">Summary</a></li>
 <li><a href="#references">References</a></li>
 </ul>
@@ -2761,6 +2772,25 @@ code span.wa { color: #bf0303; } /* Warning */
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">colour =</span> species), <span class="at">trim =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <p><img src="project1_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
+</div>
+<h2 id="saving-you-ggplot2-graphs">Saving you ggplot2 graphs</h2>
+<ul>
+<li>Use the command <code>ggsave()</code> to save the graph locally. In the code below, plot is the ggplot element containing your graph. The plot will be saved in your working directory.</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> body_mass_g,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">fill =</span> species)) <span class="sc">+</span> </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Body mass in three diferent species of penguins&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">colour =</span> species), <span class="at">trim =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(plot, <span class="at">filename =</span> <span class="st">&quot;your_graph_name.png&quot;</span>, <span class="at">width =</span> <span class="dv">20</span>, <span class="at">height =</span> <span class="dv">20</span>,</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span></code></pre></div>
 </div>
 <h2 id="summary">Summary</h2>
 <p>I hope this tutorial helped you to get familiarise with <code>ggplot2</code> commands. There are many more different types of graphs that you can plot using <code>ggplot2</code>. The tutorial only showed some of the commonly used ones. The best way to learn R is through actually doing it yourself. Try to recreate the examples given in this tutorial by yourself and then try what you learned with the different datasets available in R. Have a good day!</p>
