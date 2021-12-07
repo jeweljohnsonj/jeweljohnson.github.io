@@ -2567,19 +2567,19 @@ R Tutorials
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#setting-up-the-prerequisites">Setting up the prerequisites</a></li>
-<li><a href="#building-a-plot">Building a plot</a>
+<li><a href="#setting-up-the-prerequisites">1. Setting up the prerequisites</a></li>
+<li><a href="#building-a-plot">2. Building a plot</a>
 <ul>
-<li><a href="#changing-colour">Changing colour</a></li>
-<li><a href="#changing-point-shape.">Changing point shape.</a></li>
-<li><a href="#changing-size">Changing size</a></li>
-<li><a href="#changing-colour-shape-and-size-manually">Changing colour, shape and size manually</a></li>
-<li><a href="#changing-the-opcaity-of-the-elements">Changing the opcaity of the elements</a></li>
-<li><a href="#changing-fill-colour">Changing fill colour</a></li>
-<li><a href="#changing-line-type">Changing line type</a></li>
-<li><a href="#changing-labels-in-the-axes">Changing labels in the axes</a></li>
+<li><a href="#changing-colour">1. Changing colour</a></li>
+<li><a href="#changing-point-shape.">2. Changing point shape.</a></li>
+<li><a href="#changing-size">3. Changing size</a></li>
+<li><a href="#changing-colour-shape-and-size-manually">4. Changing colour, shape and size manually</a></li>
+<li><a href="#changing-the-opcaity-of-the-elements">5. Changing the opcaity of the elements</a></li>
+<li><a href="#changing-fill-colour">6. Changing fill colour</a></li>
+<li><a href="#changing-line-type">7. Changing line type</a></li>
+<li><a href="#changing-labels-in-the-axes">8. Changing labels in the axes</a></li>
+<li><a href="#tweaking-the-axes">9. Tweaking the axes</a></li>
 </ul></li>
-<li><a href="#tweaking-the-axes">Tweaking the axes</a></li>
 <li><a href="#summary">Summary</a></li>
 <li><a href="#references">References</a></li>
 </ul>
@@ -2593,7 +2593,7 @@ R Tutorials
 <li><strong>Aesthetic</strong> mappings: Aesthetics define the different kinds of information that you want to include in the plot. The most important aesthetic is choosing which data values to plot on the x-axis and to the y-axis. Another example is the colour of the data points, which can used to differentiate two different categories in the data. The use of aesthetics depend on the geometry that you are using. We use the command <code>aes()</code> for adding different types aesthetics to the plot.</li>
 </ol>
 <p>So let us plot a graph from scratch and learn how to use different aesthetics available.</p>
-<h2 id="setting-up-the-prerequisites">Setting up the prerequisites</h2>
+<h2 id="setting-up-the-prerequisites">1. Setting up the prerequisites</h2>
 <p>First we need to install the <code>ggplot2</code> package in R as it does not come in the standard distribution of R. For the dataset, we will first download the <code>Stat2Data</code> package which houses a lot of cool datasets. For this tutorial let us use the <code>Hawks</code> dataset which showcases body measurements from three different species of Hawks. This data was collected by students and faculty at Cornell College in Mount Vernon and the dataset was made available by late Prof. Bob Black at Cornell College.</p>
 <ul>
 <li>To install packages in R we use the command <code>install.packages()</code> and to load packages we use the command <code>library()</code>. Therefore to install and load <code>ggplot2</code> and <code>Stats2Data</code> packages we use the following lines of command. Call the <code>Hawks</code> data using the <code>data</code> command.</li>
@@ -2621,7 +2621,7 @@ R Tutorials
 </div>
 </div>
 <p>So there are of information in the dataset which we can use for plotting. So let us try plotting them.</p>
-<h2 id="building-a-plot">Building a plot</h2>
+<h2 id="building-a-plot">2. Building a plot</h2>
 <p>One thing to remember here is that the way in which ggplot2 builds a graph is by adding layers. Let us start by plotting the basic layer first where x-axis shows ‘weight of the hawks’ and y-axis shows ‘wing span of the hawks’.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -2644,7 +2644,7 @@ R Tutorials
 </div>
 <p>We got the graph! but we also got a warning message. The warning message tells us that the dataset which we had used to plot had 11 rows of NA values and which could not plotted into the graph. In real life cases we can have datasets with NA values due to various reasons, so this is fine.</p>
 <p>Now this graph even though shows us data points we are not sure which point belongs to which species, as this dataset contains data for three species of Hawks. So let us try giving different colours to the points with respect to the species to differentiate between the three.</p>
-<h3 id="changing-colour">Changing colour</h3>
+<h3 id="changing-colour">1. Changing colour</h3>
 <ul>
 <li>To change colour of the points with respect to species, we have to add <code>colour = Species</code> within the <code>aes()</code> of the ggplot command.</li>
 </ul>
@@ -2659,7 +2659,7 @@ R Tutorials
 </div>
 <p>The species abbreviations are the following: CH=Cooper’s, RT=Red-tailed, SS=Sharp-Shinned.</p>
 <p>Now this graph is way better than the previous one.</p>
-<h3 id="changing-point-shape.">Changing point shape.</h3>
+<h3 id="changing-point-shape.">2. Changing point shape.</h3>
 <ul>
 <li>Now instead of the colour let us change the shape of the point. Use <code>shape()</code> command in <code>aes()</code></li>
 </ul>
@@ -2749,7 +2749,7 @@ Show code
 </div>
 <p>If you compare both the codes, the only difference is that <code>colour = "darkred"</code> command was outside <code>aes()</code> in the first code and inside <code>aes()</code> in the second code. So why didn’t the second graph have the same dark-red coloured points as the first one? The reason being that in the first code we are explicitly telling to have all data points to be coloured dark-red but that is not the case with the second code. In the second code, since we have specified it inside <code>aes()</code>, ggplot is trying to look for a variable called “darkred” inside the dataset and colour it accordingly. This is why the legend that appears in the second graph have listed “darkred” as a category. And ggplot fails to find the variable called “darkred” but it still recognizes the <code>colour</code> command line and colour all the points in red. So bottom line is that R has a pre-determined way of reading a code, so us users should well-understand what each line is expected to do and should not except R to just fill it in accordingly to what we write.</p>
 <p>Now let us try a few other examples;</p>
-<h3 id="changing-size">Changing size</h3>
+<h3 id="changing-size">3. Changing size</h3>
 <ul>
 <li>Use <code>size()</code> in <code>aes()</code></li>
 </ul>
@@ -2762,7 +2762,7 @@ Show code
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="project2_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
 </div>
-<h3 id="changing-colour-shape-and-size-manually">Changing colour, shape and size manually</h3>
+<h3 id="changing-colour-shape-and-size-manually">4. Changing colour, shape and size manually</h3>
 <ul>
 <li>Use <code>scale_shape_manual()</code> for changing shape, similarly <code>scale_color_manual()</code> for changing colour and <code>scale_size_manual()</code> for changing size of the element.</li>
 </ul>
@@ -2782,7 +2782,7 @@ Show code
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="project2_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
 </div>
-<h3 id="changing-the-opcaity-of-the-elements">Changing the opcaity of the elements</h3>
+<h3 id="changing-the-opcaity-of-the-elements">5. Changing the opcaity of the elements</h3>
 <ul>
 <li>Use <code>alpha()</code> within the <code>geom()</code> with a numeric value to change the opacity of the elements. This is useful for visualising large dataset such as this.</li>
 </ul>
@@ -2796,7 +2796,7 @@ Show code
 <p><img src="project2_files/figure-html5/unnamed-chunk-17-1.png" width="624" /></p>
 </div>
 <p>The same commands also works for most of the other types of <code>geom()</code>. Now let us see a few other aesthetic in other types of geoms.</p>
-<h3 id="changing-fill-colour">Changing fill colour</h3>
+<h3 id="changing-fill-colour">6. Changing fill colour</h3>
 <ul>
 <li>Use <code>fill()</code> in <code>aes()</code></li>
 </ul>
@@ -2809,7 +2809,7 @@ Show code
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">25</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="project2_files/figure-html5/unnamed-chunk-18-1.png" width="624" /></p>
 </div>
-<h3 id="changing-line-type">Changing line type</h3>
+<h3 id="changing-line-type">7. Changing line type</h3>
 <ul>
 <li>Use <code>linetype</code> in <code>aes()</code></li>
 </ul>
@@ -2840,7 +2840,7 @@ Show code
 <p><img src="project2_files/figure-html5/unnamed-chunk-21-1.png" width="624" /></p>
 </div>
 <p>Now let us also see how to change the labels in a graph</p>
-<h3 id="changing-labels-in-the-axes">Changing labels in the axes</h3>
+<h3 id="changing-labels-in-the-axes">8. Changing labels in the axes</h3>
 <ul>
 <li>Use <code>xlab()</code> to change x-axis title, <code>ylab()</code> to change y-axis title, <code>ggtitle()</code> with <code>label</code> and <code>subtitle</code> to add title and subtitle respectively.</li>
 </ul>
@@ -2872,7 +2872,7 @@ Show code
 <span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">tag =</span> <span class="st">&quot;A&quot;</span>) <span class="co">#figure tag</span></span></code></pre></div>
 <p><img src="project2_files/figure-html5/unnamed-chunk-23-1.png" width="624" /></p>
 </div>
-<h2 id="tweaking-the-axes">Tweaking the axes</h2>
+<h3 id="tweaking-the-axes">9. Tweaking the axes</h3>
 <ul>
 <li>Use <code>xlim()</code> and <code>ylim()</code> for limiting x and y axes respectively.</li>
 </ul>

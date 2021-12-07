@@ -1,5 +1,5 @@
 ---
-title: "Data visualization using ggplot2"
+title: "Mastering geomtery in ggplot2"
 description: |
   Plot you first graph with this tutorial using the ggplot2 R-package.
 author:

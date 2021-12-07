@@ -26,7 +26,7 @@ A ggplot2 graph is made up of three components.
 
 So let us plot a graph from scratch and learn how to use different aesthetics available.
 
-## Setting up the prerequisites
+## 1. Setting up the prerequisites
 First we need to install the `ggplot2` package in R as it does not come in the standard distribution of R. For the dataset, we will first download the `Stat2Data` package which houses a lot of cool datasets. For this tutorial let us use the `Hawks` dataset which showcases body measurements from three different species of Hawks. This data was collected by students and faculty at Cornell College in Mount Vernon and the dataset was made available by late Prof. Bob Black at Cornell College. 
 
 * To install packages in R we use the command `install.packages()` and to load packages we use the command `library()`. Therefore to install and load `ggplot2` and `Stats2Data` packages we use the following lines of command. Call the `Hawks` data using the `data` command.
@@ -63,7 +63,7 @@ paged_table(data.frame(variable = names(Hawks), classe = sapply(Hawks, typeof),
 
 So there are of information in the dataset which we can use for plotting. So let us try plotting them.
 
-## Building a plot
+## 2. Building a plot
 
 One thing to remember here is that the way in which ggplot2 builds a graph is by adding layers. Let us start by plotting the basic layer first where x-axis shows 'weight of the hawks' and y-axis shows 'wing span of the hawks'.
 
@@ -90,7 +90,7 @@ We got the graph! but we also got a warning message. The warning message tells u
 
 Now this graph even though shows us data points we are not sure which point belongs to which species, as this dataset contains data for three species of Hawks. So let us try giving different colours to the points with respect to the species to differentiate between the three.
 
-### Changing colour
+### 1. Changing colour
 
 * To change colour of the points with respect to species, we have to add `colour = Species` within the `aes()` of the ggplot command.
 
@@ -107,7 +107,7 @@ The species abbreviations are the following: CH=Cooper's, RT=Red-tailed, SS=Shar
 
 Now this graph is way better than the previous one. 
 
-### Changing point shape.
+### 2. Changing point shape.
 
 * Now instead of the colour let us change the shape of the point. Use `shape()` command in `aes()`
 
@@ -195,7 +195,7 @@ If you compare both the codes, the only difference is that `colour = "darkred"` 
 
 Now let us try a few other examples;
 
-### Changing size
+### 3. Changing size
 
 * Use `size()` in `aes()`
 
@@ -208,7 +208,7 @@ ggplot(data = Hawks, aes(x = Species, y = Hallux, size = Culmen)) +
   geom_point() + theme_minimal()
 ```
 
-### Changing colour, shape and size manually
+### 4. Changing colour, shape and size manually
 
 * Use `scale_shape_manual()` for changing shape, similarly `scale_color_manual()` for changing colour and `scale_size_manual()` for changing size of the element.
 
@@ -230,7 +230,7 @@ ggplot(data = Hawks, aes(x = Weight, y = Hallux, colour = Species,
 ggpubr::show_point_shapes()
 ```
 
-### Changing the opcaity of the elements
+### 5. Changing the opcaity of the elements
 
 * Use `alpha()` within the `geom()` with a numeric value to change the opacity of the elements. This is useful for visualising large dataset such as this.
 
@@ -245,7 +245,7 @@ ggplot(data = Hawks, aes(x = Weight, y = Wing, colour = Species)) +
 
 The same commands also works for most of the other types of `geom()`. Now let us see a few other aesthetic in other types of geoms.
 
-### Changing fill colour
+### 6. Changing fill colour
 
 * Use `fill()` in `aes()`
 
@@ -258,7 +258,7 @@ ggplot(data = Hawks, aes(x = Weight, fill = Species)) +
   geom_histogram(bins = 25) + theme_minimal()
 ```
 
-### Changing line type
+### 7. Changing line type
 
 * Use `linetype` in `aes()`
 
@@ -290,7 +290,7 @@ ggpubr::show_line_types()
 
 Now let us also see how to change the labels in a graph
 
-### Changing labels in the axes
+### 8. Changing labels in the axes
 
 * Use `xlab()` to change x-axis title, `ylab()` to change y-axis title, `ggtitle()` with `label` and `subtitle` to add title and subtitle respectively.
 
@@ -321,7 +321,7 @@ ggplot(data = Hawks, aes(x = Weight, y = Wing, colour = Species)) +
   tag = "A") #figure tag
 ```
 
-## Tweaking the axes
+### 9. Tweaking the axes
 
 * Use `xlim()` and `ylim()` for limiting x and y axes respectively.
 
