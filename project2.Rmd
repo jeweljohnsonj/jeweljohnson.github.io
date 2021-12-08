@@ -16,20 +16,20 @@ knitr::opts_chunk$set(echo = TRUE)
 ---
 #start editing from here
 ---
-In this tutorial we will be learning how to customize our ggplot graphs. We will learn how to tweak the aesthetics, how to change labels and how to modify and change the axes in a graph.
+In this tutorial, we will be learning how to customize our ggplot graphs. We will learn how to tweak the aesthetics, how to change labels and how to modify and change the axes in a graph.
 
 A ggplot2 graph is made up of three components.
 
 1. **Data**: Data of your choice that you want to visually summarise.
-2. **Geometry** or **geoms**: Geometry dictates the type of graph that you want to plot and this information is conveyed to ggplot2 through the `geom()` command line. For eg: using `geom_boxplot` you can plot a box-plot with your data. Likewise there are many types of geometry that you can plot using ggplot2 package.
-3. **Aesthetic** mappings: Aesthetics define the different kinds of information that you want to include in the plot. The most important aesthetic is choosing which data values to plot on the x-axis and to the y-axis. Another example is the colour of the data points, which can used to differentiate two different categories in the data. The use of aesthetics depend on the geometry that you are using. We use the command `aes()` for adding different types aesthetics to the plot.
+2. **Geometry** or **geoms**: Geometry dictates the type of graph that you want to plot and this information is conveyed to ggplot2 through the `geom()` command line. For eg: using `geom_boxplot()` you can plot a box-plot with your data. Likewise, there are many types of geometry that you can plot using ggplot2 package.
+3. **Aesthetic** mappings: Aesthetics define the different kinds of information that you want to include in the plot. The most important aesthetic is choosing which data values to plot on the x-axis and to the y-axis. Another example is the colour of the data points, which can be used to differentiate two different categories in the data. The use of aesthetics depends on the geometry that you are using. We use the command `aes()` for adding different types of aesthetics to the plot.
 
 So let us plot a graph from scratch and learn how to use different aesthetics available.
 
 ## 1. Setting up the prerequisites
-First we need to install the `ggplot2` package in R as it does not come in the standard distribution of R. For the dataset, we will first download the `Stat2Data` package which houses a lot of cool datasets. For this tutorial let us use the `Hawks` dataset which showcases body measurements from three different species of Hawks. This data was collected by students and faculty at Cornell College in Mount Vernon and the dataset was made available by late Prof. Bob Black at Cornell College. 
+First, we need to install the `ggplot2` package in R as it does not come in the standard distribution of R. For the dataset, we will first download the `Stat2Data` package which houses a lot of cool datasets. For this tutorial let us use the `Hawks` dataset which showcases body measurements from three different species of Hawks. This data was collected by students and faculty at Cornell College in Mount Vernon and the dataset was made available by late Prof. Bob Black at Cornell College. 
 
-* To install packages in R we use the command `install.packages()` and to load packages we use the command `library()`. Therefore to install and load `ggplot2` and `Stats2Data` packages we use the following lines of command. Call the `Hawks` data using the `data` command.
+* To install packages in R we use the command `install.packages()` and to load packages we use the command `library()`. Therefore to install and load `ggplot2` and `Stats2Data` packages we use the following lines of command. Call the `Hawks` data using the `data()` command.
 
 ```{r eval=FALSE}
 install.packages("ggplot2")
@@ -61,11 +61,11 @@ paged_table(data.frame(variable = names(Hawks), classe = sapply(Hawks, typeof),
            row.names = NULL))
 ```
 
-So there are of information in the dataset which we can use for plotting. So let us try plotting them.
+So there is a lot of information in the dataset which we can use for plotting. So let us try plotting them.
 
 ## 2. Building a plot
 
-One thing to remember here is that the way in which ggplot2 builds a graph is by adding layers. Let us start by plotting the basic layer first where x-axis shows 'weight of the hawks' and y-axis shows 'wing span of the hawks'.
+One thing to remember here is that how ggplot2 builds a graph is by adding layers. Let us start by plotting the basic layer first where the x-axis shows 'weight of the hawks' and the y-axis shows 'wingspan of the hawks'.
 
 ```{r}
 library(ggplot2)
@@ -75,7 +75,7 @@ data("Hawks")
 ggplot(data = Hawks, aes(x = Weight, y = Wing))
 ```
 
-Wait a sec! Where are my data points? So right now if we look at the syntax of the ggplot code we can see that we have not told ggplot2 which geometry we want. Do we want a scatter plot or a histogram etc ? So let us plot a scatter plot first. Use `geom_point()` command. By adding `geom_point()` to the `ggplot()` command is equivalent to adding an extra layer to the already existing layer that we got previously. Let us also use `theme_minimal()` for a nice looking theme.
+Wait a sec! Where are my data points? So right now if we look at the syntax of the ggplot code we can see that we have not told ggplot2 which geometry we want. Do we want a scatter plot or a histogram or any other type of graph? So let us plot a scatter plot first. Use `geom_point()` command. By adding `geom_point()` to the `ggplot()` command is equivalent to adding an extra layer to the already existing layer that we got previously. Let us also use `theme_minimal()` for a nice looking theme.
 
 ```{r, warning=TRUE}
 library(ggplot2)
@@ -86,9 +86,9 @@ ggplot(data = Hawks, aes(x = Weight, y = Wing)) + geom_point() +
   theme_minimal()
 ```
 
-We got the graph! but we also got a warning message. The warning message tells us that the dataset which we had used to plot had 11 rows of NA values and which could not plotted into the graph. In real life cases we can have datasets with NA values due to various reasons, so this is fine.
+We got the graph! but we also got a warning message. The warning message tells us that the dataset which we had used to plot the graph had 11 rows of NA values and which could not be plotted into the graph. In real-life cases, we can have datasets with NA values due to various reasons, so this is fine.
 
-Now this graph even though shows us data points we are not sure which point belongs to which species, as this dataset contains data for three species of Hawks. So let us try giving different colours to the points with respect to the species to differentiate between the three.
+Now, this graph even though shows us data points we are not sure which point belongs to which species, as this dataset contains data for three species of Hawks. So let us try giving different colours to the points concerning the species to differentiate between the three.
 
 ### 1. Changing colour
 
@@ -105,7 +105,7 @@ ggplot(data = Hawks, aes(x = Weight, y = Wing, colour = Species)) +
 
 The species abbreviations are the following: CH=Cooper's, RT=Red-tailed, SS=Sharp-Shinned.
 
-Now this graph is way better than the previous one. 
+Now, this graph is way better than the previous one. 
 
 ### 2. Changing point shape.
 
@@ -120,7 +120,7 @@ ggplot(data = Hawks, aes(x = Weight, y = Wing, shape = Species)) + #instead of c
   geom_point() + theme_minimal() 
 ```
 
-Now we did change the shape of points but it is still hard to make out the difference. Let us try specifying colour along with shape
+Now we did change the shape of points but it is still hard to make out the difference. Let us try specifying colour along with the shape
 
 * Adding both `colour` and `shape` in aesthetics
 
@@ -134,7 +134,7 @@ ggplot(data = Hawks, aes(x = Weight, y = Wing,
   theme_minimal()
 ```
 
-This is much better. 
+This plot is much better than the previous one.
 
 Now let us try specifying `colour` within the `aes()` of the `geom()`
 
@@ -169,7 +169,7 @@ ggplot(data = Hawks, aes(x = Weight, y = Wing, colour = "red")) +
   geom_point(aes(colour = Species)) + theme_minimal()
 ```
 
-You can see that the red colour is overriden by other colours. So the `aes()` mapping (in this case `colour`) within `geom()` will override any `aes()` mapping within `ggplot()`. And whatever `aes()` mapping we give within `ggplot()` will be inherited by all `geom()` layers that will be added along with the `ggplot()` layer. 
+You can see that the red colour is overridden by other colours. So the `aes()` mapping (in this case `colour`) within `geom()` will override any `aes()` mapping within `ggplot()`. And whatever `aes()` mapping we give within `ggplot()` will be inherited by all `geom()` layers that will be added along with the `ggplot()` layer. 
 
 Let us see another case.
 
@@ -191,7 +191,7 @@ ggplot(data = Hawks, aes(x = Weight, y = Wing)) +
   geom_point(aes(colour = "darkred")) + theme_minimal()
 ```
 
-If you compare both the codes, the only difference is that `colour = "darkred"` command was outside `aes()` in the first code and inside `aes()` in the second code. So why didn't the second graph have the same dark-red coloured points as the first one? The reason being that in the first code we are explicitly telling to have all data points to be coloured dark-red but that is not the case with the second code. In the second code, since we have specified it inside `aes()`, ggplot is trying to look for a variable called "darkred" inside the dataset and colour it accordingly. This is why the legend that appears in the second graph have listed "darkred" as a category. And ggplot fails to find the variable called "darkred" but it still recognizes the `colour` command line and colour all the points in red. So bottom line is that R has a pre-determined way of reading a code, so us users should well-understand what each line is expected to do and should not except R to just fill it in accordingly to what we write.     
+If you compare both the codes, the only difference is that the `colour = "darkred"` command was outside `aes()` in the first code and inside `aes()` in the second code. So why didn't the second graph have the same dark-red coloured points as the first one? The reason is that in the first code we are explicitly told to have all data points to be coloured dark-red but that is not the case with the second code. In the second code, since we have specified it inside `aes()`, ggplot is trying to look for a variable called "darkred" inside the dataset and colour it accordingly. This is why the legend that appears in the second graph has listed "darkred" as a category. And ggplot fails to find the variable called "darkred" but it still recognizes the `colour` command line and colour all the points in red. So the bottom line is that R has a pre-determined way of reading a code, so we users should well-understand what each line is expected to do and should not expect R to just fill it in accordingly to what we write.   
 
 Now let us try a few other examples;
 
@@ -223,7 +223,6 @@ ggplot(data = Hawks, aes(x = Weight, y = Hallux, colour = Species,
   scale_shape_manual(values=c(1, 2, 3)) +
   scale_color_manual(values=c('red','blue', 'green')) +
   scale_size_manual(values=c(1,5,10)) + theme_minimal()
-  
 ```
 
 ```{r, echo=FALSE}
@@ -232,7 +231,7 @@ ggpubr::show_point_shapes()
 
 ### 5. Changing the opcaity of the elements
 
-* Use `alpha()` within the `geom()` with a numeric value to change the opacity of the elements. This is useful for visualising large dataset such as this.
+* Use `alpha()` within the `geom()` with a numeric value to change the opacity of the elements. This is useful for visualising large datasets such as this.
 
 ```{r}
 library(ggplot2)
@@ -243,7 +242,7 @@ ggplot(data = Hawks, aes(x = Weight, y = Wing, colour = Species)) +
   geom_point(alpha = 1/5) + theme_minimal()
 ```
 
-The same commands also works for most of the other types of `geom()`. Now let us see a few other aesthetic in other types of geoms.
+The same commands also work for most of the other types of `geom()`. Now let us see a few other aesthetics in other types of geoms.
 
 ### 6. Changing fill colour
 
@@ -256,6 +255,18 @@ data("Hawks")
 
 ggplot(data = Hawks, aes(x = Weight, fill = Species)) +
   geom_histogram(bins = 25) + theme_minimal()
+```
+
+* Use `scale_fill_manual()` to manually change the colours.
+
+```{r}
+library(ggplot2)
+library(Stat2Data)
+data("Hawks")
+
+ggplot(data = Hawks, aes(x = Weight, fill = Species)) +
+  geom_histogram(bins = 25) + theme_minimal() + 
+  scale_fill_manual(values = c("darkred", "darkblue", "darkgreen"))
 ```
 
 ### 7. Changing line type
@@ -288,7 +299,7 @@ ggplot(data = Hawks, aes(x = Weight, y = Wing, linetype = Species)) +
 ggpubr::show_line_types()
 ```
 
-Now let us also see how to change the labels in a graph
+Now let us also see how to change the labels in a graph.
 
 ### 8. Changing labels in the axes
 
@@ -357,7 +368,7 @@ ggplot(data = Hawks, aes(x = Weight, y = Wing, colour = Species)) +
   geom_point() + theme_minimal() + coord_flip()
 ```
 
-* Use `scale_x_continuous()` for tweaking the x-axis. The same command work for the y-axis also. You can include `label()` inside the command to manually label the the breaks of the axes.
+* Use `scale_x_continuous()` for tweaking the x-axis. The same command work for the y-axis also. You can include `label()` inside the command to manually label the breaks of the axes.
 
 ```{r, code_folding=TRUE}
 library(ggplot2)
@@ -391,7 +402,7 @@ ggplot(data = Hawks, aes(x = Weight, y = Wing, colour = Species)) +
 
 ## Summary
 
-In this tutorial we learned how to modify aesthetic present for different geoms in ggplot2. Then we learned how to modify labels in a graph and finally we learned how to modify and change the axes elements. This tutorial is in no way exhaustive of the different ways you can modify a graph as there many more methods which are not discussed here. Instead of trying to include everything, this tutorial tries to be a stepping stone to help students of R to learn the basics of tweaking a graph. Try to practice what is covered here using other dataset available in the r-package `Stat2Data`. Have a good day my friend!
+In this tutorial, we learned how to modify aesthetic present for different geoms in ggplot2. Then we learned how to modify labels in a graph and finally, we learned how to modify and change the axes elements. This tutorial is in no way exhaustive of the different ways you can modify a graph as there many more methods which are not discussed here. Instead of trying to include everything, this tutorial tries to be a stepping stone to help students of R to learn the basics of tweaking a graph. Try to practice what is covered here using other datasets available in the r-package `Stat2Data`. Have a good day my friend!
 
 ## References
 

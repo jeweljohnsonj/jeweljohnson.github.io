@@ -14,12 +14,12 @@ knitr::opts_chunk$set(echo = TRUE)
 ---
 #start editing from here
 ---
-In this tutorial we will be plotting different types of graphs using the package `ggplot2` in R. The ggplot2 is an excellent package which can used to create beautiful data visualizations. It has been created and developed by [Dr. Hadley Wickham](http://hadley.nz/). At the very heart of a ggplot graph we have a dataset which we want to plot, a coordinate system which acts as the environment for the plot and 'geoms'- which can be tweaked to get different aesthetics for the graph.
+In this tutorial we will be plotting different types of graphs using the package `ggplot2` in R. The ggplot2 is an excellent package that can be used to create beautiful data visualizations. It has been created and developed by [Dr. Hadley Wickham](http://hadley.nz/). At the very heart of a ggplot graph, we have a dataset which we want to plot, a coordinate system that acts as the environment for the plot and 'geoms'- which can be tweaked to get different aesthetics for the graph.
 
 This tutorial is primarily focused on students who are beginners in R programming and wants to quickly plot their data without much of a hassle. So without further ado let us get started!
 
 ## Setting up the prerequisites
-First we need to install the `ggplot2` package in R as it does not come in the standard distribution of R.
+First, we need to install the `ggplot2` package in R as it does not come in the standard distribution of R.
 
 * To install packages in R we use the command `install.packages()` and to load packages we use the command `library()`. Therefore to install and load `ggplot2` package we use the following lines of command.
 
@@ -28,9 +28,9 @@ install.packages("ggplot2")
 library(ggplot2)
 ```
 
-All right we have the `ggplot2` package loaded, now we just need some data to plot. Most R programming tutorials uses the `iris` dataset for showing examples. This tutorial won't be like most tutorials. So let me introduce you to the lovely penguins from Palmer Station in Antarctica!
+All right we have the `ggplot2` package loaded, now we just need some data to plot. Most R programming tutorials use the `iris` dataset for showing examples. This tutorial won't be like most tutorials. So let me introduce you to the lovely penguins from Palmer Station in Antarctica!
 
-For this tutorial we will be installing the `palmerpenguins` package which showcases body measurements taken from three different species of penguins from Antarctica. This package was made possible by the efforts of [Dr. Allison Horst](https://www.allisonhorst.com/). The penguin data was collected by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/).
+For this tutorial, we will be installing the `palmerpenguins` package which showcases body measurements taken from three different species of penguins from Antarctica. This package was made possible by the efforts of [Dr. Allison Horst](https://www.allisonhorst.com/). The penguin data was collected by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/).
 
 * Install the `palmerpenguins` package and load it in R.
 
@@ -39,7 +39,7 @@ install.packages("palmerpenguins")
 library(palmerpenguins)
 ```
 
-Now there are two datasets in this package. We will be using the `penguins` dataset which is a simplified version of the raw-data present in the package. 
+Now there are two datasets in this package. We will be using the `penguins` dataset which is a simplified version of the raw data present in the package. 
 
 * Use the command `head()` to display the first few values of `penguins` dataset to see how it looks like
 
@@ -73,7 +73,7 @@ ggplot(data = penguins, aes(x = species, fill = species)) +
 
 ## 2. Histogram
 
-Histograms are similar to bar graphs visually. But histograms are used to represent continuous data. Also the all the rectangular bars will have same bin size or width. 
+Histograms are similar to bar graphs visually. But histograms are used to represent continuous data. Also the all the rectangular bars will have the same bin size or width. 
 
 * We can plot a histogram using the command `geom_histogram()`.
 
@@ -87,7 +87,7 @@ ggplot(data = penguins, aes(x = body_mass_g, fill = species)) +
   geom_histogram(bins = 25) + theme_bw()
 ```
 
-The warning message indicates that for two rows in the dataset, they have NA values or that they did not have any values present. This true for real life cases, as during data collection sometimes you will be unable to collect data due to various reasons. So this is perfectly fine.
+The warning message indicates that for two rows in the dataset, they have NA values or that they did not have any values present. This is true for real-life cases, as during data collection sometimes you will be unable to collect data due to various reasons. So this is perfectly fine.
 
 ## 3. Line graph
 
@@ -107,7 +107,7 @@ ggplot(data = penguins, aes(x = bill_length_mm,
 
 ## 4. Scatter plot
 
-Scatter plot simply denotes the data points in the dataset. 
+The scatter plot simply denotes the data points in the dataset. 
 
 * Use the command `geom_point()` to plot a scatter plot.
 
@@ -123,7 +123,7 @@ ggplot(data = penguins, aes(x = body_mass_g, y = flipper_length_mm,
 
 ## 5. Density Plot
 
-Density plots is similar to histograms but shows it shows the overall distribution of the data in a finer way. This way we will get a bell shaped curve if our data follows a normal distribution. 
+Density plots are similar to histograms but show it shows the overall distribution of the data in a finer way. This way we will get a bell-shaped curve if our data follows a normal distribution. 
 
 * Use the command `geom_density()` to a density plot.
 
@@ -169,7 +169,7 @@ ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) +
 
 ## 7. Rug-plot
 
-Rug-plot is a simple way to visualize distribution of data along the axis lines. It is often used in conjunction with other graphical representations. 
+Rug-plot is a simple way to visualize the distribution of data along the axis lines. It is often used in conjunction with other graphical representations. 
 
 * Use the command `geom_rug()` to plot a rug-plot.
 
@@ -186,9 +186,9 @@ ggplot(data = penguins_gentoo, aes(x = body_mass_g, y = flipper_length_mm)) +
   geom_point(colour = "darkred") + geom_rug() + theme_bw()
 ```
 
-## 8. Box-plot
+## 8. Box plot
 
-Box-plot is one of the better ways of showing data via quartiles. You can learn more about box-plots here.
+Box-plot is one of the better ways of showing data via quartiles. You can learn more about box plots here.
 
 * Use the command `geom_boxplot()` to plot a box-plot.
 
@@ -202,11 +202,11 @@ ggplot(data = penguins, aes(x = species, y = body_mass_g, colour = species)) +
   theme_bw()
 ```
 
-## 9. Violin-plot
+## 9. Violin plot
 
-Violin-plot can be considered as the best of both a box-plot and a density plot. It shows the quartile values, like in a box-plot and also shows the distribution of the data, like in a density plot.
+Violin plot can be considered as the best of both a box-plot and a density plot. It shows the quartile values, like in a box-plot and also shows the distribution of the data, like in a density plot.
 
-* Use the command `geom_violin()` in conjunction with `geom_boxplot()` to plot a violin-plot.
+* Use the command `geom_violin()` in conjunction with `geom_boxplot()` to plot a violin plot.
 
 ```{r warning=FALSE, message=FALSE, layout="l-body-outset"}
 library(ggplot2)
@@ -221,13 +221,13 @@ ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) +
 
 ## Saving you ggplot2 graphs
 
-* Use the command `ggsave()` to save the graph locally. In the code below, plot is the ggplot element containing your graph. The plot will be saved in your working directory.
+* Use the command `ggsave()` to save the graph locally. In the code below, 'my_graph' is the ggplot element containing your graph. The plot will be saved in your working directory.
 
 ```{r, eval=FALSE}
 library(ggplot2)
 library(palmerpenguins)
 
-plot <- ggplot(data = penguins, aes(x = species, y = body_mass_g,
+my_graph <- ggplot(data = penguins, aes(x = species, y = body_mass_g,
                                     fill = species)) + 
   xlab("Species") + ylab("Body mass (g)") + 
   ggtitle("Body mass in three diferent species of penguins") + 
@@ -235,14 +235,14 @@ plot <- ggplot(data = penguins, aes(x = species, y = body_mass_g,
   geom_boxplot(width = 0.2) +
   theme_bw()
 
-ggsave(plot, filename = "your_graph_name.png", width = 20, height = 20,
+ggsave(my_graph, filename = "your_graph_name.png", width = 20, height = 20,
        units = "cm")
 ```
 
 
 ## Summary
 
-I hope this tutorial helped you to get familiarise with `ggplot2` commands. There are many more different types of graphs that you can plot using `ggplot2`. The tutorial only showed some of the commonly used ones. The best way to learn R is through actually doing it yourself. Try to recreate the examples given in this tutorial by yourself and then try what you learned with the different datasets available in R. Have a good day!
+I hope this tutorial helped you to get familiarised with `ggplot2` commands. There are many more different types of graphs that you can plot using `ggplot2`. The tutorial only showed some of the commonly used ones. The best way to learn R is through actually doing it yourself. Try to recreate the examples given in this tutorial by yourself and then try what you learned with the different datasets available in R. Have a good day!
 
 ## References
 
