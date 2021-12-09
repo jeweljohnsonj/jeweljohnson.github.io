@@ -1,18 +1,23 @@
 ---
 title: "Chapter 3: Even more customizations in ggplot2"
 description: |
-  Learn how to customize the theme of a graph in ggplot2.
+  Learn how to customize the theme and colour palette of a graph in ggplot2.
 author:
   - name: Jewel Johnson 
 date: "`r Sys.Date()`"
 output: 
   distill::distill_article:
-    toc_depth: 3
+    toc_depth: 2
 ---
 ```{r setup, include=FALSE}
 library(Stat2Data)
 library(ggplot2)
 library(ggthemes)
+library(viridis)
+library(wesanderson)
+library(palmerpenguins)
+library(ggsci)
+data("penguins")
 data("BirdNest")
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -25,11 +30,11 @@ knitr::opts_chunk$set(echo = TRUE)
 xaringanExtra::use_panelset()
 ```
 
-In this chapter we will learn how to change the theme settings of a graph in ggplot2. The theme of a graph consists of non-data components present in your graph. This includes the different labels of the graph, fonts used, colour of axes, background of the graph etc. By changing the theme we would not be changing or transforming how the data will look in the graph. Instead we would only change the visual appearances in the graph and by doing so we can make it more aesthetically pleasing.
+In this chapter, we will learn how to change the theme settings of a graph in ggplot2. The theme of a graph consists of non-data components present in your graph. This includes the different labels of the graph, fonts used, colour of axes, the background of the graph etc. By changing the theme we would not be changing or transforming how the data will look in the graph. Instead, we would only change the visual appearances in the graph and by doing so we can make it more aesthetically pleasing. Furthermore, we will see a few popular packages featuring ready to use themes. We will also learn about colour palettes and will see different packages associated with them.
 
 ## Complete themes
 
-The `ggplot2` package features ready to use themes called as 'complete themes'. So before we begin customizing themes, let us plot a few graphs and see how these themes look like. For the plots, I have used the `BirdNest` dataset from `Stat2Data` package in R. The `BirdNest` dataset contains nest and species characteristics of North American passerines. The data was collected by Amy R. Moore, as a student at Grinnell College in 1999.
+The `ggplot2` package features ready to use themes called 'complete themes'. So before we begin customizing themes, let us plot a few graphs and see how these themes look like. For the plots, I have used the `BirdNest` dataset from the `Stat2Data` package in R. The `BirdNest` dataset contains nest and species characteristics of North American passerines. The data was collected by Amy R. Moore, as a student at Grinnell College in 1999.
 
 * Getting the `BirdNest` dataset and viewing how the dataset is structured.
 
@@ -190,7 +195,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 ## Themes from ggthemes package
 
-If you want even more pre built themes then you can try the `ggthemes` package.
+If you want even more pre-built themes then you can try the `ggthemes` package. This package was developed by [Dr. Jeffrey B. Arnold](https://jrnold.github.io/ggthemes/).
 
 ```{r, eval=FALSE}
 #install and load ggthemes package
@@ -213,7 +218,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
        fill= "Nest type", title= "Relationship between body length and nest types",
        subtitle = "Data shown for 84 different species of North American passerines",
        caption= "DataSource: BridNest dataset in Stat2Data r-package") +
-  theme_base()
+  theme_base() + theme(text = element_text(size = 10)) #size is reduced to accommodate the graph in the tab
 ```
 
 :::
@@ -348,7 +353,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
        fill= "Nest type", title= "Relationship between body length and nest types",
        subtitle = "Data shown for 84 different species of North American passerines",
        caption= "DataSource: BridNest dataset in Stat2Data r-package") +
-  theme_gdocs()
+  theme_gdocs() + theme(text = element_text(size = 10)) #size is reduced to accommodate the graph in the tab
 ```
 
 :::
@@ -423,7 +428,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
        fill= "Nest type", title= "Relationship between body length and nest types",
        subtitle = "Data shown for 84 different species of North American passerines",
        caption= "DataSource: BridNest dataset in Stat2Data r-package") +
-  theme_par()
+  theme_par() + theme(text = element_text(size = 6)) #size is reduced to accommodate the graph in the tab
 ```
 
 :::
@@ -498,7 +503,495 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
        fill= "Nest type", title= "Relationship between body length and nest types",
        subtitle = "Data shown for 84 different species of North American passerines",
        caption= "DataSource: BridNest dataset in Stat2Data r-package") +
-  theme_wsj()
+  theme_wsj() + theme(text = element_text(size = 6)) #size is reduced to accommodate the graph in the tab
+```
+
+:::
+:::
+:::
+
+## Changing colour palettes in ggplot2
+
+Apart from ready to use themes, there are also ready to use colour palettes which we can use. A colour palette contains a set of pre-defined colours which will be applied to the different geometries present in a graph.
+
+Choosing a good colour palette is important as it helps us to represent data in a better way and at the same time, it also makes the graph easier to read for people with colour blindness. Let us see a few popular colour palette packages used in R.
+
+### viridis package
+
+`viridis` package is a popularly used colour palette in R. It is aesthetically pleasing and well designed to improve readability for colour blind people. The `virids` package was developed by Bob Rudis, Noam Ross and Simon Garnier. There are eight different colour scales present in this package. The name of the tab denotes the colour scale present in this package.
+
+```{r}
+#load viridis colour package
+library(viridis)
+```
+
+::: {.l-page}
+::: {.panelset}
+::: {.panel}
+## viridis {.panel-name}
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_viridis(discrete = TRUE, option = "viridis")
+```
+
+:::
+::: {.panel}
+## magma {.panel-name}
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_viridis(discrete = TRUE, option = "magma")
+```
+
+:::
+::: {.panel}
+## plasma {.panel-name}
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_viridis(discrete = TRUE, option = "plasma")
+```
+
+:::
+::: {.panel}
+## inferno {.panel-name}
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_viridis(discrete = TRUE, option = "inferno")
+```
+
+:::
+::: {.panel}
+## cividis {.panel-name}
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_viridis(discrete = TRUE, option = "cividis")
+```
+
+:::
+::: {.panel}
+## mako {.panel-name}
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_viridis(discrete = TRUE, option = "mako")
+```
+
+:::
+::: {.panel}
+## rocket {.panel-name}
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_viridis(discrete = TRUE, option = "rocket")
+```
+
+:::
+::: {.panel}
+## turbo {.panel-name}
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_viridis(discrete = TRUE, option = "turbo")
+```
+
+:::
+:::
+:::
+
+### wesanderson package
+
+If you like your colours distinctive and narrative, just like how American film-maker [Mr. Wes Anderson](https://en.wikipedia.org/wiki/Wes_Anderson) would like it, then try the `wesanderson` package. Relive the *The Grand Budapest Hotel* moments through your graphs. The `wesandreson` package was developed by [Karthik Ram](https://github.com/karthik/wesanderson). There are a total of 19 colour palettes present in this package. We will see a subset of them. All colour scales in this package are available [here](https://github.com/karthik/wesanderson). The name of the tab denotes the colour scale used. The data used in this plot is the `penguin` dataset present in the package `palmerpenguins`.
+
+```{r, eval=FALSE}
+#install and load wesanderson and palmerpenguins package
+install.packages("wesanderson")
+install.packages("palmerpenguins")
+library(wesanderson)
+library(palmerpenguins)
+data("penguins") #load the penguins dataset
+```
+
+::: {.l-page}
+::: {.panelset}
+::: {.panel}
+## GrandBudapest1 {.panel-name}
+
+```{r, code_folding=TRUE}
+ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) + 
+  labs(x= "Species", y= "Body mass (g)",
+       fill= "Nest type", title= "Body mass in three diferent species of penguins",
+       subtitle = "Penguins observed on islands near Palmer Station, Antarctica",
+       caption= "DataSource: penguins dataset in palmerpenguins r-package") + geom_boxplot() + 
+  theme_bw() + scale_fill_manual(values = wes_palette("GrandBudapest1", n = 3))
+```
+
+:::
+::: {.panel}
+## BottleRocket2 {.panel-name}
+
+```{r, code_folding=TRUE}
+ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) + 
+  labs(x= "Species", y= "Body mass (g)",
+       fill= "Nest type", title= "Body mass in three diferent species of penguins",
+       subtitle = "Penguins observed on islands near Palmer Station, Antarctica",
+       caption= "DataSource: penguins dataset in palmerpenguins r-package") + geom_boxplot() + 
+  theme_bw() + scale_fill_manual(values = wes_palette("BottleRocket2", n = 3))
+```
+
+:::
+::: {.panel}
+## Rushmore1 {.panel-name}
+
+```{r, code_folding=TRUE}
+ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) + 
+  labs(x= "Species", y= "Body mass (g)",
+       fill= "Nest type", title= "Body mass in three diferent species of penguins",
+       subtitle = "Penguins observed on islands near Palmer Station, Antarctica",
+       caption= "DataSource: penguins dataset in palmerpenguins r-package") + geom_boxplot() + 
+  theme_bw() + scale_fill_manual(values = wes_palette("Rushmore1", n = 3))
+```
+
+:::
+::: {.panel}
+## Royal1 {.panel-name}
+
+```{r, code_folding=TRUE}
+ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) + 
+  labs(x= "Species", y= "Body mass (g)",
+       fill= "Nest type", title= "Body mass in three diferent species of penguins",
+       subtitle = "Penguins observed on islands near Palmer Station, Antarctica",
+       caption= "DataSource: penguins dataset in palmerpenguins r-package") + geom_boxplot() + 
+  theme_bw() + scale_fill_manual(values = wes_palette("Royal1", n = 3))
+```
+
+:::
+::: {.panel}
+## Zissou1 {.panel-name}
+
+```{r, code_folding=TRUE}
+ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) + 
+  labs(x= "Species", y= "Body mass (g)",
+       fill= "Nest type", title= "Body mass in three diferent species of penguins",
+       subtitle = "Penguins observed on islands near Palmer Station, Antarctica",
+       caption= "DataSource: penguins dataset in palmerpenguins r-package") + geom_boxplot() + 
+  theme_bw() + scale_fill_manual(values = wes_palette("Zissou1", n = 3))
+```
+
+:::
+::: {.panel}
+## Darjeeling2 {.panel-name}
+
+```{r, code_folding=TRUE}
+ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) + 
+  labs(x= "Species", y= "Body mass (g)",
+       fill= "Nest type", title= "Body mass in three diferent species of penguins",
+       subtitle = "Penguins observed on islands near Palmer Station, Antarctica",
+       caption= "DataSource: penguins dataset in palmerpenguins r-package") + geom_boxplot() + 
+  theme_bw() + scale_fill_manual(values = wes_palette("Darjeeling2", n = 3))
+```
+
+:::
+
+::: {.panel}
+## IsleofDogs1 {.panel-name}
+
+```{r, code_folding=TRUE}
+ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) + 
+  labs(x= "Species", y= "Body mass (g)",
+       fill= "Nest type", title= "Body mass in three diferent species of penguins",
+       subtitle = "Penguins observed on islands near Palmer Station, Antarctica",
+       caption= "DataSource: penguins dataset in palmerpenguins r-package") + geom_boxplot() + 
+  theme_bw() + scale_fill_manual(values = wes_palette("IsleofDogs1", n = 3))
+```
+
+:::
+:::
+:::
+
+### ggsci package
+
+If you want high-quality colour palettes reflecting scientific journal styles then you can try the `ggsci` package. The `ggsci` package was developed by [Dr. Nan Xiao](https://nanx.me/) and [Dr. Miaozhu Li](http://miaozhu.li/). All colour scales in this package are available in package [webpage](https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html). The descriptions of the colour scales were also taken from the package webpage. The name of the tab denotes the colour scale used.
+
+```{r, eval=FALSE}
+#load ggsci package
+library(ggsci)
+```
+
+::: {.l-page}
+::: {.panelset}
+::: {.panel}
+## scale_fill_npg() {.panel-name}
+
+> The NPG palette is inspired by the plots in the journals published by Nature Publishing Group.
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_npg()
+```
+
+:::
+::: {.panel}
+## scale_fill_aaas() {.panel-name}
+
+> The AAAS palette is inspired by the plots in the journals published by American Association for the Advancement of Science.
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_aaas()
+```
+
+:::
+::: {.panel}
+## scale_fill_nejm() {.panel-name}
+
+> The NEJM palette is inspired by the plots in The New England Journal of Medicine.
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_nejm()
+```
+
+:::
+::: {.panel}
+## scale_fill_lancet() {.panel-name}
+
+> The Lancet palette is inspired by the plots in Lancet journals, such as Lancet Oncology.
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_lancet()
+```
+
+:::
+::: {.panel}
+## scale_fill_jama() {.panel-name}
+
+> The JAMA palette is inspired by the plots in The Journal of the American Medical Association.
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_jama()
+```
+
+:::
+::: {.panel}
+## scale_fill_jco() {.panel-name}
+
+> The JCO palette is inspired by the the plots in Journal of Clinical Oncology.
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_jco()
+```
+
+:::
+::: {.panel}
+## scale_fill_ucscgb() {.panel-name}
+
+> The UCSCGB palette is from the colors used by UCSC Genome Browser for representing chromosomes. This palette has been intensively used in visualizations produced by Circos.
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_ucscgb()
+```
+
+:::
+::: {.panel}
+## scale_fill_d3() {.panel-name}
+
+> The D3 palette is from the categorical colors used by D3.js (version 3.x and before). There are four palette types `(category10, category20, category20b, category20c)` available.
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_d3(palette = "category10")
+```
+
+:::
+::: {.panel}
+## scale_fill_locuszoom() {.panel-name}
+
+> The LocusZoom palette is based on the colors used by [LocusZoom](http://locuszoom.org/).
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_locuszoom()
+```
+
+:::
+::: {.panel}
+## scale_fill_igv() {.panel-name}
+
+> The IGV palette is from the colors used by [Integrative Genomics Viewer](http://software.broadinstitute.org/software/igv/) for representing chromosomes. There are two palette types (default, alternating) available.
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_igv()
+```
+
+:::
+::: {.panel}
+## scale_fill_uchicago() {.panel-name}
+
+> The UChicago palette is based on [the colors](https://news.uchicago.edu/sites/default/files/attachments/_uchicago.identity.guidelines.pdf) used by the University of Chicago. There are three palette types (default, light, dark) available.
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_uchicago()
+```
+
+:::
+::: {.panel}
+## scale_fill_startrek() {.panel-name}
+
+> This palette is inspired by the (uniform) colors in Star Trek.
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_startrek()
+```
+
+:::
+::: {.panel}
+## scale_fill_tron() {.panel-name}
+
+> This palette is inspired by the colors used in Tron Legacy. It is suitable for displaying data when using a dark theme.
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_tron()
+```
+
+:::
+::: {.panel}
+## scale_fill_futurama() {.panel-name}
+
+> This palette is inspired by the colors used in the TV show Futurama.
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_futurama()
+```
+
+:::
+::: {.panel}
+## scale_fill_rickandmorty() {.panel-name}
+
+> This palette is inspired by the colors used in the TV show Rick and Morty.
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_rickandmorty()
+```
+
+:::
+::: {.panel}
+## scale_fill_simpsons() {.panel-name}
+
+> This palette is inspired by the colors used in the TV show The Simpsons.
+
+```{r, code_folding=TRUE}
+ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
+  labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
+       fill= "Nest type", title= "Relationship between body length and nest types",
+       subtitle = "Data shown for 84 different species of North American passerines",
+       caption= "DataSource: BridNest dataset in Stat2Data r-package") +
+  theme_bw() + scale_fill_simpsons()
 ```
 
 :::
@@ -507,7 +1000,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 ## Customizing the theme()
 
-A ggplot theme is made up of different elements and it's functions. For e.g. `plot.title()` element allows you to change the title of the graph. There are many element functions associated with `plot.title()` element. For e.g. using the element function `element_text()` you change the font size, font family, text colour etc of the title of the plot. So let us begin customising our graph. We will be reusing the `BirdNest` dataset for the graphs.
+A ggplot theme is made up of different elements and it's functions. For e.g. `plot.title()` element allows you to modify the title of the graph using the element function `element_text()`. In this way, we can change the font size, font family, text colour etc. of the title of the plot. So let us begin customising our graph. We will be reusing the `BirdNest` dataset for the graphs.
 
 ## 1. Customizing text elements using element_text()
 
@@ -680,7 +1173,26 @@ p + theme(plot.background = element_rect(size = 5, colour = "red", fill = "light
 
 ## Summary
 
-
+I hope you are now able to customize a theme of a graph with ease. In this chapter, we learned about different theme elements and how to customize them. We also saw different packages in R which featured ready to use themes. We learned about colour palettes and got introduced to the popular colour packages available R. With that being said, always make sure that your graphs are colour-blind friendly. Have a good day!
 
 ## References
 
+1. H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016. Read more about ggplot2 [here](https://ggplot2.tidyverse.org/). You can also look at the [cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf) for all the syntax used in `ggplot2`. Also check this [out](https://github.com/erikgahner/awesome-ggplot2).
+
+2. Ann Cannon, George Cobb, Bradley Hartlaub, Julie Legler, Robin Lock, Thomas Moore, Allan Rossman and Jeffrey Witmer (2019).
+  Stat2Data: Datasets for Stat2. R package version 2.0.0. https://CRAN.R-project.org/package=Stat2Data
+
+3. Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. R package version
+  0.1.0. https://allisonhorst.github.io/palmerpenguins/
+
+4. Jeffrey B. Arnold (2021). ggthemes: Extra Themes, Scales and Geoms for 'ggplot2'. R package version 4.2.4.
+  https://CRAN.R-project.org/package=ggthemes
+
+5. Simon Garnier, Noam Ross, Robert Rudis, Antônio P. Camargo, Marco Sciaini, and Cédric Scherer (2021). Rvision -
+  Colorblind-Friendly Color Maps for R. R package version 0.6.2.
+
+6. Karthik Ram and Hadley Wickham (2018). wesanderson: A Wes Anderson Palette Generator. R package version 0.3.6.
+  https://CRAN.R-project.org/package=wesanderson
+
+7. Nan Xiao (2018). ggsci: Scientific Journal and Sci-Fi Themed Color Palettes for 'ggplot2'. R package version 2.9.
+  https://CRAN.R-project.org/package=ggsci
