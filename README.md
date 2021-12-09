@@ -1,2 +1,2 @@
 # Jewel Johnson
-My website / blog made using the `distill` r-package. 
+Soruce files for my website / blog made using the `distill` r-package. 
