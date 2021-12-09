@@ -5,7 +5,9 @@ description: |
 author:
   - name: Jewel Johnson 
 date: "`r Sys.Date()`"
-output: distill::distill_article
+output: 
+  distill::distill_article:
+    toc_depth: 3
 ---
 ```{r setup, include=FALSE}
 library(ggplot2)
@@ -66,7 +68,7 @@ paged_table(head(penguins))
 ```
 We can see that are 8 columns in the dataset representing different values. Now let us try plotting some graphs with this data.
 
-## 1. Bar graph
+### 1. Bar graph
 
 So we will try to plot a simple bar graph first. Bar graphs are used to represent categorical data where the height of the rectangular bar represents the value for that category. We will plot a bargraph representing frequency data for all three species of penguins. 
 
@@ -79,7 +81,7 @@ ggplot(data = penguins, aes(x = species, fill = species)) +
   geom_bar() + theme_bw()
 ```
 
-## 2. Histogram
+### 2. Histogram
 
 Histograms are similar to bar graphs visually. But histograms are used to represent continuous data. Also the all the rectangular bars will have the same bin size or width. 
 
@@ -94,7 +96,7 @@ ggplot(data = penguins, aes(x = body_mass_g, fill = species)) +
 
 The warning message indicates that for two rows in the dataset, they have NA values or that they did not have any values present. This is true for real-life cases, as during data collection sometimes you will be unable to collect data due to various reasons. So this is perfectly fine.
 
-## 3. Line graph
+### 3. Line graph
 
 Line graph simply joins together data points to show overall distribution. 
 
@@ -107,7 +109,7 @@ ggplot(data = penguins, aes(x = bill_length_mm,
   ggtitle("Bill length vs Bill depth") + geom_line() + theme_bw()
 ```
 
-## 4. Scatter plot
+### 4. Scatter plot
 
 The scatter plot simply denotes the data points in the dataset. 
 
@@ -120,7 +122,7 @@ ggplot(data = penguins, aes(x = body_mass_g, y = flipper_length_mm,
   ggtitle("Body mass vs Filpper length") + geom_point(size = 2) + theme_bw()
 ```
 
-## 5. Density Plot
+### 5. Density Plot
 
 Density plots are similar to histograms but show it shows the overall distribution of the data in a finer way. This way we will get a bell-shaped curve if our data follows a normal distribution. 
 
@@ -145,7 +147,7 @@ ggplot(data = penguins_gentoo, aes(x = body_mass_g)) +
   geom_density(fill = "red") + theme_bw()
 ```
 
-## 6. Dot-plot
+### 6. Dot-plot
 
 Dot-plot is similar to a density plot but it shows discretely each data point in the distribution. 
 
@@ -158,7 +160,7 @@ ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) +
   geom_dotplot(binaxis = "y", stackdir = "center", binwidth = 100) + theme_bw()
 ```
 
-## 7. Rug-plot
+### 7. Rug-plot
 
 Rug-plot is a simple way to visualize the distribution of data along the axis lines. It is often used in conjunction with other graphical representations. 
 
@@ -173,7 +175,7 @@ ggplot(data = penguins_gentoo, aes(x = body_mass_g, y = flipper_length_mm)) +
   geom_point(colour = "darkred") + geom_rug() + theme_bw()
 ```
 
-## 8. Box plot
+### 8. Box plot
 
 Box-plot is one of the better ways of showing data via quartiles. You can learn more about box plots here.
 
@@ -186,7 +188,7 @@ ggplot(data = penguins, aes(x = species, y = body_mass_g, colour = species)) +
   theme_bw()
 ```
 
-## 9. Violin plot
+### 9. Violin plot
 
 Violin plot can be considered as the best of both a box-plot and a density plot. It shows the quartile values, like in a box-plot and also shows the distribution of the data, like in a density plot.
 
@@ -222,6 +224,13 @@ ggsave(my_graph, filename = "your_graph_name.png", width = 20, height = 20,
 ## Summary
 
 I hope this tutorial helped you to get familiarised with the `ggplot2` commands. There are many more different types of graphs that you can plot using `ggplot2`. The tutorial only showed some of the commonly used ones. The best way to learn R is through actually doing it yourself. Try to recreate the examples given in this tutorial by yourself and then try what you learned with the different datasets available in R. Have a good day!
+
+---
+#bottom buttons to guide to next/previous chapters. 
+---
+<br>  
+
+<a href="project2.html" class="btn button_round" style="float: right;">Next chapter:<br> 2. Customizing graphs in ggplot2</a>
 
 ## References
 

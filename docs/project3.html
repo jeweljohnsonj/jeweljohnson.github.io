@@ -96,8 +96,8 @@ code span.wa { color: #bf0303; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-12-09"/>
-  <meta property="article:created" itemprop="dateCreated" content="2021-12-09"/>
+  <meta property="article:published" itemprop="datePublished" content="2021-12-10"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-12-10"/>
   <meta name="article:author" content="Jewel Johnson"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -116,7 +116,7 @@ code span.wa { color: #bf0303; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Chapter 3: Even more customizations in ggplot2"]},{"type":"character","attributes":{},"value":["Learn how to customize the theme and colour palette of a graph in ggplot2.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jewel Johnson"]}]}]},{"type":"character","attributes":{},"value":["2021-12-09"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc_depth"]}},"value":[{"type":"integer","attributes":{},"value":[2]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Chapter 3: Even more customizations in ggplot2"]},{"type":"character","attributes":{},"value":["Learn how to customize the theme and colour palette of a graph in ggplot2.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jewel Johnson"]}]}]},{"type":"character","attributes":{},"value":["2021-12-10"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc_depth"]}},"value":[{"type":"integer","attributes":{},"value":[3]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2163,6 +2163,7 @@ code span.wa { color: #bf0303; } /* Warning */
     --mono-font:       "Source Code Pro", monospace;
     --body-font:       "Lato", sans-serif;
     --navbar-font:     "Lato", sans-serif;
+    scroll-behavior: auto;
   }
 
   /*-- ARTICLE METADATA --*/
@@ -2212,9 +2213,10 @@ code span.wa { color: #bf0303; } /* Warning */
 
   /*-- ARTICLE TABLE OF CONTENTS --*/
   .d-contents {
-    --heading-size:    18px;
     --heading-color:   #000000; /*-- Black --*/
-    --contents-size:   13px;
+    --heading-size:    0.8rem;
+    --contents-size:   0.8rem;
+    border-bottom: none;
   }
 
   /*-- ARTICLE APPENDIX --*/
@@ -2329,11 +2331,44 @@ code span.wa { color: #bf0303; } /* Warning */
       letter-spacing: normal;
   }
 
-  .d-contents {
-    --heading-size:    1.2rem;
-    --contents-size:   1.2rem;
-    border-bottom: none;
-  }</style>
+  /* sticky table of content tab */
+  /* not pretty but this is only way to do it */
+  /* keep scrolling behvaiour in html to auto for lag free transition while using toc */
+  /* source: https://stackoverflow.com/questions/67323162/floating-toc-in-distill-for-r */ 
+
+  d-article {
+      contain: none;
+  }
+
+  #TOC {
+    position: fixed;
+    z-index: 50;
+    background: none;     
+    left: 1.5em;
+    top: 6em;
+  }
+
+
+  /* Hide the ToC when resized to mobile or tablet:  480px, 768px, 900px */
+  @media screen and (max-width: 900px) {
+  #TOC {
+      position: relative;
+    }
+  }
+
+  /* next and previous buttons at the end of the article */
+
+  .btn {
+    border: none;
+    background-color: #000000;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .button_round {border-radius: 12px;}
+  </style>
   <style type="text/css">
   /* base style */
 
@@ -2513,7 +2548,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Chapter 3: Even more customizations in ggplot2","description":"Learn how to customize the theme and colour palette of a graph in ggplot2.","authors":[{"author":"Jewel Johnson","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-09T00:00:00.000+05:30","citationText":"Johnson, 2021"}
+{"title":"Chapter 3: Even more customizations in ggplot2","description":"Learn how to customize the theme and colour palette of a graph in ggplot2.","authors":[{"author":"Jewel Johnson","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-10T00:00:00.000+05:30","citationText":"Johnson, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2562,7 +2597,7 @@ R Tutorials
 <div class="d-byline">
   Jewel Johnson  
   
-<br/>2021-12-09
+<br/>2021-12-10
 </div>
 
 <div class="d-article">
@@ -2572,7 +2607,12 @@ R Tutorials
 <ul>
 <li><a href="#complete-themes">Complete themes</a></li>
 <li><a href="#themes-from-ggthemes-package">Themes from ggthemes package</a></li>
-<li><a href="#changing-colour-palettes-in-ggplot2">Changing colour palettes in ggplot2</a></li>
+<li><a href="#changing-colour-palettes-in-ggplot2">Changing colour palettes in ggplot2</a>
+<ul>
+<li><a href="#viridis-package">viridis package</a></li>
+</ul></li>
+<li><a href="#wesanderson-package">wesanderson package</a></li>
+<li><a href="#ggsci-package">ggsci package</a></li>
 <li><a href="#customizing-the-theme">Customizing the theme()</a></li>
 <li><a href="#customizing-text-elements-using-element_text">1. Customizing text elements using element_text()</a></li>
 <li><a href="#customizing-line-elements-using-element_line">2. Customizing line elements using element_line()</a></li>
@@ -2605,7 +2645,7 @@ R Tutorials
 <div class="layout-chunk" data-layout="l-body">
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["variable"],"name":[1],"type":["chr"],"align":["left"]},{"label":["classe"],"name":[2],"type":["chr"],"align":["left"]},{"label":["first_values"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"Species","2":"integer","3":"Tyrannus tyrannus, Myiodynastes luteiventris, Myiarchus cinerascens, Myiarchus tyrannulus, Myarchus tuberculifer, Sayornis phoebe"},{"1":"Common","2":"integer","3":"Eastern Kingbird, Sulphur-bellied Flycatcher, Ash-thoated Flycatcher, Brown-crested Flycatcher, Dusky-capped Flycatcher, Eastern Phoebe"},{"1":"Page","2":"integer","3":"360, 368, 372, 372, 374, 378"},{"1":"Length","2":"double","3":"20, 20, 20, 22.5, 17, 17"},{"1":"Nesttype","2":"integer","3":"cup, cavity, cavity, cavity, cavity, cup"},{"1":"Location","2":"integer","3":"decid, decid, decid, decid, decid, bridge"},{"1":"No.eggs","2":"double","3":"3.5, 3.5, 4.5, 4.5, 4.5, 4.5"},{"1":"Color","2":"integer","3":"1, 1, 1, 1, 1, 0"},{"1":"Incubate","2":"double","3":"17, 15.5, 15, 14, 14, 16"},{"1":"Nestling","2":"double","3":"17, 17, 15, 16.5, 14, 15.5"},{"1":"Totcare","2":"double","3":"34, 32.5, 30, 30.5, 28, 31.5"},{"1":"Closed.","2":"integer","3":"0, 1, 1, 1, 1, 0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["variable"],"name":[1],"type":["chr"],"align":["left"]},{"label":["classes"],"name":[2],"type":["chr"],"align":["left"]},{"label":["first_values"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"Species","2":"integer","3":"Tyrannus tyrannus, Myiodynastes luteiventris, Myiarchus cinerascens, Myiarchus tyrannulus, Myarchus tuberculifer, Sayornis phoebe"},{"1":"Common","2":"integer","3":"Eastern Kingbird, Sulphur-bellied Flycatcher, Ash-thoated Flycatcher, Brown-crested Flycatcher, Dusky-capped Flycatcher, Eastern Phoebe"},{"1":"Page","2":"integer","3":"360, 368, 372, 372, 374, 378"},{"1":"Length","2":"double","3":"20, 20, 20, 22.5, 17, 17"},{"1":"Nesttype","2":"integer","3":"cup, cavity, cavity, cavity, cavity, cup"},{"1":"Location","2":"integer","3":"decid, decid, decid, decid, decid, bridge"},{"1":"No.eggs","2":"double","3":"3.5, 3.5, 4.5, 4.5, 4.5, 4.5"},{"1":"Color","2":"integer","3":"1, 1, 1, 1, 1, 0"},{"1":"Incubate","2":"double","3":"17, 15.5, 15, 14, 14, 16"},{"1":"Nestling","2":"double","3":"17, 17, 15, 16.5, 14, 15.5"},{"1":"Totcare","2":"double","3":"34, 32.5, 30, 30.5, 28, 31.5"},{"1":"Closed.","2":"integer","3":"0, 1, 1, 1, 1, 0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -2629,7 +2669,7 @@ Show code
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_gray</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-3-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_bw" class="panel-name panel">
@@ -2649,7 +2689,7 @@ Show code
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-4-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_linedraw" class="panel-name panel">
@@ -2669,7 +2709,7 @@ Show code
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-5-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_light" class="panel-name panel">
@@ -2689,7 +2729,7 @@ Show code
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-6-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_dark" class="panel-name panel">
@@ -2709,7 +2749,7 @@ Show code
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_dark</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-7-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_minimal" class="panel-name panel">
@@ -2729,7 +2769,7 @@ Show code
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-8-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_classic" class="panel-name panel">
@@ -2749,7 +2789,7 @@ Show code
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-9-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_void" class="panel-name panel">
@@ -2769,7 +2809,7 @@ Show code
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-10-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 </div>
@@ -2801,7 +2841,7 @@ Show code
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_base</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>)) <span class="co">#size is reduced to accommodate the graph in the tab</span></span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-12-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_calc" class="panel-name panel">
@@ -2821,7 +2861,7 @@ Show code
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_calc</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-13-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_clean" class="panel-name panel">
@@ -2841,7 +2881,7 @@ Show code
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_clean</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-14-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_economist" class="panel-name panel">
@@ -2861,7 +2901,7 @@ Show code
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-15-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_excel" class="panel-name panel">
@@ -2881,7 +2921,7 @@ Show code
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_excel</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-16-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_excel_new" class="panel-name panel">
@@ -2901,7 +2941,7 @@ Show code
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_excel_new</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-17-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-17-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_few" class="panel-name panel">
@@ -2921,7 +2961,7 @@ Show code
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_few</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-18-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-18-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_fivethirtyeight" class="panel-name panel">
@@ -2941,7 +2981,7 @@ Show code
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_fivethirtyeight</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-19-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-19-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_foundation" class="panel-name panel">
@@ -2961,7 +3001,7 @@ Show code
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_foundation</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-20-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-20-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_gdocs" class="panel-name panel">
@@ -2981,7 +3021,7 @@ Show code
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_gdocs</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>)) <span class="co">#size is reduced to accommodate the graph in the tab</span></span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-21-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-21-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_hc" class="panel-name panel">
@@ -3001,7 +3041,7 @@ Show code
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_hc</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-22-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-22-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_igray" class="panel-name panel">
@@ -3021,7 +3061,7 @@ Show code
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_igray</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-23-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-23-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_map" class="panel-name panel">
@@ -3041,7 +3081,7 @@ Show code
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_map</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-24-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-24-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_pander" class="panel-name panel">
@@ -3061,7 +3101,7 @@ Show code
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_pander</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-25-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-25-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_par" class="panel-name panel">
@@ -3079,9 +3119,9 @@ Show code
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill=</span> <span class="st">&quot;Nest type&quot;</span>, <span class="at">title=</span> <span class="st">&quot;Relationship between body length and nest types&quot;</span>,</span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;Data shown for 84 different species of North American passerines&quot;</span>,</span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_par</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>)) <span class="co">#size is reduced to accommodate the graph in the tab</span></span></code></pre></div>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_par</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>)) <span class="co">#size is reduced to accommodate the graph in the tab</span></span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-26-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-26-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_solarized" class="panel-name panel">
@@ -3101,7 +3141,7 @@ Show code
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_solarized</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-27-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-27-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_solid" class="panel-name panel">
@@ -3121,7 +3161,7 @@ Show code
 <span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_solid</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-28-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-28-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_stata" class="panel-name panel">
@@ -3141,7 +3181,7 @@ Show code
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_stata</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-29-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-29-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_tufte" class="panel-name panel">
@@ -3161,7 +3201,7 @@ Show code
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-30-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-30-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="theme_wsj" class="panel-name panel">
@@ -3181,7 +3221,7 @@ Show code
 <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_wsj</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>)) <span class="co">#size is reduced to accommodate the graph in the tab</span></span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-31-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-31-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 </div>
@@ -3211,7 +3251,7 @@ Show code
 <span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">option =</span> <span class="st">&quot;viridis&quot;</span>)</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-33-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-33-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="magma" class="panel-name panel">
@@ -3228,7 +3268,7 @@ Show code
 <span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">option =</span> <span class="st">&quot;magma&quot;</span>)</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-34-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-34-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="plasma" class="panel-name panel">
@@ -3245,7 +3285,7 @@ Show code
 <span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">option =</span> <span class="st">&quot;plasma&quot;</span>)</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-35-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-35-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="inferno" class="panel-name panel">
@@ -3262,7 +3302,7 @@ Show code
 <span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">option =</span> <span class="st">&quot;inferno&quot;</span>)</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-36-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-36-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="cividis" class="panel-name panel">
@@ -3279,7 +3319,7 @@ Show code
 <span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">option =</span> <span class="st">&quot;cividis&quot;</span>)</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-37-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-37-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="mako" class="panel-name panel">
@@ -3296,7 +3336,7 @@ Show code
 <span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">option =</span> <span class="st">&quot;mako&quot;</span>)</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-38-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-38-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="rocket" class="panel-name panel">
@@ -3313,7 +3353,7 @@ Show code
 <span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">option =</span> <span class="st">&quot;rocket&quot;</span>)</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-39-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-39-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="turbo" class="panel-name panel">
@@ -3330,7 +3370,7 @@ Show code
 <span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">option =</span> <span class="st">&quot;turbo&quot;</span>)</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-40-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-40-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 </div>
@@ -3361,7 +3401,7 @@ Show code
 <span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: penguins dataset in palmerpenguins r-package&quot;</span>) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
 <span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">wes_palette</span>(<span class="st">&quot;GrandBudapest1&quot;</span>, <span class="at">n =</span> <span class="dv">3</span>))</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-42-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-42-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="bottlerocket2" class="panel-name panel">
@@ -3378,7 +3418,7 @@ Show code
 <span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: penguins dataset in palmerpenguins r-package&quot;</span>) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
 <span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">wes_palette</span>(<span class="st">&quot;BottleRocket2&quot;</span>, <span class="at">n =</span> <span class="dv">3</span>))</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-43-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-43-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="rushmore1" class="panel-name panel">
@@ -3395,7 +3435,7 @@ Show code
 <span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: penguins dataset in palmerpenguins r-package&quot;</span>) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
 <span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Rushmore1&quot;</span>, <span class="at">n =</span> <span class="dv">3</span>))</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-44-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-44-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="royal1" class="panel-name panel">
@@ -3412,7 +3452,7 @@ Show code
 <span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: penguins dataset in palmerpenguins r-package&quot;</span>) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
 <span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Royal1&quot;</span>, <span class="at">n =</span> <span class="dv">3</span>))</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-45-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-45-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="zissou1" class="panel-name panel">
@@ -3429,7 +3469,7 @@ Show code
 <span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: penguins dataset in palmerpenguins r-package&quot;</span>) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
 <span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Zissou1&quot;</span>, <span class="at">n =</span> <span class="dv">3</span>))</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-46-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-46-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="darjeeling2" class="panel-name panel">
@@ -3446,7 +3486,7 @@ Show code
 <span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: penguins dataset in palmerpenguins r-package&quot;</span>) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
 <span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Darjeeling2&quot;</span>, <span class="at">n =</span> <span class="dv">3</span>))</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-47-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-47-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="isleofdogs1" class="panel-name panel">
@@ -3463,7 +3503,7 @@ Show code
 <span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: penguins dataset in palmerpenguins r-package&quot;</span>) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
 <span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">wes_palette</span>(<span class="st">&quot;IsleofDogs1&quot;</span>, <span class="at">n =</span> <span class="dv">3</span>))</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-48-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-48-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 </div>
@@ -3493,7 +3533,7 @@ Show code
 <span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_npg</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-50-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-50-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="scale_fill_aaas" class="panel-name panel">
@@ -3513,7 +3553,7 @@ Show code
 <span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_aaas</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-51-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-51-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="scale_fill_nejm" class="panel-name panel">
@@ -3533,7 +3573,7 @@ Show code
 <span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_nejm</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-52-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-52-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="scale_fill_lancet" class="panel-name panel">
@@ -3553,7 +3593,7 @@ Show code
 <span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_lancet</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-53-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-53-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="scale_fill_jama" class="panel-name panel">
@@ -3573,7 +3613,7 @@ Show code
 <span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_jama</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-54-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-54-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="scale_fill_jco" class="panel-name panel">
@@ -3593,7 +3633,7 @@ Show code
 <span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_jco</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-55-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-55-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="scale_fill_ucscgb" class="panel-name panel">
@@ -3613,7 +3653,7 @@ Show code
 <span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_ucscgb</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-56-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-56-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="scale_fill_d3" class="panel-name panel">
@@ -3633,7 +3673,7 @@ Show code
 <span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_d3</span>(<span class="at">palette =</span> <span class="st">&quot;category10&quot;</span>)</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-57-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-57-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="scale_fill_locuszoom" class="panel-name panel">
@@ -3653,7 +3693,7 @@ Show code
 <span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_locuszoom</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-58-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-58-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="scale_fill_igv" class="panel-name panel">
@@ -3673,7 +3713,7 @@ Show code
 <span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_igv</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-59-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-59-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="scale_fill_uchicago" class="panel-name panel">
@@ -3693,7 +3733,7 @@ Show code
 <span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_uchicago</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-60-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-60-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="scale_fill_startrek" class="panel-name panel">
@@ -3713,7 +3753,7 @@ Show code
 <span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_startrek</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-61-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-61-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="scale_fill_tron" class="panel-name panel">
@@ -3733,7 +3773,7 @@ Show code
 <span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_tron</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-62-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-62-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="scale_fill_futurama" class="panel-name panel">
@@ -3753,7 +3793,7 @@ Show code
 <span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_futurama</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-63-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-63-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="scale_fill_rickandmorty" class="panel-name panel">
@@ -3773,7 +3813,7 @@ Show code
 <span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_rickandmorty</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-64-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-64-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 <section id="scale_fill_simpsons" class="panel-name panel">
@@ -3793,7 +3833,7 @@ Show code
 <span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>) <span class="sc">+</span></span>
 <span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_fill_simpsons</span>()</span></code></pre></div>
 </details>
-<p><img src="project3_files/figure-html5/unnamed-chunk-65-1.png" width="624" /></p>
+<p><img src="project3_files/figure-html5/unnamed-chunk-65-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 </section>
 </div>
@@ -3983,13 +4023,15 @@ Show code
 </div>
 <h2 id="summary">Summary</h2>
 <p>I hope you are now able to customize a theme of a graph with ease. In this chapter, we learned about different theme elements and how to customize them. We also saw different packages in R which featured ready to use themes. We learned about colour palettes and got introduced to the popular colour packages available R. With that being said, always make sure that your graphs are colour-blind friendly. Have a good day!</p>
+<p><br></p>
+<p><a href="project2.html" class="btn button_round" style="float: left;">Previous chapter:<br> 2. Customizing graphs in ggplot2</a></p>
 <h2 id="references">References</h2>
 <ol type="1">
 <li><p>H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016. Read more about ggplot2 <a href="https://ggplot2.tidyverse.org/">here</a>. You can also look at the <a href="https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf">cheat sheet</a> for all the syntax used in <code>ggplot2</code>. Also check this <a href="https://github.com/erikgahner/awesome-ggplot2">out</a>.</p></li>
 <li><p>Ann Cannon, George Cobb, Bradley Hartlaub, Julie Legler, Robin Lock, Thomas Moore, Allan Rossman and Jeffrey Witmer (2019). Stat2Data: Datasets for Stat2. R package version 2.0.0. <a href="https://CRAN.R-project.org/package=Stat2Data" class="uri">https://CRAN.R-project.org/package=Stat2Data</a></p></li>
 <li><p>Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. R package version 0.1.0. <a href="https://allisonhorst.github.io/palmerpenguins/" class="uri">https://allisonhorst.github.io/palmerpenguins/</a></p></li>
 <li><p>Jeffrey B. Arnold (2021). ggthemes: Extra Themes, Scales and Geoms for ‘ggplot2’. R package version 4.2.4. <a href="https://CRAN.R-project.org/package=ggthemes" class="uri">https://CRAN.R-project.org/package=ggthemes</a></p></li>
-<li><p>Simon Garnier, Noam Ross, Robert Rudis, Antônio P. Camargo, Marco Sciaini, and Cédric Scherer (2021). Rvision - Colorblind-Friendly Color Maps for R. R package version 0.6.2.</p></li>
+<li><p>Simon Garnier, Noam Ross, Robert Rudis, Antônio P. Camargo, Marco Sciaini, and Cédric Scherer (2021). Rvision - Colorblind-Friendly Color Maps for R. R package version 0.6.2. You can read more <a href="https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html">here</a>.</p></li>
 <li><p>Karthik Ram and Hadley Wickham (2018). wesanderson: A Wes Anderson Palette Generator. R package version 0.3.6. <a href="https://CRAN.R-project.org/package=wesanderson" class="uri">https://CRAN.R-project.org/package=wesanderson</a></p></li>
 <li><p>Nan Xiao (2018). ggsci: Scientific Journal and Sci-Fi Themed Color Palettes for ‘ggplot2’. R package version 2.9. <a href="https://CRAN.R-project.org/package=ggsci" class="uri">https://CRAN.R-project.org/package=ggsci</a></p></li>
 </ol>
@@ -4008,7 +4050,7 @@ Show code
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
 <div class="distill-site-nav distill-site-footer">
-<p>© Copyright 2021 <a href="https://github.com/jeweljohnsonj/jeweljohnson.in">Jewel Johnson</a></p>
+<p>© Copyright 2021 <a href="https://github.com/jeweljohnsonj">Jewel Johnson</a></p>
 <p>This webiste was created using the <a href="https://rstudio.github.io/distill/">distill R-package</a>.</p>
 </div>
 <!--/radix_placeholder_navigation_after_body-->

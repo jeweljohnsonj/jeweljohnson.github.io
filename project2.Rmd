@@ -49,7 +49,7 @@ library(rmarkdown)
 # to display the str() information in the form of a table use the following command below
 # https://stackoverflow.com/questions/44200394/show-str-as-table-in-r-markdown (credits: scoa)
 
-paged_table(data.frame(variable = names(Hawks), classe = sapply(Hawks, typeof), 
+paged_table(data.frame(variable = names(Hawks), classes = sapply(Hawks, typeof), 
            first_values = sapply(Hawks, function(x) paste0(head(x),  collapse = ", ")), 
            row.names = NULL))
 ```
@@ -295,6 +295,14 @@ ggplot(data = Hawks, aes(x = Weight, y = Wing, colour = Species)) +
 ## Summary
 
 In this tutorial, we learned how to modify aesthetic present for different geoms in ggplot2. Then we learned how to modify labels in a graph and finally, we learned how to modify and change the axes elements. This tutorial is in no way exhaustive of the different ways you can modify a graph as there many more methods which are not discussed here. Instead of trying to include everything, this tutorial tries to be a stepping stone to help students of R to learn the basics of tweaking a graph. Try to practice what is covered here using other datasets available in the r-package `Stat2Data`. Have a good day my friend!
+
+---
+#bottom buttons to guide to next/previous chapters. 
+---
+<br>  
+
+<a href="project3.html" class="btn button_round" style="float: right;">Next chapter:<br> 3. Even more customizations in ggplot2</a>
+<a href="project1.html" class="btn button_round" style="float: left;">Previous chapter:<br> 1. Data visualization using ggplot2</a>
 
 ## References
 

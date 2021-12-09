@@ -7,7 +7,7 @@ author:
 date: "`r Sys.Date()`"
 output: 
   distill::distill_article:
-    toc_depth: 2
+    toc_depth: 3
 ---
 ```{r setup, include=FALSE}
 library(Stat2Data)
@@ -57,7 +57,7 @@ library(rmarkdown)
 # to display the str() information in the form of a table use the following command below
 # https://stackoverflow.com/questions/44200394/show-str-as-table-in-r-markdown (credits: scoa)
 
-paged_table(data.frame(variable = names(BirdNest), classe = sapply(BirdNest, typeof), 
+paged_table(data.frame(variable = names(BirdNest), classes = sapply(BirdNest, typeof), 
            first_values = sapply(BirdNest, function(x) paste0(head(x),  collapse = ", ")), 
            row.names = NULL))
 ```
@@ -75,7 +75,7 @@ So we have plenty of variables to play with. The tabs shown below are named acco
 
 > theme_gray(): The signature ggplot2 theme with a grey background and white gridlines, designed to put the data forward yet make comparisons easy.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -90,7 +90,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_bw(): The classic dark-on-light ggplot2 theme. May work better for presentations displayed with a projector.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -105,7 +105,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_linedraw(): A theme with only black lines of various widths on white backgrounds, reminiscent of a line drawing. Serves a purpose similar to theme_bw(). Note that this theme has some very thin lines (<< 1 pt) which some journals may refuse.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -120,7 +120,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_light(): A theme similar to theme_linedraw() but with light grey lines and axes, to direct more attention towards the data.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -135,7 +135,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_dark(): The dark cousin of theme_light(), with similar line sizes but a dark background. Useful to make thin coloured lines pop out.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -150,7 +150,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_minimal(): A minimalistic theme with no background annotations.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -165,7 +165,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_classic(): A classic-looking theme, with x and y axis lines and no gridlines.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -180,7 +180,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_void(): A completely empty theme.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -212,7 +212,7 @@ The tabs shown below are named after the themes present in `ggthemes` package. T
 
 > theme_base(): Theme similar to the default settings of the ‘base’ R graphics.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -227,7 +227,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_calc(): Theme similar to the default settings of LibreOffice Calc charts.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -242,7 +242,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_clean(): Clean ggplot theme with no panel background, black axis lines and grey fill colour for chart elements.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -257,7 +257,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_economist(): A theme that approximates the style of *The Economist*.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -272,7 +272,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_excel(): Theme to replicate the ugly monstrosity that was the old gray-background Excel chart. Please never use this. This theme should be combined with the `scale_colour_excel()` color scale.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -287,7 +287,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_excel_new(): Theme for ggplot2 that is similar to the default style of charts in current versions of Microsoft Excel.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -302,7 +302,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_few(): Theme based on the rules and examples from Stephen Few’s *Show Me the Numbers* and "Practical Rules for Using Color in Charts".
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -317,7 +317,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_fivethirtyeight(): Theme inspired by the plots on [FiveThirtyEight](https://fivethirtyeight.com/) plots
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -332,7 +332,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_foundation(): This theme is designed to be a foundation from which to build new themes, and not meant to be used directly. `theme_foundation()` is a complete theme with only minimal number of elements defined. It is easier to create new themes by extending this one rather than `theme_gray()` or `theme_bw()`, because those themes define elements deep in the hierarchy.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -347,7 +347,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_gdocs(): Theme similar to the default look of charts in Google Docs.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -362,7 +362,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_hc(): Theme based on [Highcharts](https://www.highcharts.com/) plots
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -377,7 +377,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_igray(): Theme with white panel and gray background.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -392,7 +392,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_map(): A clean theme that is good for displaying maps from `geom_map()`.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -407,7 +407,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_pander(): The pander ships with a default theme when the ’unify plots’ option is enabled via panderOptions, which is now also available outside of pander internals, like evals, eval.msgs or Pandoc.brew.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -422,13 +422,13 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_par(): Theme which uses the current ‘base’ graphics parameter values from par(). Not all par() parameters, are supported, and not all are relevant to ggplot2 themes.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
        subtitle = "Data shown for 84 different species of North American passerines",
        caption= "DataSource: BridNest dataset in Stat2Data r-package") +
-  theme_par() + theme(text = element_text(size = 6)) #size is reduced to accommodate the graph in the tab
+  theme_par() + theme(text = element_text(size = 9)) #size is reduced to accommodate the graph in the tab
 ```
 
 :::
@@ -437,7 +437,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_solarized(): See https://ethanschoonover.com/solarized/ for a description of the Solarized palette.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -452,7 +452,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_solid(): Theme with nothing other than a background color.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -467,7 +467,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_stata(): Themes based on Stata graph schemes.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -482,7 +482,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_tufte(): Theme based on Chapter 6 ’Data-Ink Maximization and Graphical Design’ of Edward Tufte *The Visual Display of Quantitative Information*. No border, no axis lines, no grids. This theme works best in combination with `geom_rug()` or `geom_rangeframe()`.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -497,7 +497,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > theme_wsj(): Theme based on the plots in The Wall Street Journal
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -530,7 +530,7 @@ library(viridis)
 ::: {.panel}
 ## viridis {.panel-name}
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -543,7 +543,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 ::: {.panel}
 ## magma {.panel-name}
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -556,7 +556,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 ::: {.panel}
 ## plasma {.panel-name}
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -569,7 +569,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 ::: {.panel}
 ## inferno {.panel-name}
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -582,7 +582,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 ::: {.panel}
 ## cividis {.panel-name}
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -595,7 +595,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 ::: {.panel}
 ## mako {.panel-name}
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -608,7 +608,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 ::: {.panel}
 ## rocket {.panel-name}
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -621,7 +621,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 ::: {.panel}
 ## turbo {.panel-name}
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -652,7 +652,7 @@ data("penguins") #load the penguins dataset
 ::: {.panel}
 ## GrandBudapest1 {.panel-name}
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) + 
   labs(x= "Species", y= "Body mass (g)",
        fill= "Nest type", title= "Body mass in three diferent species of penguins",
@@ -665,7 +665,7 @@ ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) +
 ::: {.panel}
 ## BottleRocket2 {.panel-name}
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) + 
   labs(x= "Species", y= "Body mass (g)",
        fill= "Nest type", title= "Body mass in three diferent species of penguins",
@@ -678,7 +678,7 @@ ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) +
 ::: {.panel}
 ## Rushmore1 {.panel-name}
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) + 
   labs(x= "Species", y= "Body mass (g)",
        fill= "Nest type", title= "Body mass in three diferent species of penguins",
@@ -691,7 +691,7 @@ ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) +
 ::: {.panel}
 ## Royal1 {.panel-name}
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) + 
   labs(x= "Species", y= "Body mass (g)",
        fill= "Nest type", title= "Body mass in three diferent species of penguins",
@@ -704,7 +704,7 @@ ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) +
 ::: {.panel}
 ## Zissou1 {.panel-name}
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) + 
   labs(x= "Species", y= "Body mass (g)",
        fill= "Nest type", title= "Body mass in three diferent species of penguins",
@@ -717,7 +717,7 @@ ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) +
 ::: {.panel}
 ## Darjeeling2 {.panel-name}
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) + 
   labs(x= "Species", y= "Body mass (g)",
        fill= "Nest type", title= "Body mass in three diferent species of penguins",
@@ -731,7 +731,7 @@ ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) +
 ::: {.panel}
 ## IsleofDogs1 {.panel-name}
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) + 
   labs(x= "Species", y= "Body mass (g)",
        fill= "Nest type", title= "Body mass in three diferent species of penguins",
@@ -760,7 +760,7 @@ library(ggsci)
 
 > The NPG palette is inspired by the plots in the journals published by Nature Publishing Group.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -775,7 +775,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > The AAAS palette is inspired by the plots in the journals published by American Association for the Advancement of Science.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -790,7 +790,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > The NEJM palette is inspired by the plots in The New England Journal of Medicine.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -805,7 +805,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > The Lancet palette is inspired by the plots in Lancet journals, such as Lancet Oncology.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -820,7 +820,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > The JAMA palette is inspired by the plots in The Journal of the American Medical Association.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center', fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -835,7 +835,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > The JCO palette is inspired by the the plots in Journal of Clinical Oncology.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -850,7 +850,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > The UCSCGB palette is from the colors used by UCSC Genome Browser for representing chromosomes. This palette has been intensively used in visualizations produced by Circos.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -865,7 +865,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > The D3 palette is from the categorical colors used by D3.js (version 3.x and before). There are four palette types `(category10, category20, category20b, category20c)` available.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -880,7 +880,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > The LocusZoom palette is based on the colors used by [LocusZoom](http://locuszoom.org/).
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -895,7 +895,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > The IGV palette is from the colors used by [Integrative Genomics Viewer](http://software.broadinstitute.org/software/igv/) for representing chromosomes. There are two palette types (default, alternating) available.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -910,7 +910,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > The UChicago palette is based on [the colors](https://news.uchicago.edu/sites/default/files/attachments/_uchicago.identity.guidelines.pdf) used by the University of Chicago. There are three palette types (default, light, dark) available.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -925,7 +925,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > This palette is inspired by the (uniform) colors in Star Trek.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -940,7 +940,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > This palette is inspired by the colors used in Tron Legacy. It is suitable for displaying data when using a dark theme.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -955,7 +955,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > This palette is inspired by the colors used in the TV show Futurama.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -970,7 +970,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > This palette is inspired by the colors used in the TV show Rick and Morty.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -985,7 +985,7 @@ ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() +
 
 > This palette is inspired by the colors used in the TV show The Simpsons.
 
-```{r, code_folding=TRUE}
+```{r, code_folding=TRUE, fig.align = 'center'}
 ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -1028,7 +1028,7 @@ element_text(
 ::: {.panel}
 ## Before {.panel-name}
 
-```{r, fig.align = 'center', code_folding=TRUE}
+```{r, fig.align = 'center', code_folding=TRUE, fig.align = 'center'}
 p <- ggplot(BirdNest, aes(No.eggs, Totcare, colour = Nesttype)) + geom_point() +
     labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -1041,7 +1041,7 @@ p
 ::: {.panel}
 ## After {.panel-name}
 
-```{r, fig.align = 'center', code_folding=TRUE}
+```{r, fig.align = 'center', code_folding=TRUE, fig.align = 'center'}
 p <- ggplot(BirdNest, aes(No.eggs, Totcare, colour = Nesttype)) + geom_point() +
     labs(x= "Number of eggs", y= "Total care time (days)",
        title= "Relationship between number of eggs and total care time",
@@ -1086,7 +1086,7 @@ element_line(
 ::: {.panel}
 ## Before {.panel-name}
 
-```{r, fig.align = 'center', code_folding=TRUE}
+```{r, fig.align = 'center', code_folding=TRUE, fig.align = 'center'}
 p <- ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -1099,7 +1099,7 @@ p
 ::: {.panel}
 ## After {.panel-name}
 
-```{r, fig.align = 'center', code_folding=TRUE}
+```{r, fig.align = 'center', code_folding=TRUE, fig.align = 'center'}
 p <- ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -1139,7 +1139,7 @@ element_rect(
 ::: {.panel}
 ## Before {.panel-name}
 
-```{r, fig.align = 'center', code_folding=TRUE}
+```{r, fig.align = 'center', code_folding=TRUE, fig.align = 'center'}
 p <- ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -1152,7 +1152,7 @@ p
 ::: {.panel}
 ## After {.panel-name}
 
-```{r, fig.align = 'center', code_folding=TRUE}
+```{r, fig.align = 'center', code_folding=TRUE, fig.align = 'center'}
 p <- ggplot(BirdNest, aes(Nesttype, Length, fill = Nesttype)) + geom_boxplot() + 
   labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
        fill= "Nest type", title= "Relationship between body length and nest types",
@@ -1174,6 +1174,13 @@ p + theme(plot.background = element_rect(size = 5, colour = "red", fill = "light
 ## Summary
 
 I hope you are now able to customize a theme of a graph with ease. In this chapter, we learned about different theme elements and how to customize them. We also saw different packages in R which featured ready to use themes. We learned about colour palettes and got introduced to the popular colour packages available R. With that being said, always make sure that your graphs are colour-blind friendly. Have a good day!
+
+---
+#bottom buttons to guide to next/previous chapters. 
+---
+<br>  
+
+<a href="project2.html" class="btn button_round" style="float: left;">Previous chapter:<br> 2. Customizing graphs in ggplot2</a>
 
 ## References
 

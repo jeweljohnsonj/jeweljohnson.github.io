@@ -40,6 +40,7 @@ html {
   --mono-font:       "Source Code Pro", monospace;
   --body-font:       "Lato", sans-serif;
   --navbar-font:     "Lato", sans-serif;
+  scroll-behavior: auto;
 }
 
 /*-- ARTICLE METADATA --*/
@@ -89,9 +90,10 @@ h1, h2 {
 
 /*-- ARTICLE TABLE OF CONTENTS --*/
 .d-contents {
-  --heading-size:    18px;
   --heading-color:   #000000; /*-- Black --*/
-  --contents-size:   13px;
+  --heading-size:    0.8rem;
+  --contents-size:   0.8rem;
+  border-bottom: none;
 }
 
 /*-- ARTICLE APPENDIX --*/
@@ -206,8 +208,41 @@ p code, li code {
     letter-spacing: normal;
 }
 
-.d-contents {
-  --heading-size:    1.2rem;
-  --contents-size:   1.2rem;
-  border-bottom: none;
+/* sticky table of content tab */
+/* not pretty but this is only way to do it */
+/* keep scrolling behvaiour in html to auto for lag free transition while using toc */
+/* source: https://stackoverflow.com/questions/67323162/floating-toc-in-distill-for-r */ 
+
+d-article {
+    contain: none;
 }
+
+#TOC {
+  position: fixed;
+  z-index: 50;
+  background: none;     
+  left: 1.5em;
+  top: 6em;
+}
+
+
+/* Hide the ToC when resized to mobile or tablet:  480px, 768px, 900px */
+@media screen and (max-width: 900px) {
+#TOC {
+    position: relative;
+  }
+}
+
+/* next and previous buttons at the end of the article */
+
+.btn {
+  border: none;
+  background-color: #000000;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.button_round {border-radius: 12px;}
+
