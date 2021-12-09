@@ -1189,7 +1189,7 @@ I hope you are now able to customize a theme of a graph with ease. In this chapt
   https://CRAN.R-project.org/package=ggthemes
 
 5. Simon Garnier, Noam Ross, Robert Rudis, Antônio P. Camargo, Marco Sciaini, and Cédric Scherer (2021). Rvision -
-  Colorblind-Friendly Color Maps for R. R package version 0.6.2.
+  Colorblind-Friendly Color Maps for R. R package version 0.6.2. You can read more [here](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html).
 
 6. Karthik Ram and Hadley Wickham (2018). wesanderson: A Wes Anderson Palette Generator. R package version 0.3.6.
   https://CRAN.R-project.org/package=wesanderson
