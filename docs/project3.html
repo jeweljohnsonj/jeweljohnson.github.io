@@ -2121,11 +2121,7 @@ code span.wa { color: #bf0303; } /* Warning */
   /*-- Additional custom styles --*/
   /* Add any additional CSS rules below                      */
   </style>
-  <style type="text/css">/* This css file was originally created by Kaija Gham */
-  /* you can visit the following link to get the raw data */
-  /* https://github.com/kaijagahm/kaija_bean *?
-
-  /* base variables */
+  <style type="text/css">/* base variables */
 
   /* Edit the CSS properties in this file to create a custom
      Distill theme. Only edit values in the right column
@@ -2136,14 +2132,8 @@ code span.wa { color: #bf0303; } /* Warning */
 
   /* Optional: embed custom fonts here with `@import`          */
   /* This must remain at the top of this file.                 */
-  @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic');
   @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro');
   @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-
-  d-article p {
-    text-align: justify;
-  }
 
   html {
     /*-- Main font sizes --*/
@@ -2214,10 +2204,35 @@ code span.wa { color: #bf0303; } /* Warning */
   /*-- ARTICLE TABLE OF CONTENTS --*/
   .d-contents {
     --heading-color:   #000000; /*-- Black --*/
-    --heading-size:    0.8rem;
-    --contents-size:   0.8rem;
+    --heading-size: 0.9rem;
+    --contents-size: 0.9em;
     border-bottom: none;
   }
+
+  /* toc list colour and size */
+
+  .d-contents nav a {
+      color: black;
+  }
+
+  /* text in the toc will zoom on hover */
+
+  .d-contents nav a:hover {
+      color: black;
+      transform: scale(1.7); /* change scale to control hover zoom */
+      padding-left:20%; /* change perctange to control left gap from the margin */
+      background-color: white; /* background colour on hover, kept as white as to prevent overlapping of other texts */
+      display: block; /* keep it as block to station the text on hover */
+  }
+
+  .d-contents nav a:active {
+      color: black;
+  }
+
+  .d-contents nav a:visited {
+      color: black;
+  }
+
 
   /*-- ARTICLE APPENDIX --*/
   d-appendix {
@@ -2245,9 +2260,15 @@ code span.wa { color: #bf0303; } /* Warning */
     --bkgd-color:       #301e64; /* purple */
   }
 
+  /* to jsutfy body text in the distill aticle */
+  d-article p {
+    text-align: justify;
+  }
+
   /*-- Additional custom styles --*/
-  /* Add any additional CSS rules below                      */
+  /* Add any additional CSS rules below  */
   /* Change bullets */
+
   ul > li::marker {
     font-size: 1.125em;
     color: #64142c; /*-- Dark magenta --*/
@@ -2349,7 +2370,7 @@ code span.wa { color: #bf0303; } /* Warning */
   }
 
 
-  /* Hide the ToC when resized to mobile or tablet:  480px, 768px, 900px */
+  /* Hide the toc when resized to mobile or tablet:  480px, 768px, 900px */
   @media screen and (max-width: 900px) {
   #TOC {
       position: relative;
@@ -2368,6 +2389,13 @@ code span.wa { color: #bf0303; } /* Warning */
   }
 
   .button_round {border-radius: 12px;}
+
+  /* toc colour and size of header and list */
+  .d-toc {
+   color: #000000;
+   font-size: 0.8em;
+   line-height: 1em;
+  }
   </style>
   <style type="text/css">
   /* base style */
@@ -3868,11 +3896,12 @@ Show code
 Show code
 </summary>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(BirdNest, <span class="fu">aes</span>(No.eggs, Totcare, <span class="at">colour =</span> Nesttype)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x=</span> <span class="st">&quot;Type of nest&quot;</span>, <span class="at">y=</span> <span class="st">&quot;Mean body length for the species (in cm)&quot;</span>,</span>
-<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill=</span> <span class="st">&quot;Nest type&quot;</span>, <span class="at">title=</span> <span class="st">&quot;Relationship between body length and nest types&quot;</span>,</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x=</span> <span class="st">&quot;Number of eggs&quot;</span>, <span class="at">y=</span> <span class="st">&quot;Total care time (days)&quot;</span>,</span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">title=</span> <span class="st">&quot;Relationship between number of eggs and total care time&quot;</span>,</span>
 <span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;Data shown for 84 different species of North American passerines&quot;</span>,</span>
-<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>)</span>
-<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span> <span class="st">&quot;DataSource: BridNest dataset in Stat2Data r-package&quot;</span>,</span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">colour =</span> <span class="st">&quot;Nest type&quot;</span>)</span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div>
 </details>
 <p><img src="project3_files/figure-html5/unnamed-chunk-67-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>

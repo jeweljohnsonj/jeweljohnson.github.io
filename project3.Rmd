@@ -1030,10 +1030,11 @@ element_text(
 
 ```{r, fig.align = 'center', code_folding=TRUE, fig.align = 'center'}
 p <- ggplot(BirdNest, aes(No.eggs, Totcare, colour = Nesttype)) + geom_point() +
-    labs(x= "Type of nest", y= "Mean body length for the species (in cm)",
-       fill= "Nest type", title= "Relationship between body length and nest types",
+    labs(x= "Number of eggs", y= "Total care time (days)",
+       title= "Relationship between number of eggs and total care time",
        subtitle = "Data shown for 84 different species of North American passerines",
-       caption= "DataSource: BridNest dataset in Stat2Data r-package")
+       caption= "DataSource: BridNest dataset in Stat2Data r-package",
+       colour = "Nest type")
 p
 ```
 

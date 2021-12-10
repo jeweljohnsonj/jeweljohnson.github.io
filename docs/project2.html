@@ -2121,11 +2121,7 @@ code span.wa { color: #bf0303; } /* Warning */
   /*-- Additional custom styles --*/
   /* Add any additional CSS rules below                      */
   </style>
-  <style type="text/css">/* This css file was originally created by Kaija Gham */
-  /* you can visit the following link to get the raw data */
-  /* https://github.com/kaijagahm/kaija_bean *?
-
-  /* base variables */
+  <style type="text/css">/* base variables */
 
   /* Edit the CSS properties in this file to create a custom
      Distill theme. Only edit values in the right column
@@ -2136,14 +2132,8 @@ code span.wa { color: #bf0303; } /* Warning */
 
   /* Optional: embed custom fonts here with `@import`          */
   /* This must remain at the top of this file.                 */
-  @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic');
   @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro');
   @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-
-  d-article p {
-    text-align: justify;
-  }
 
   html {
     /*-- Main font sizes --*/
@@ -2214,10 +2204,35 @@ code span.wa { color: #bf0303; } /* Warning */
   /*-- ARTICLE TABLE OF CONTENTS --*/
   .d-contents {
     --heading-color:   #000000; /*-- Black --*/
-    --heading-size:    0.8rem;
-    --contents-size:   0.8rem;
+    --heading-size: 0.9rem;
+    --contents-size: 0.9em;
     border-bottom: none;
   }
+
+  /* toc list colour and size */
+
+  .d-contents nav a {
+      color: black;
+  }
+
+  /* text in the toc will zoom on hover */
+
+  .d-contents nav a:hover {
+      color: black;
+      transform: scale(1.7); /* change scale to control hover zoom */
+      padding-left:20%; /* change perctange to control left gap from the margin */
+      background-color: white; /* background colour on hover, kept as white as to prevent overlapping of other texts */
+      display: block; /* keep it as block to station the text on hover */
+  }
+
+  .d-contents nav a:active {
+      color: black;
+  }
+
+  .d-contents nav a:visited {
+      color: black;
+  }
+
 
   /*-- ARTICLE APPENDIX --*/
   d-appendix {
@@ -2245,9 +2260,15 @@ code span.wa { color: #bf0303; } /* Warning */
     --bkgd-color:       #301e64; /* purple */
   }
 
+  /* to jsutfy body text in the distill aticle */
+  d-article p {
+    text-align: justify;
+  }
+
   /*-- Additional custom styles --*/
-  /* Add any additional CSS rules below                      */
+  /* Add any additional CSS rules below  */
   /* Change bullets */
+
   ul > li::marker {
     font-size: 1.125em;
     color: #64142c; /*-- Dark magenta --*/
@@ -2349,7 +2370,7 @@ code span.wa { color: #bf0303; } /* Warning */
   }
 
 
-  /* Hide the ToC when resized to mobile or tablet:  480px, 768px, 900px */
+  /* Hide the toc when resized to mobile or tablet:  480px, 768px, 900px */
   @media screen and (max-width: 900px) {
   #TOC {
       position: relative;
@@ -2368,6 +2389,13 @@ code span.wa { color: #bf0303; } /* Warning */
   }
 
   .button_round {border-radius: 12px;}
+
+  /* toc colour and size of header and list */
+  .d-toc {
+   color: #000000;
+   font-size: 0.8em;
+   line-height: 1em;
+  }
   </style>
   <style type="text/css">
   /* base style */
