@@ -23,14 +23,14 @@ navbar:
       href: blog_posts.html
     - text: "R Tutorials"
       menu:
-        - text: "ggplot2"
+        - text: "Data visualization"
         - text: "Chapter 1: Data visualization using ggplot2"
           href: project1.html
         - text: "Chapter 2: Customizing graphs in ggplot2"
           href: project2.html
         - text: "Chapter 3: Even more customizations in ggplot2"
           href: project3.html
-        - text: "tidyr"
+        - text: "Dat manipulation"
         - text: "Chapter 1: Data tidying using tidyr"
           href: project4.html
     - text: "About"
