@@ -96,8 +96,8 @@ code span.wa { color: #bf0303; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-12-11"/>
-  <meta property="article:created" itemprop="dateCreated" content="2021-12-11"/>
+  <meta property="article:published" itemprop="datePublished" content="2021-12-12"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-12-12"/>
   <meta name="article:author" content="Jewel Johnson"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -116,7 +116,7 @@ code span.wa { color: #bf0303; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Chapter 1: Data tidying using tidyr"]},{"type":"character","attributes":{},"value":["Learn how to make your data tidy with the tidyr package.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jewel Johnson"]}]}]},{"type":"character","attributes":{},"value":["2021-12-11"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc_depth"]}},"value":[{"type":"integer","attributes":{},"value":[3]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Chapter 1: Data tidying using tidyr"]},{"type":"character","attributes":{},"value":["Learn how to make your data tidy with the tidyr package.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jewel Johnson"]}]}]},{"type":"character","attributes":{},"value":["2021-12-12"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc_depth"]}},"value":[{"type":"integer","attributes":{},"value":[3]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2396,7 +2396,40 @@ code span.wa { color: #bf0303; } /* Warning */
    font-size: 0.8em;
    line-height: 1em;
   }
-  </style>
+
+  /* output folding configurations */
+
+  /* Insert the following code in the code chunk to use it
+
+  <div class="fold o">
+  ```{r}
+    ...
+  ```
+  </div> 
+
+  */
+
+
+  .showopt {
+    background-color: #301e64;
+    color: #FFFFFF; 
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    vertical-align: middle !important;
+    float: right;
+    font-family: sans-serif;
+    border-radius: 8px;
+  }
+
+  .showopt:hover {
+      background-color: #dfe4f2;
+      color: #301e64;
+  }
+
+  pre.plot {
+    background-color: white !important;
+  }</style>
   <style type="text/css">
   /* base style */
 
@@ -2576,7 +2609,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Chapter 1: Data tidying using tidyr","description":"Learn how to make your data tidy with the tidyr package.","authors":[{"author":"Jewel Johnson","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-11T00:00:00.000+05:30","citationText":"Johnson, 2021"}
+{"title":"Chapter 1: Data tidying using tidyr","description":"Learn how to make your data tidy with the tidyr package.","authors":[{"author":"Jewel Johnson","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-12T00:00:00.000+05:30","citationText":"Johnson, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2601,8 +2634,9 @@ R Tutorials
 <a href="project1.html">Chapter 1: Data visualization using ggplot2</a>
 <a href="project2.html">Chapter 2: Customizing graphs in ggplot2</a>
 <a href="project3.html">Chapter 3: Even more customizations in ggplot2</a>
-<span class="nav-dropdown-header">Dat manipulation</span>
+<span class="nav-dropdown-header">Data manipulation</span>
 <a href="project4.html">Chapter 1: Data tidying using tidyr</a>
+<a href="project5.html">Chapter 2: Data manipulation using dplyr</a>
 </div>
 </div>
 <a href="about.html">About</a>
@@ -2628,7 +2662,7 @@ R Tutorials
 <div class="d-byline">
   Jewel Johnson  
   
-<br/>2021-12-11
+<br/>2021-12-12
 </div>
 
 <div class="d-article">
@@ -2683,8 +2717,8 @@ R Tutorials
 <p>You can quickly notice that there is no mentioning of what these numerical values mean. Of course, we know that they are efficacy values for the different treatments. But for someone who only has this data as a reference, that person would not have a clue as to what these numbers mean. Also, note that each of the rows contains multiple observation values which is not a feature of tidy data. This kind of data format is called ‘wide data’ which we will talk more about later.</p>
 <p>With that being said, tidy data will have;</p>
 <ol type="1">
-<li>Each of its variables represented in its own columns</li>
-<li>Each observation or a case in its row.</li>
+<li>Each of its variables represented in its own column</li>
+<li>Each observation or a case in its own row.</li>
 <li>Each of the rows will contain only a single value.</li>
 </ol>
 <p>So let us see how the ‘tidier’ version of this data would look like.</p>
@@ -2841,8 +2875,8 @@ Show code
 </div>
 </div>
 </section>
-<section id="after" class="panel-name panel">
-<h3 class="panel-name">After</h3>
+<div class="panel">
+<p><span class="panel-name">After</span></p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -2865,7 +2899,7 @@ Show code
   </script>
 </div>
 </div>
-</section>
+</div>
 </div>
 </div>
 <p>The syntax of <code>unite()</code> is as follows.</p>
@@ -2903,7 +2937,7 @@ Show code
 </div>
 </div>
 </section>
-<section id="after-1" class="panel-name panel">
+<section id="after" class="panel-name panel">
 <h3 class="panel-name">After</h3>
 <div class="layout-chunk" data-layout="l-body">
 <details>
@@ -2966,7 +3000,7 @@ Show code
 </div>
 </div>
 </section>
-<section id="after-2" class="panel-name panel">
+<section id="after-1" class="panel-name panel">
 <h3 class="panel-name">After</h3>
 <div class="layout-chunk" data-layout="l-body">
 <details>
@@ -3029,7 +3063,7 @@ Show code
 </div>
 </div>
 </section>
-<section id="after-3" class="panel-name panel">
+<section id="after-2" class="panel-name panel">
 <h3 class="panel-name">After</h3>
 <div class="layout-chunk" data-layout="l-body">
 <details>
@@ -3155,7 +3189,7 @@ Show code
 </div>
 </div>
 </section>
-<section id="after-4" class="panel-name panel">
+<section id="after-3" class="panel-name panel">
 <h3 class="panel-name">After</h3>
 <div class="layout-chunk" data-layout="l-body">
 <details>

@@ -30,9 +30,11 @@ navbar:
           href: project2.html
         - text: "Chapter 3: Even more customizations in ggplot2"
           href: project3.html
-        - text: "Dat manipulation"
+        - text: "Data manipulation"
         - text: "Chapter 1: Data tidying using tidyr"
           href: project4.html
+        - text: "Chapter 2: Data manipulation using dplyr"
+          href: project5.html
     - text: "About"
       href: about.html
     - text: "CV"

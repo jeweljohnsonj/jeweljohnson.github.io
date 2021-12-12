@@ -96,8 +96,8 @@ code span.wa { color: #bf0303; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-12-11"/>
-  <meta property="article:created" itemprop="dateCreated" content="2021-12-11"/>
+  <meta property="article:published" itemprop="datePublished" content="2021-12-12"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-12-12"/>
   <meta name="article:author" content="Jewel Johnson"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -116,7 +116,7 @@ code span.wa { color: #bf0303; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Chapter 3: Even more customizations in ggplot2"]},{"type":"character","attributes":{},"value":["Learn how to customize the theme and colour palette of a graph in ggplot2.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jewel Johnson"]}]}]},{"type":"character","attributes":{},"value":["2021-12-11"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc_depth"]}},"value":[{"type":"integer","attributes":{},"value":[3]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Chapter 3: Even more customizations in ggplot2"]},{"type":"character","attributes":{},"value":["Learn how to customize the theme and colour palette of a graph in ggplot2.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jewel Johnson"]}]}]},{"type":"character","attributes":{},"value":["2021-12-12"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc_depth"]}},"value":[{"type":"integer","attributes":{},"value":[3]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2396,7 +2396,40 @@ code span.wa { color: #bf0303; } /* Warning */
    font-size: 0.8em;
    line-height: 1em;
   }
-  </style>
+
+  /* output folding configurations */
+
+  /* Insert the following code in the code chunk to use it
+
+  <div class="fold o">
+  ```{r}
+    ...
+  ```
+  </div> 
+
+  */
+
+
+  .showopt {
+    background-color: #301e64;
+    color: #FFFFFF; 
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    vertical-align: middle !important;
+    float: right;
+    font-family: sans-serif;
+    border-radius: 8px;
+  }
+
+  .showopt:hover {
+      background-color: #dfe4f2;
+      color: #301e64;
+  }
+
+  pre.plot {
+    background-color: white !important;
+  }</style>
   <style type="text/css">
   /* base style */
 
@@ -2576,7 +2609,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Chapter 3: Even more customizations in ggplot2","description":"Learn how to customize the theme and colour palette of a graph in ggplot2.","authors":[{"author":"Jewel Johnson","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-11T00:00:00.000+05:30","citationText":"Johnson, 2021"}
+{"title":"Chapter 3: Even more customizations in ggplot2","description":"Learn how to customize the theme and colour palette of a graph in ggplot2.","authors":[{"author":"Jewel Johnson","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-12T00:00:00.000+05:30","citationText":"Johnson, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2601,8 +2634,9 @@ R Tutorials
 <a href="project1.html">Chapter 1: Data visualization using ggplot2</a>
 <a href="project2.html">Chapter 2: Customizing graphs in ggplot2</a>
 <a href="project3.html">Chapter 3: Even more customizations in ggplot2</a>
-<span class="nav-dropdown-header">Dat manipulation</span>
+<span class="nav-dropdown-header">Data manipulation</span>
 <a href="project4.html">Chapter 1: Data tidying using tidyr</a>
+<a href="project5.html">Chapter 2: Data manipulation using dplyr</a>
 </div>
 </div>
 <a href="about.html">About</a>
@@ -2628,7 +2662,7 @@ R Tutorials
 <div class="d-byline">
   Jewel Johnson  
   
-<br/>2021-12-11
+<br/>2021-12-12
 </div>
 
 <div class="d-article">

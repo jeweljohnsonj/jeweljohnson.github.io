@@ -57,8 +57,8 @@ You can quickly notice that there is no mentioning of what these numerical value
 
 With that being said, tidy data will have; 
 
-1. Each of its variables represented in its own columns
-2. Each observation or a case in its row. 
+1. Each of its variables represented in its own column
+2. Each observation or a case in its own row. 
 3. Each of the rows will contain only a single value.
 
 So let us see how the 'tidier' version of this data would look like.
@@ -248,7 +248,7 @@ paged_table(data)
 
 :::
 ::: {.panel}
-### After {.panel-name}
+[After]{.panel-name}
 
 ```{r, code_folding=TRUE}
 #dummy data

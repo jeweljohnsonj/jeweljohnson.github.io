@@ -274,3 +274,36 @@ d-article {
  line-height: 1em;
 }
 
+/* output folding configurations */
+
+/* Insert the following code in the code chunk to use it
+
+<div class="fold o">
+```{r}
+  ...
+```
+</div> 
+
+*/
+
+
+.showopt {
+  background-color: #301e64;
+  color: #FFFFFF; 
+  width: 100px;
+  height: 20px;
+  text-align: center;
+  vertical-align: middle !important;
+  float: right;
+  font-family: sans-serif;
+  border-radius: 8px;
+}
+
+.showopt:hover {
+    background-color: #dfe4f2;
+    color: #301e64;
+}
+
+pre.plot {
+  background-color: white !important;
+}
