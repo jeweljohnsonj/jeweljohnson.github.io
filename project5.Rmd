@@ -1,5 +1,5 @@
 ---
-title: "Chapter 2: Data manipulation using dplyr"
+title: "Chapter 2: Data manipulation using dplyr (part 1)"
 description: |
   Learn how to manipulate your data with the dplyr package.
 author:
