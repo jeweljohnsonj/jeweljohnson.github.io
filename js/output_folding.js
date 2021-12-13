@@ -40,3 +40,8 @@ $(document).ready(function() {
     $(this).siblings('code, img').slideToggle('fast', 'swing');
   });
 });
+
+
+// paged_table and kable folding
+
+
