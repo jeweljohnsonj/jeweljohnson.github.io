@@ -96,8 +96,8 @@ code span.wa { color: #bf0303; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-12-13"/>
-  <meta property="article:created" itemprop="dateCreated" content="2021-12-13"/>
+  <meta property="article:published" itemprop="datePublished" content="2021-12-14"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-12-14"/>
   <meta name="article:author" content="Jewel Johnson"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -116,7 +116,7 @@ code span.wa { color: #bf0303; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Chapter 2: Data manipulation using dplyr (part 1)"]},{"type":"character","attributes":{},"value":["Learn how to manipulate your data with the dplyr package.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jewel Johnson"]}]}]},{"type":"character","attributes":{},"value":["2021-12-13"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc_depth"]}},"value":[{"type":"integer","attributes":{},"value":[3]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Chapter 2: Data manipulation using dplyr (part 1)"]},{"type":"character","attributes":{},"value":["Learn how to manipulate your data with the dplyr package.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jewel Johnson"]}]}]},{"type":"character","attributes":{},"value":["2021-12-14"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc_depth"]}},"value":[{"type":"integer","attributes":{},"value":[3]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2610,7 +2610,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Chapter 2: Data manipulation using dplyr (part 1)","description":"Learn how to manipulate your data with the dplyr package.","authors":[{"author":"Jewel Johnson","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-13T00:00:00.000+05:30","citationText":"Johnson, 2021"}
+{"title":"Chapter 2: Data manipulation using dplyr (part 1)","description":"Learn how to manipulate your data with the dplyr package.","authors":[{"author":"Jewel Johnson","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-14T00:00:00.000+05:30","citationText":"Johnson, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2664,7 +2664,7 @@ R Tutorials
 <div class="d-byline">
   Jewel Johnson  
   
-<br/>2021-12-13
+<br/>2021-12-14
 </div>
 
 <div class="d-article">
@@ -2681,6 +2681,9 @@ R Tutorials
 <li><a href="#summarising-the-data">Summarising the data</a>
 <ul>
 <li><a href="#summarise">summarise()</a></li>
+</ul></li>
+<li><a href="#when-to-use-group_by">when to use group_by()</a>
+<ul>
 <li><a href="#count">count()</a></li>
 </ul></li>
 <li><a href="#manipulating-cases-or-observations">Manipulating cases or observations</a>
@@ -2800,6 +2803,11 @@ R Tutorials
  NA&#39;s   :2         NA&#39;s   :2                                 </code></pre>
 </div>
 </div>
+<h2 id="when-to-use-group_by">when to use group_by()</h2>
+<p>It can be confusing to decide when to use the <code>group_by()</code> function. In short, you should use it whenever you want any function to act separately on different groups present in the dataset. Here is a graphical representation of how the <code>summarise()</code> function is used to calculate the mean values of a dataset. When used with <code>group_by()</code> it calculates mean values for the respective groups in the data, but when <code>group_by()</code> is not used, it will calculate the mean value of the entire dataset irrespective of the different groups present and outputs a single column.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="photos/group_by.png" width="792" /></p>
+</div>
 <h3 id="count">count()</h3>
 <p>The <code>count()</code> command is used to count the number of rows of a variable. Has the same function as that of <code>n()</code></p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2869,7 +2877,7 @@ R Tutorials
 <div class="layout-chunk" data-layout="l-body">
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["species"],"name":[1],"type":["fct"],"align":["left"]},{"label":["island"],"name":[2],"type":["fct"],"align":["left"]},{"label":["bill_length_mm"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["bill_depth_mm"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["flipper_length_mm"],"name":[5],"type":["int"],"align":["right"]},{"label":["body_mass_g"],"name":[6],"type":["int"],"align":["right"]},{"label":["sex"],"name":[7],"type":["fct"],"align":["left"]},{"label":["year"],"name":[8],"type":["int"],"align":["right"]}],"data":[{"1":"Chinstrap","2":"Dream","3":"50.6","4":"19.4","5":"193","6":"3800","7":"male","8":"2007"},{"1":"Adelie","2":"Dream","3":"40.7","4":"17.0","5":"190","6":"3725","7":"male","8":"2009"},{"1":"Adelie","2":"Biscoe","3":"38.2","4":"18.1","5":"185","6":"3950","7":"male","8":"2007"},{"1":"Gentoo","2":"Biscoe","3":"52.2","4":"17.1","5":"228","6":"5400","7":"male","8":"2009"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["species"],"name":[1],"type":["fct"],"align":["left"]},{"label":["island"],"name":[2],"type":["fct"],"align":["left"]},{"label":["bill_length_mm"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["bill_depth_mm"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["flipper_length_mm"],"name":[5],"type":["int"],"align":["right"]},{"label":["body_mass_g"],"name":[6],"type":["int"],"align":["right"]},{"label":["sex"],"name":[7],"type":["fct"],"align":["left"]},{"label":["year"],"name":[8],"type":["int"],"align":["right"]}],"data":[{"1":"Chinstrap","2":"Dream","3":"45.4","4":"18.7","5":"188","6":"3525","7":"female","8":"2007"},{"1":"Adelie","2":"Biscoe","3":"35.3","4":"18.9","5":"187","6":"3800","7":"female","8":"2007"},{"1":"Chinstrap","2":"Dream","3":"51.9","4":"19.5","5":"206","6":"3950","7":"male","8":"2009"},{"1":"Gentoo","2":"Biscoe","3":"45.5","4":"15.0","5":"220","6":"5000","7":"male","8":"2008"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -2883,7 +2891,7 @@ R Tutorials
 <div class="layout-chunk" data-layout="l-body">
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["species"],"name":[1],"type":["fct"],"align":["left"]},{"label":["island"],"name":[2],"type":["fct"],"align":["left"]},{"label":["bill_length_mm"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["bill_depth_mm"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["flipper_length_mm"],"name":[5],"type":["int"],"align":["right"]},{"label":["body_mass_g"],"name":[6],"type":["int"],"align":["right"]},{"label":["sex"],"name":[7],"type":["fct"],"align":["left"]},{"label":["year"],"name":[8],"type":["int"],"align":["right"]}],"data":[{"1":"Adelie","2":"Torgersen","3":"41.8","4":"19.4","5":"198","6":"4450","7":"male","8":"2008"},{"1":"Gentoo","2":"Biscoe","3":"47.5","4":"14.0","5":"212","6":"4875","7":"female","8":"2009"},{"1":"Gentoo","2":"Biscoe","3":"46.5","4":"14.4","5":"217","6":"4900","7":"female","8":"2008"},{"1":"Gentoo","2":"Biscoe","3":"48.4","4":"14.4","5":"203","6":"4625","7":"female","8":"2009"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["species"],"name":[1],"type":["fct"],"align":["left"]},{"label":["island"],"name":[2],"type":["fct"],"align":["left"]},{"label":["bill_length_mm"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["bill_depth_mm"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["flipper_length_mm"],"name":[5],"type":["int"],"align":["right"]},{"label":["body_mass_g"],"name":[6],"type":["int"],"align":["right"]},{"label":["sex"],"name":[7],"type":["fct"],"align":["left"]},{"label":["year"],"name":[8],"type":["int"],"align":["right"]}],"data":[{"1":"Adelie","2":"Dream","3":"36.0","4":"17.1","5":"187","6":"3700","7":"female","8":"2009"},{"1":"Chinstrap","2":"Dream","3":"51.3","4":"19.9","5":"198","6":"3700","7":"male","8":"2007"},{"1":"Gentoo","2":"Biscoe","3":"43.6","4":"13.9","5":"217","6":"4900","7":"female","8":"2008"},{"1":"Adelie","2":"Biscoe","3":"35.0","4":"17.9","5":"192","6":"3725","7":"female","8":"2009"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>

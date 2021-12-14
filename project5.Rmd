@@ -118,6 +118,14 @@ summary(penguins)
 ```
 </div> 
 
+## when to use group_by()
+
+It can be confusing to decide when to use the `group_by()` function. In short, you should use it whenever you want any function to act separately on different groups present in the dataset. Here is a graphical representation of how the `summarise()` function is used to calculate the mean values of a dataset. When used with `group_by()` it calculates mean values for the respective groups in the data, but when `group_by()` is not used, it will calculate the mean value of the entire dataset irrespective of the different groups present and outputs a single column.
+
+```{r echo=FALSE}
+knitr::include_graphics('photos/group_by.png')
+```
+
 ### count()
 
 The `count()` command is used to count the number of rows of a variable. Has the same function as that of `n()`
