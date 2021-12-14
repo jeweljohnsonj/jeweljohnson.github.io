@@ -23,6 +23,9 @@ navbar:
       href: blog_posts.html
     - text: "R Tutorials"
       menu:
+        - text: "Basics of R"
+        - text: "Introduction to R"
+          href: project7.html
         - text: "Data visualization"
         - text: "Chapter 1: Data visualization using ggplot2"
           href: project1.html

@@ -90,9 +90,9 @@ code span.wa { color: #bf0303; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>One-carat Blog: Chapter 2: Customizing graphs in ggplot2</title>
+  <title>One-carat Blog: Chapter 1: Introduction to R</title>
 
-  <meta property="description" itemprop="description" content="Learn how to customize the aesthetics, labels and axes of a graph in ggplot2."/>
+  <meta property="description" itemprop="description" content="Learn the very basics of R programming language."/>
 
 
   <!--  https://schema.org/Article -->
@@ -101,22 +101,22 @@ code span.wa { color: #bf0303; } /* Warning */
   <meta name="article:author" content="Jewel Johnson"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="One-carat Blog: Chapter 2: Customizing graphs in ggplot2"/>
+  <meta property="og:title" content="One-carat Blog: Chapter 1: Introduction to R"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Learn how to customize the aesthetics, labels and axes of a graph in ggplot2."/>
+  <meta property="og:description" content="Learn the very basics of R programming language."/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="One-carat Blog"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="One-carat Blog: Chapter 2: Customizing graphs in ggplot2"/>
-  <meta property="twitter:description" content="Learn how to customize the aesthetics, labels and axes of a graph in ggplot2."/>
+  <meta property="twitter:title" content="One-carat Blog: Chapter 1: Introduction to R"/>
+  <meta property="twitter:description" content="Learn the very basics of R programming language."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Chapter 2: Customizing graphs in ggplot2"]},{"type":"character","attributes":{},"value":["Learn how to customize the aesthetics, labels and axes of a graph in ggplot2.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jewel Johnson"]}]}]},{"type":"character","attributes":{},"value":["2021-12-14"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc_depth"]}},"value":[{"type":"integer","attributes":{},"value":[3]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Chapter 1: Introduction to R"]},{"type":"character","attributes":{},"value":["Learn the very basics of R programming language.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jewel Johnson"]}]}]},{"type":"character","attributes":{},"value":["2021-12-14"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc_depth"]}},"value":[{"type":"integer","attributes":{},"value":[3]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2587,8 +2587,8 @@ code span.wa { color: #bf0303; } /* Warning */
   }</style>
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
-  <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
-  <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+  <link href="site_libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+  <script src="site_libs/panelset-0.2.6/panelset.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2608,7 +2608,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Chapter 2: Customizing graphs in ggplot2","description":"Learn how to customize the aesthetics, labels and axes of a graph in ggplot2.","authors":[{"author":"Jewel Johnson","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-14T00:00:00.000+05:30","citationText":"Johnson, 2021"}
+{"title":"Chapter 1: Introduction to R","description":"Learn the very basics of R programming language.","authors":[{"author":"Jewel Johnson","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-14T00:00:00.000+05:30","citationText":"Johnson, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2655,10 +2655,10 @@ R Tutorials
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Chapter 2: Customizing graphs in ggplot2</h1>
+<h1>Chapter 1: Introduction to R</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Learn how to customize the aesthetics, labels and axes of a graph in ggplot2.</p></p>
+<p><p>Learn the very basics of R programming language.</p></p>
 </div>
 
 <div class="d-byline">
@@ -2672,306 +2672,345 @@ R Tutorials
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#setting-up-the-prerequisites">1. Setting up the prerequisites</a></li>
-<li><a href="#building-a-plot">2. Building a plot</a>
+<li><a href="#introduction-to-r">Introduction to R</a></li>
+<li><a href="#installing-r-and-r-studio">Installing R and R Studio</a>
 <ul>
-<li><a href="#changing-colour">1. Changing colour</a></li>
-<li><a href="#changing-point-shape.">2. Changing point shape.</a></li>
-<li><a href="#changing-size">3. Changing size</a></li>
-<li><a href="#changing-colour-shape-and-size-manually">4. Changing colour, shape and size manually</a></li>
-<li><a href="#changing-the-opcaity-of-the-elements">5. Changing the opcaity of the elements</a></li>
-<li><a href="#changing-fill-colour">6. Changing fill colour</a></li>
-<li><a href="#changing-line-type">7. Changing line type</a></li>
-<li><a href="#changing-labels-in-the-axes">8. Changing labels in the axes</a></li>
-<li><a href="#tweaking-the-axes">9. Tweaking the axes</a></li>
+<li><a href="#windows">Windows</a></li>
+<li><a href="#macos">MacOS</a></li>
 </ul></li>
+<li><a href="#linux">Linux</a>
+<ul>
+<li><a href="#debian-ubuntu">Debian, Ubuntu</a></li>
+<li><a href="#fedora">Fedora</a></li>
+<li><a href="#manjaro">Manjaro</a></li>
+</ul></li>
+<li><a href="#basics-of-r">Basics of R</a>
+<ul>
+<li><a href="#source-window">1 : Source window</a></li>
+<li><a href="#console-terminal-jobs-windows">2 : Console, Terminal, Jobs windows</a></li>
+<li><a href="#environment-history-connections-tutorial-windows">3 : Environment, History, Connections, Tutorial windows</a></li>
+<li><a href="#files-plots-packages-help-viewer-windows">4 : Files, Plots, Packages, Help, Viewer windows</a></li>
+</ul></li>
+<li><a href="#creating-a-project-in-r">Creating a project in R</a></li>
+<li><a href="#first-lines-of-code">First lines of code</a>
+<ul>
+<li><a href="#vectors">Vectors</a></li>
+<li><a href="#matrix">Matrix</a></li>
 <li><a href="#summary">Summary</a></li>
 <li><a href="#references">References</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
-<p>After <a href="file:///home/jeweljohnson/Work/R_distill_github/jeweljohnson.github.io/docs/project1.html">Chapter 1</a> you must be familiar with the different types of graphs that you can plot using <code>ggplot2</code>. So for this tutorial, we will be learning how to customize those ggplot graphs to our liking. We will learn how to tweak the aesthetics, how to change labels and how to modify and change the axes in a graph.</p>
-<p>So let us plot a graph from scratch and learn how to use different aesthetics available.</p>
-<h2 id="setting-up-the-prerequisites">1. Setting up the prerequisites</h2>
-<p>First, we need to install the <code>ggplot2</code> package in R as it does not come in the standard distribution of R. For the dataset, we will first download the <code>Stat2Data</code> package which houses a lot of cool datasets. For this tutorial let us use the <code>Hawks</code> dataset which showcases body measurements from three different species of Hawks. This data was collected by students and faculty at Cornell College in Mount Vernon and the dataset was made available by late Prof. Bob Black at Cornell College.</p>
-<ul>
-<li>To install packages in R we use the command <code>install.packages()</code> and to load packages we use the command <code>library()</code>. Therefore to install and load <code>ggplot2</code> and <code>Stats2Data</code> packages we use the following lines of command. Call the <code>Hawks</code> data using the <code>data()</code> command.</li>
-</ul>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;Stat2Data&quot;</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Stat2Data)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Hawks&quot;</span>)</span></code></pre></div>
+
 </div>
-<ul>
-<li>Let us look at how the dataset is structured. Use <code>str()</code> command</li>
-</ul>
+<script src="js/output_folding.js"></script>
+<h2 id="introduction-to-r">Introduction to R</h2>
+<p>R programming language was first designed and developed by Dr. Ross Ihaka and Dr. Robert Gentleman back in 1993. It is primarily used in the field of statistics and data visualization. There are third-party software interfaces like the R Studio and Jupyter notebook, which can be used for an interactive experience while using R. The base R capabilities are extended using ‘packages’ which when installed and loaded can enable new functionality. With over 10,000 packages available to download, R is a versatile programming language fit for a wide variety of tasks. So let us dive into it.</p>
+<h2 id="installing-r-and-r-studio">Installing R and R Studio</h2>
+<p>R has a terminal interface which is not convenient for everyone. So we would install R Studio along with R which features an interactive desktop environment.</p>
+<h3 id="windows">Windows</h3>
+<p>To install R in windows 10/11;</p>
+<ol type="1">
+<li>Visit <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a> and click on ‘Download R for Windows’</li>
+<li>Then click on ‘base’ which will bring you to the the download page</li>
+<li>In the download page click ‘Download R 4.1.2 for Windows’. Download the file in your computer.</li>
+<li>Install the file in you computer.</li>
+</ol>
+<p>To install R Studio</p>
+<ol type="1">
+<li>Visit <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a> and scroll down to ‘All Installers’</li>
+<li>Download the file for windows and install it.</li>
+</ol>
+<h3 id="macos">MacOS</h3>
+<p>To install R in macOS;</p>
+<ol type="1">
+<li>Visit <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a> and click on ‘Download R for macOS’</li>
+<li>Then click on the latest .pkg file for your version of macOS</li>
+<li>Download the file in your computer and install it.</li>
+</ol>
+<p>To install R Studio</p>
+<ol type="1">
+<li>Visit <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a> and scroll down to ‘All Installers’</li>
+<li>Download the file for macOS and install it.</li>
+</ol>
+<h2 id="linux">Linux</h2>
+<p>Many linux distributions come with R pre installed. If not then depending on the distribution of linux, use the following command lines to install R and R Studio</p>
+<h3 id="debian-ubuntu">Debian, Ubuntu</h3>
+<p>For installing R</p>
+<pre><code>apt-get update
+apt-get install r-base r-base-dev</code></pre>
+<h3 id="fedora">Fedora</h3>
+<p>For installing R</p>
+<pre><code>sudo dnf install R</code></pre>
+<p>For installing R studio for Debian, Ubuntu and Fedora visit here for the instruction <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a>. Also for Ubuntu users check <a href="https://www.geeksforgeeks.org/how-to-install-r-studio-on-windows-and-linux/">here</a>.</p>
+<h3 id="manjaro">Manjaro</h3>
+<p>Users can also install R from Add/Remove software or use the command line below</p>
+<pre><code>sudo pacman -S r</code></pre>
+<p>For R Studio</p>
+<pre><code>pamac build rstudio-desktop-bin</code></pre>
+<p>For installing R and R Studio in other linux distributions please check with your respective linux forums.</p>
+<h2 id="basics-of-r">Basics of R</h2>
+<p>Here is how R Studio would look like. The theme might be different but apart from that there are no other differences.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Hawks)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
+<img src="photos/r_studio.png" alt="R studio interface" width="960" />
+<p class="caption">
+Figure 1: R studio interface
+</p>
 </div>
+</div>
+<p>You can see different windows numbered from 1 to 4. Each window is plays a specific role which is as follows;</p>
+<h3 id="source-window">1 : Source window</h3>
+<p>This is where you can open your R scripts, where you can write down your R codes.</p>
+<h3 id="console-terminal-jobs-windows">2 : Console, Terminal, Jobs windows</h3>
+<p>There are three windows in this region. The console window shows the outputs of your code. You can also input codes directly in the console, but writing codes on console is cumbersome as its difficult to edit codes or go back to a previous codes that you have run.</p>
+<p>The terminal window provides the system shell of your operating system and jobs window is used for running R scripts.</p>
+<p>Normally if you run a R script containing your code, you cannot do much unless the output is given. So if you want to run codes, but at same time does wants to do things side by side, then job windows is where locally run a script. For now you don’t have to worry about terminal and job windows.</p>
+<h3 id="environment-history-connections-tutorial-windows">3 : Environment, History, Connections, Tutorial windows</h3>
+<p>You might not have the build and git windows in your R Studio so don’t worry about them.</p>
+<p>In the environment window, all the ‘objects’ that you have saved or loaded in R will be displayed here. We will soon see what I meant by ‘objects’ in R.</p>
+<p>History window shows the history of the codes that you run.</p>
+<p>Connections windows is used to connect and work with remote databases, you don’t have to be concerned about this as a beginner.</p>
+<p>The tutorial window would be really helpful for you as it features a brilliant beginners tutorial for new R users. It also features an inbuilt console where you can learn and code at the same. Something which you should definitely check out.</p>
+<h3 id="files-plots-packages-help-viewer-windows">4 : Files, Plots, Packages, Help, Viewer windows</h3>
+<p>The file window is your file manager to browse files in your directory.</p>
+<p>Plot window shows the graphs which you plot using R.</p>
+<p>Packages window shows the R-packages which are installed in your computer. You can install new packages using the install option in this windows.</p>
+<p>Help window is one of the most useful windows. It features a Wikipedia like interface to explain everything about a function in R. We will see how to use this windows soon.</p>
+<p>Viewer windows is used to view interactive graphs and animations.</p>
+<h1 id="creating-a-project-in-r">Creating a project in R</h1>
+<ol type="1">
+<li>In R Studio go File –&gt; New project –&gt; New directory –&gt; New project</li>
+<li>Fill in the name of you directory as “R_tutorial” or as anything you wish</li>
+<li>Browse where you want your project directory to be. This will act as your main directory location where your scripts and plots will be saved by default.</li>
+</ol>
+<p>This is not typically how someone begins to learn R but I think this an important step. Whenever you start a project or a new work in R always create a new project directory for it . Speaking from experience my directory was filled with files from different projects that I worked on and it was a mess! So better make making project directories a habit from now only. So we have everything ready so let jump into the rabbit hole of R.</p>
+<h1 id="first-lines-of-code">First lines of code</h1>
+<p>Go to ‘File’ section the main menu and click New File –&gt; R script. This will create a new R script where we can write out first lines of code. Owing to tradition type the following codes in the R script. To run codes in the R script, press ‘Shift+Enter’ in the line of the code that you want to run. If you press just ‘Enter’ it will take you to the next line of the script.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["variable"],"name":[1],"type":["chr"],"align":["left"]},{"label":["classes"],"name":[2],"type":["chr"],"align":["left"]},{"label":["first_values"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"Month","2":"integer","3":"9, 9, 9, 9, 9, 9"},{"1":"Day","2":"integer","3":"19, 22, 23, 23, 27, 28"},{"1":"Year","2":"integer","3":"1992, 1992, 1992, 1992, 1992, 1992"},{"1":"CaptureTime","2":"integer","3":"13:30, 10:30, 12:45, 10:50, 11:15, 11:25"},{"1":"ReleaseTime","2":"integer","3":",  ,  ,  ,  ,"},{"1":"BandNumber","2":"integer","3":"877-76317, 877-76318, 877-76319, 745-49508, 1253-98801, 1207-55910"},{"1":"Species","2":"integer","3":"RT, RT, RT, CH, SS, RT"},{"1":"Age","2":"integer","3":"I, I, I, I, I, I"},{"1":"Sex","2":"integer","3":", , , F, F,"},{"1":"Wing","2":"double","3":"385, 376, 381, 265, 205, 412"},{"1":"Weight","2":"integer","3":"920, 930, 990, 470, 170, 1090"},{"1":"Culmen","2":"double","3":"25.7, NA, 26.7, 18.7, 12.5, 28.5"},{"1":"Hallux","2":"double","3":"30.1, NA, 31.3, 23.5, 14.3, 32.2"},{"1":"Tail","2":"integer","3":"219, 221, 235, 220, 157, 230"},{"1":"StandardTail","2":"integer","3":"NA, NA, NA, NA, NA, NA"},{"1":"Tarsus","2":"double","3":"NA, NA, NA, NA, NA, NA"},{"1":"WingPitFat","2":"integer","3":"NA, NA, NA, NA, NA, NA"},{"1":"KeelFat","2":"double","3":"NA, NA, NA, NA, NA, NA"},{"1":"Crop","2":"double","3":"NA, NA, NA, NA, NA, NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># typing the first line of code</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Hello World&quot;</span>)</span></code></pre></div>
+<pre><code>[1] &quot;Hello World&quot;</code></pre>
 </div>
-</div>
-<p>So there is a lot of information in the dataset which we can use for plotting. So let us try plotting them.</p>
-<h2 id="building-a-plot">2. Building a plot</h2>
-<p>One thing to remember here is that how ggplot2 builds a graph is by adding layers. Let us start by plotting the basic layer first where the x-axis shows ‘weight of the hawks’ and the y-axis shows ‘wingspan of the hawks’.</p>
+<p>Yeah! you have typed your first lines of code in R. You can also notice here that the first line was not shown in the output. This is because it is inserted as a comment. If you want to annotate your code by writing comments then use <code>#</code> before the comment that you want to write.</p>
+<p>R recognises mathematical operations and it also follows the BODMAS rule. See the codes below</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing))</span></code></pre></div>
-<p><img src="project2_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>[1] 5</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">-</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>[1] -1</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>[1] 6</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>[1] 0.6666667</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">^</span><span class="dv">3</span></span></code></pre></div>
+<pre><code>[1] 8</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">1-1</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">1</span>)</span></code></pre></div>
+<pre><code>[1] 1</code></pre>
 </div>
-<p>Wait a sec! Where are my data points? So right now if we look at the syntax of the ggplot code we can see that we have not told ggplot2 which geometry we want. Do we want a scatter plot or a histogram or any other type of graph? So let us plot a scatter plot first. Use <code>geom_point()</code> command. By adding <code>geom_point()</code> to the <code>ggplot()</code> command is equivalent to adding an extra layer to the already existing layer that we got previously. Let us also use <code>theme_bw()</code> for a nice looking theme.</p>
+<p>R also recognises logical operators.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<pre><code>Warning: Removed 11 rows containing missing values (geom_point).</code></pre>
-<p><img src="project2_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># is 2 equal to 3</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">==</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># is 2 greater than 3</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># is 2 less than 3</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&lt;</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># is 2 greater than or equal to 3</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&gt;=</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#is 2 less than or equal to 3</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&lt;=</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># is 2 not equal to 3</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">!=</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
 </div>
-<p>We got the graph! but we also got a warning message. The warning message tells us that the dataset which we had used to plot the graph had 11 rows of NA values and which could not be plotted into the graph. In real-life cases, we can have datasets with NA values due to various reasons, so this is fine.</p>
-<p>Now, this graph even though shows us data points we are not sure which point belongs to which species, as this dataset contains data for three species of Hawks. So let us try giving different colours to the points concerning the different species so that we are able to differentiate them.</p>
-<h3 id="changing-colour">1. Changing colour</h3>
-<ul>
-<li>To change colour of the ‘element’ with respect to species, we have to add <code>colour = Species</code> within the <code>aes()</code> of the ggplot command. I use the general term ‘element’ here to emphasize that the same change in aesthetics will work for most of other types of geometries in ggplot2 (something which you have seen extensively in <a href="file:///home/jeweljohnson/Work/R_distill_github/jeweljohnson.github.io/docs/project1.html">Chapter 1</a>. Like for a line graph, the ‘element’ would be lines, here our ‘element’ is point.</li>
-</ul>
+<p>You can see that the outputs are given as <code>TRUE</code> or <code>FALSE</code> statements. Now consider the lines of code below.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing, <span class="at">colour =</span> Species)) <span class="sc">+</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="project2_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dv">134</span> <span class="sc">+</span> <span class="dv">245</span> </span></code></pre></div>
+<pre><code>[1] 379</code></pre>
 </div>
-<p>The species abbreviations are the following: CH=Cooper’s, RT=Red-tailed, SS=Sharp-Shinned.</p>
-<p>Now, this graph is way better than the previous one.</p>
-<h3 id="changing-point-shape.">2. Changing point shape.</h3>
-<ul>
-<li>Now instead of the colour let us change the shape of the point. Use <code>shape()</code> command in <code>aes()</code></li>
-</ul>
+<p>Suppose we want to save this output. We can do that by assigning this output value to an object. This can be done using the codes below</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing, <span class="at">shape =</span> Species)) <span class="sc">+</span> <span class="co">#instead of colour use shape.</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>() </span></code></pre></div>
-<p><img src="project2_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">134</span> <span class="sc">+</span> <span class="dv">245</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co">#you print value of x by simply entering x </span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>[1] 379</code></pre>
 </div>
-<p>Now we did change the shape of points but it is still hard to make out the difference. Let us try specifying colour along with the shape</p>
-<ul>
-<li>Adding both <code>colour</code> and <code>shape</code> in aesthetics</li>
-</ul>
+<p>To assign values to a variable in R use <code>&lt;-</code> and point it to the variable that you want to save the output to. The variables can be words or alphabets or can even contain special characters.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing, </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">colour =</span> Species, <span class="at">shape =</span> Species)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="project2_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#using underscore in variable name</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>mean_value <span class="ot">&lt;-</span> <span class="dv">234</span> <span class="sc">+</span> <span class="dv">456</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>mean_value</span></code></pre></div>
+<pre><code>[1] 690</code></pre>
 </div>
-<p>This plot is much better than the previous one.</p>
-<p>Now let us try specifying <code>colour</code> within the <code>aes()</code> of the <code>geom()</code></p>
+<p>I mentioned that you can use special characters, suppose we use the addition operator sign <code>+</code>.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing)) <span class="sc">+</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> Species)) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="project2_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>a<span class="sc">+</span>b <span class="ot">&lt;-</span> <span class="dv">344</span><span class="sc">*</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>Error in a + b &lt;- 344 * 2: object &#39;a&#39; not found</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>a<span class="sc">+</span>b</span></code></pre></div>
+<pre><code>Error in eval(expr, envir, enclos): object &#39;a&#39; not found</code></pre>
 </div>
-<p>We got the same graph as before! So what is the difference in specifying <code>colour</code> within <code>aes()</code> of <code>ggplot()</code> compared to the same but within <code>geom()</code>. Let us look at another example.</p>
+<p>You will get an error saying ‘object ’a’ not found’. This is because <code>+</code> is an operator recognised by R, so here what you are essentially doing is adding object a and b which you have not defined before, even if a and b are defined before hand, the process will still fail as R does not consider ‘a+b’ as a valid variable name. Now if you must save the result with ‘a+b’ as the variable name then type the variable between apostrophes.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing, <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="project2_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">a+b</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="dv">344</span><span class="sc">*</span><span class="dv">2</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">a+b</span><span class="st">`</span></span></code></pre></div>
+<pre><code>[1] 688</code></pre>
 </div>
-<p>I manually changed the colour of the points to red colour. Now let try specifying <code>colour</code> to the <code>aes()</code> within the <code>geom()</code></p>
+<p>Even if it works try your best to not use characters which have pre-defined fucntion in R in the variable name. A useful character to use would be the underscore <code>_</code>.</p>
+<p>With that said, the objects themselves can be used under different mathematical operators.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing, <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> Species)) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="project2_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>a<span class="sc">+</span>b</span></code></pre></div>
+<pre><code>[1] 7</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>a<span class="sc">-</span>b</span></code></pre></div>
+<pre><code>[1] -1</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">#you can also assign objects to new objects as well</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> a<span class="sc">+</span>b</span></code></pre></div>
 </div>
-<p>You can see that the red colour is overridden by other colours. So the <code>aes()</code> mapping (in this case <code>colour</code>) within <code>geom()</code> will override any <code>aes()</code> mapping within <code>ggplot()</code>. And whatever <code>aes()</code> mapping we give within <code>ggplot()</code> will be inherited by all <code>geom()</code> layers that will be added along with the <code>ggplot()</code> layer.</p>
-<p>Let us see another case.</p>
+<p>Apart from numbers you can also assign letters or words to variable.</p>
 <div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing)) <span class="sc">+</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">&quot;darkred&quot;</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
-</details>
-<p><img src="project2_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="st">&quot;apple&quot;</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+<pre><code>[1] &quot;apple&quot;</code></pre>
 </div>
+<p>Now what if you add a variable containing numbers with a variable containing words.</p>
 <div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing)) <span class="sc">+</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> <span class="st">&quot;darkred&quot;</span>)) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
-</details>
-<p><img src="project2_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="st">&quot;apple&quot;</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> b</span></code></pre></div>
+<pre><code>Error in a + b: non-numeric argument to binary operator</code></pre>
 </div>
-<p>If you compare both the codes, the only difference is that the <code>colour = "darkred"</code> command was outside <code>aes()</code> in the first code and inside <code>aes()</code> in the second code. So why didn’t the second graph have the same dark-red coloured points as the first one? The reason is that in the first code we are explicitly told to have all data points to be coloured dark-red but that is not the case with the second code. In the second code, since we have specified it inside <code>aes()</code>, ggplot is trying to look for a variable called “darkred” inside the dataset and colour it accordingly. This is why the legend that appears in the second graph has listed “darkred” as a category. And ggplot fails to find the variable called “darkred” but it still recognizes the <code>colour</code> command line and colour all the points in red. So the bottom line is that R has a pre-determined way of reading a code, so we users should well-understand what each line is expected to do and should not expect R to just fill it in accordingly to what we write.</p>
-<p>Now let us try a few other examples;</p>
-<h3 id="changing-size">3. Changing size</h3>
-<ul>
-<li>Use <code>size()</code> in <code>aes()</code></li>
-</ul>
+<p>Okay that did not work right. The error essentially says on the of the objects that you trying to add have a non-numeric value and thus addition operator cannot be used. So how does R know that 2 is a number and the word “apple” is not a number. R uses ‘classes’ to categorise the values present in different objects. You check the class of an object using the function <code>class()</code>. Let us look at some classes.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Hallux, <span class="at">size =</span> Culmen)) <span class="sc">+</span> </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="project2_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># real numbers are in &#39;numeric&#39; class</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fl">1.1</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(a)</span></code></pre></div>
+<pre><code>[1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># to save a number as integer class use L after the number</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>a1 <span class="ot">&lt;-</span> 2L</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(a1)</span></code></pre></div>
+<pre><code>[1] &quot;integer&quot;</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># words and letters will have &#39;character&#39; class</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="st">&quot;ball&quot;</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(b)</span></code></pre></div>
+<pre><code>[1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># TRUE and FALSE belong to the &#39;logical&#39; class</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>c<span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>[1] &quot;logical&quot;</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># complex numbers are in &#39;complex&#39; class</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">+</span>3i</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(d)</span></code></pre></div>
+<pre><code>[1] &quot;complex&quot;</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># NA stands for not applicable, NA is recgonised as logical class in R</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>e <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(e)</span></code></pre></div>
+<pre><code>[1] &quot;logical&quot;</code></pre>
 </div>
-<h3 id="changing-colour-shape-and-size-manually">4. Changing colour, shape and size manually</h3>
-<ul>
-<li>Use <code>scale_shape_manual()</code> for changing shape, similarly <code>scale_color_manual()</code> for changing colour and <code>scale_size_manual()</code> for changing size of the element.</li>
-</ul>
+<h2 id="vectors">Vectors</h2>
+<p>You can also assign more than one value to an object to create vectors.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Hallux, <span class="at">colour =</span> Species,</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">shape =</span> Species, <span class="at">size =</span> Species)) <span class="sc">+</span> </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)) <span class="sc">+</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&#39;red&#39;</span>,<span class="st">&#39;blue&#39;</span>, <span class="st">&#39;green&#39;</span>)) <span class="sc">+</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">10</span>)) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="project2_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+<pre><code>[1] 1 2 3</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>)</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div>
+<pre><code>[1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="st">&quot;a&quot;</span>, <span class="dv">3</span>)</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>c</span></code></pre></div>
+<pre><code>[1] &quot;1&quot; &quot;a&quot; &quot;3&quot;</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(a)</span></code></pre></div>
+<pre><code>[1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(b)</span></code></pre></div>
+<pre><code>[1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(c)</span></code></pre></div>
+<pre><code>[1] &quot;character&quot;</code></pre>
 </div>
+<p>In object ‘c’, you can see that it has both character and numeric class elements. But when you check class of c, it is shown as ‘character’. So if a character element is present in the data along with numbers, then those numbers would be treated as characters by R. By assigning multiple values to a variable, the object that you have made is essentially a vector. Let us look some more commands</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="project2_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="co"># gives the length of the vector a</span></span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(a)</span></code></pre></div>
+<pre><code>[1] 5</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># outputs the structure of the vector a, useful in viewing datasets</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(a)</span></code></pre></div>
+<pre><code> num [1:5] 1 2 3 4 5</code></pre>
 </div>
-<h3 id="changing-the-opcaity-of-the-elements">5. Changing the opcaity of the elements</h3>
-<ul>
-<li>Use <code>alpha()</code> within the <code>geom()</code> with a numeric value to change the opacity of the elements. This is useful for visualising large datasets such as this.</li>
-</ul>
+<p>You can also assign names for the vector columns using the function <code>names()</code>.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing, <span class="at">colour =</span> Species)) <span class="sc">+</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="project2_files/figure-html5/unnamed-chunk-17-1.png" width="624" /></p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;carrot&quot;</span>)</span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(a) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;fruit&quot;</span>, <span class="st">&quot;vegetable&quot;</span>)</span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+<pre><code>    fruit vegetable 
+  &quot;apple&quot;  &quot;carrot&quot; </code></pre>
 </div>
-<p>The same commands also work for most of the other types of <code>geom()</code>. Now let us see a few other aesthetics in other types of geoms.</p>
-<h3 id="changing-fill-colour">6. Changing fill colour</h3>
-<ul>
-<li>Use <code>fill()</code> in <code>aes()</code></li>
-</ul>
+<p>You can also perform mathematical operations on vectors.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">25</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="project2_files/figure-html5/unnamed-chunk-18-1.png" width="624" /></p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creates a sequence of numbers from 1 to 5</span></span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+<pre><code>[1] 1 2 3 4 5</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div>
+<pre><code>[1]  6  7  8  9 10</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> b</span></code></pre></div>
+<pre><code>[1]  7  9 11 13 15</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">-</span> b</span></code></pre></div>
+<pre><code>[1] -5 -5 -5 -5 -5</code></pre>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">*</span> b</span></code></pre></div>
+<pre><code>[1]  6 14 24 36 50</code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">/</span> b</span></code></pre></div>
+<pre><code>[1] 0.1666667 0.2857143 0.3750000 0.4444444 0.5000000</code></pre>
 </div>
-<ul>
-<li>Use <code>scale_fill_manual()</code> to manually change the colours.</li>
-</ul>
+<p>As you can see, the respective column values in each of the vector is used for the operations.</p>
+<h2 id="matrix">Matrix</h2>
+<p>Vectors are essentially one dimensional matrices. So let us create a matrix in R using the function <code>matrix()</code></p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">25</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;darkred&quot;</span>, <span class="st">&quot;darkblue&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>))</span></code></pre></div>
-<p><img src="project2_files/figure-html5/unnamed-chunk-19-1.png" width="624" /></p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this will create a matrix having values from 1 to 12</span></span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="co"># byrow = TRUE tells R that values should be filled in row wise order</span></span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a><span class="co"># nrow = 4 means no of rows should be 4</span></span>
+<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    4    5    6
+[3,]    7    8    9
+[4,]   10   11   12</code></pre>
 </div>
-<h3 id="changing-line-type">7. Changing line type</h3>
-<ul>
-<li>Use <code>linetype</code> in <code>aes()</code></li>
-</ul>
+<p>Now let us try to create a matrix using different objects</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing, <span class="at">linetype =</span> Species)) <span class="sc">+</span> </span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="project2_files/figure-html5/unnamed-chunk-20-1.png" width="624" /></p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">c</span>(a,b)</span>
+<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(d, <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    2    3    4    5
+[2,]    6    7    8    9   10</code></pre>
 </div>
-<ul>
-<li>You can manually change line types using <code>scale_linetype_manual()</code></li>
-</ul>
+<p>You can also assign row names and column names for this matrix</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing, <span class="at">linetype =</span> Species)) <span class="sc">+</span> </span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linetype_manual</span>(<span class="at">values=</span> <span class="fu">c</span>(<span class="st">&quot;twodash&quot;</span>, <span class="st">&quot;longdash&quot;</span>, <span class="st">&quot;dotdash&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="project2_files/figure-html5/unnamed-chunk-21-1.png" width="624" /></p>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="project2_files/figure-html5/unnamed-chunk-22-1.png" width="624" /></p>
-</div>
-<p>Now let us also see how to change the labels in a graph.</p>
-<h3 id="changing-labels-in-the-axes">8. Changing labels in the axes</h3>
-<ul>
-<li>Use <code>xlab()</code> to change x-axis title, <code>ylab()</code> to change y-axis title, <code>ggtitle()</code> with <code>label</code> and <code>subtitle</code> to add title and subtitle respectively.</li>
-</ul>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing, <span class="at">colour =</span> Species)) <span class="sc">+</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">&quot;Weight (gm)&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Wing (mm)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label =</span> <span class="st">&quot;Weight vs Wing span in three different species of Hawks&quot;</span>, </span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">subtitle =</span> <span class="st">&quot;CH=Cooper&#39;s, RT=Red-tailed, SS=Sharp-Shinned&quot;</span>)</span></code></pre></div>
-<p><img src="project2_files/figure-html5/unnamed-chunk-23-1.png" width="624" /></p>
-</div>
-<ul>
-<li>The same result can be obtained by using <code>labs()</code> to specify each label in the graph. For renaming the legend title, the command will depend on what is there within the <code>aes()</code> or in other words what is the legend based on.</li>
-</ul>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing, <span class="at">colour =</span> Species)) <span class="sc">+</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Weight (gm)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Wing (mm)&quot;</span>, </span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">title=</span> <span class="st">&quot;Weight vs Wing span in three different species of Hawks&quot;</span>, </span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">subtitle =</span> <span class="st">&quot;CH=Cooper&#39;s, RT=Red-tailed, SS=Sharp-Shinned&quot;</span>,</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">&quot;Source: Hawk dataset from Stat2Data r-package&quot;</span>, <span class="co">#caption for the graph</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">colour =</span> <span class="st">&quot;Hawk Species&quot;</span>, <span class="co"># rename legend title</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">tag =</span> <span class="st">&quot;A&quot;</span>) <span class="co">#figure tag</span></span></code></pre></div>
-<p><img src="project2_files/figure-html5/unnamed-chunk-24-1.png" width="624" /></p>
-</div>
-<h3 id="tweaking-the-axes">9. Tweaking the axes</h3>
-<ul>
-<li>Use <code>xlim()</code> and <code>ylim()</code> for limiting x and y axes respectively.</li>
-</ul>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing, <span class="at">colour =</span> Species)) <span class="sc">+</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1000</span>)) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">200</span>,<span class="dv">350</span>))</span></code></pre></div>
-<p><img src="project2_files/figure-html5/unnamed-chunk-25-1.png" width="624" /></p>
-</div>
-<ul>
-<li>Use <code>coord_cartesian()</code> to zoom in on a particular area in the graph</li>
-</ul>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing, <span class="at">colour =</span> Species)) <span class="sc">+</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1000</span>),</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                                                   <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">200</span>,<span class="dv">350</span>))</span></code></pre></div>
-<p><img src="project2_files/figure-html5/unnamed-chunk-26-1.png" width="624" /></p>
-</div>
-<ul>
-<li>Use <code>coord_flip()</code> to flip the x and y axes.</li>
-</ul>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing, <span class="at">colour =</span> Species)) <span class="sc">+</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code></pre></div>
-<p><img src="project2_files/figure-html5/unnamed-chunk-27-1.png" width="624" /></p>
-</div>
-<ul>
-<li>Use <code>scale_x_continuous()</code> for tweaking the x-axis. The same command work for the y-axis also. You can include <code>label()</code> inside the command to manually label the breaks of the axes.</li>
-</ul>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing, <span class="at">colour =</span> Species)) <span class="sc">+</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1000</span>,<span class="dv">2000</span>))</span></code></pre></div>
-</details>
-<p><img src="project2_files/figure-html5/unnamed-chunk-28-1.png" width="624" /></p>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing, <span class="at">colour =</span> Species)) <span class="sc">+</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1000</span>,<span class="dv">2000</span>),<span class="at">label =</span> <span class="fu">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>))</span></code></pre></div>
-</details>
-<p><img src="project2_files/figure-html5/unnamed-chunk-29-1.png" width="624" /></p>
-</div>
-<ul>
-<li>Use <code>scale_y_reverse()</code> to display the y values in the descending order. Same command applies to x-axis also.</li>
-</ul>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Hawks, <span class="fu">aes</span>(<span class="at">x =</span> Weight, <span class="at">y =</span> Wing, <span class="at">colour =</span> Species)) <span class="sc">+</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">scale_y_reverse</span>()</span></code></pre></div>
-<p><img src="project2_files/figure-html5/unnamed-chunk-30-1.png" width="624" /></p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span><span class="sc">:</span><span class="dv">8</span>)</span>
+<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">c</span>(a,b)</span>
+<span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a>my_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(d, <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb98-5"><a href="#cb98-5" aria-hidden="true" tabindex="-1"></a><span class="co"># changing row names</span></span>
+<span id="cb98-6"><a href="#cb98-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(my_matrix) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>)</span>
+<span id="cb98-7"><a href="#cb98-7" aria-hidden="true" tabindex="-1"></a><span class="co"># changing column names</span></span>
+<span id="cb98-8"><a href="#cb98-8" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(my_matrix) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;first&quot;</span>, <span class="st">&quot;second&quot;</span>, <span class="st">&quot;third&quot;</span>)</span>
+<span id="cb98-9"><a href="#cb98-9" aria-hidden="true" tabindex="-1"></a>my_matrix</span></code></pre></div>
+<pre><code>  first second third
+a     1      2     3
+b     6      7     8</code></pre>
 </div>
 <h2 id="summary">Summary</h2>
-<p>In this tutorial, we learned how to modify aesthetic present for different geoms in ggplot2. Then we learned how to modify labels in a graph and finally, we learned how to modify and change the axes elements. This tutorial is in no way exhaustive of the different ways you can modify a graph as there many more methods which are not discussed here. Instead of trying to include everything, this tutorial tries to be a stepping stone to help students of R to learn the basics of tweaking a graph. Try to practice what is covered here using other datasets available in the r-package <code>Stat2Data</code>. Have a good day my friend!</p>
-<p><br></p>
-<p><a href="project3.html" class="btn button_round" style="float: right;">Next chapter:<br> 3. Even more customizations in ggplot2</a> <a href="project1.html" class="btn button_round" style="float: left;">Previous chapter:<br> 1. Data visualization using ggplot2</a></p>
 <h2 id="references">References</h2>
-<ol type="1">
-<li><p>H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016. Read more about ggplot2 <a href="https://ggplot2.tidyverse.org/">here</a>. You can also look at the <a href="https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf">cheat sheet</a> for all the syntax used in <code>ggplot2</code>. Also check this <a href="https://github.com/erikgahner/awesome-ggplot2">out</a>.</p></li>
-<li><p>Ann Cannon, George Cobb, Bradley Hartlaub, Julie Legler, Robin Lock, Thomas Moore, Allan Rossman and Jeffrey Witmer (2019). Stat2Data: Datasets for Stat2. R package version 2.0.0. <a href="https://CRAN.R-project.org/package=Stat2Data" class="uri">https://CRAN.R-project.org/package=Stat2Data</a></p></li>
-</ol>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
