@@ -2740,27 +2740,17 @@ R Tutorials
 <p>The functions that are described below have the same functionality as that of <code>bind_cols()</code> but give you control over how the columns are joined.</p>
 <h2 id="mutating-joins-and-filtering-joins">Mutating joins and filtering joins</h2>
 <p>Mutating joins include <code>left_join()</code>, <code>right_join()</code>, <code>inner_join()</code> and <code>full_join()</code> and filtering joins include <code>semi_join()</code> and <code>anti_join()</code>.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#making a dummy dataset</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>), <span class="at">z =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(df2)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">inner_join</span>(df2)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">right_join</span>(df2)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">full_join</span>(df2)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">anti_join</span>(df2)</span></code></pre></div>
-</div>
 <div class="l-page">
 <div class="panelset">
 <section id="left_join" class="panel-name panel">
 <h3 class="panel-name">left_join()</h3>
-<p>In the code below, matching variables of df2 are joined with df1. In the final data, you can see that only kevin and sam from df2 are matched with df1, and only those row values are joined with df1. For those variables which didn’t get a match, the row values for those are filled with <code>NA</code>. You can interpret the variables with <code>NA</code> values as; both john and chris are not present in df2. If you are familiar with set theory in mathematics, what we are doing essentially is similar to <span class="math inline">\(df1 \cap df2 \cup df1\)</span>.</p>
+<p>In the code below, matching variables of df2 are joined with df1. In the final data, you can see that only kevin and sam from df2 are matched with df1, and only those row values are joined with df1. For those variables which didn’t get a match, the row values for those are filled with <code>NA</code>. You can interpret the variables with <code>NA</code> values as; both john and chris are not present in df2.</p>
+<p>If you are familiar with set theory in mathematics, what we are doing essentially is similar to <span class="math inline">\((df1 \cap df2) \cup df1\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>), <span class="at">z =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(df2)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>), <span class="at">z =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(df2)</span></code></pre></div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div data-pagedtable="false">
@@ -2772,12 +2762,13 @@ R Tutorials
 </section>
 <section id="right_join" class="panel-name panel">
 <h3 class="panel-name">right_join()</h3>
-<p>Similar to <code>left_join()</code> but here, you will be joining matching values from df1 to df2, the opposite of what we did earlier. As you can see only kevin and sam from the df1 is matched with df2, and only those row values are joined with df2. For the variables which didn’t get a match, the row values for those are filled with <code>NA</code>. You can interpret the variables with <code>NA</code> values as; bob is not present in df1. This function, in the manner used here, is similar to <span class="math inline">\(df1 \cap df2 \cup df2\)</span>.</p>
+<p>Similar to <code>left_join()</code> but here, you will be joining matching values from df1 to df2, the opposite of what we did earlier. As you can see only kevin and sam from the df1 is matched with df2, and only those row values are joined with df2. For the variables which didn’t get a match, the row values for those are filled with <code>NA</code>. You can interpret the variables with <code>NA</code> values as; bob is not present in df1.</p>
+<p>This function, in the manner used here, is similar to <span class="math inline">\((df1 \cap df2) \cup df2\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>), <span class="at">z =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">right_join</span>(df2)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>), <span class="at">z =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">right_join</span>(df2)</span></code></pre></div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div data-pagedtable="false">
@@ -2789,12 +2780,13 @@ R Tutorials
 </section>
 <section id="inner_join" class="panel-name panel">
 <h3 class="panel-name">inner_join()</h3>
-<p>The function <code>inner_join()</code> compares both df1 and df2 variables and only joins rows with the same variables. Here only kevin and sam are common in both the dataframes so the row values of only those columns are joined and others are omitted. This function is similar to <span class="math inline">\(df1 \cap df2\)</span>.</p>
+<p>The function <code>inner_join()</code> compares both df1 and df2 variables and only joins rows with the same variables. Here only kevin and sam are common in both the dataframes so the row values of only those columns are joined and others are omitted.</p>
+<p>This function is similar to <span class="math inline">\(df1 \cap df2\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>), <span class="at">z =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">inner_join</span>(df2)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>), <span class="at">z =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">inner_join</span>(df2)</span></code></pre></div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div data-pagedtable="false">
@@ -2806,12 +2798,13 @@ R Tutorials
 </section>
 <section id="full_join" class="panel-name panel">
 <h3 class="panel-name">full_join()</h3>
-<p>The function <code>full_join()</code> compares both df1 and df2 variables and joins all possible matches while retaining both mistakes in df1 and df2 with <code>NA</code> values. This function is similar to <span class="math inline">\(df1 \cup df2\)</span>.</p>
+<p>The function <code>full_join()</code> compares both df1 and df2 variables and joins all possible matches while retaining both mistakes in df1 and df2 with <code>NA</code> values.</p>
+<p>This function is similar to <span class="math inline">\(df1 \cup df2\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>), <span class="at">z =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">full_join</span>(df2)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>), <span class="at">z =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">full_join</span>(df2)</span></code></pre></div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div data-pagedtable="false">
@@ -2823,12 +2816,13 @@ R Tutorials
 </section>
 <section id="anti_join" class="panel-name panel">
 <h3 class="panel-name">anti_join()</h3>
-<p>This is an example of filtering join. The function <code>anti_join()</code> compares df1 variables to and df2 variables and only outputs those variables of df1 which didn’t get a match with df2. This function, in the manner used here, is similar to <span class="math inline">\(df1 \cap df2^c\)</span>.</p>
+<p>This is an example of filtering join. The function <code>anti_join()</code> compares df1 variables to and df2 variables and only outputs those variables of df1 which didn’t get a match with df2.</p>
+<p>This function, in the manner used here, is similar to <span class="math inline">\(df1 \cap df2^c\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>), <span class="at">z =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">anti_join</span>(df2)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>), <span class="at">z =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">anti_join</span>(df2)</span></code></pre></div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div data-pagedtable="false">
@@ -2842,10 +2836,10 @@ R Tutorials
 <h3 class="panel-name">semi_join()</h3>
 <p>This is an example of filtering join. The function <code>semi_join()</code> is similar to <code>inner_join()</code> but it only gives variables of df1 which has a match with df2.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>), <span class="at">z =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">semi_join</span>(df2)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>), <span class="at">z =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">semi_join</span>(df2)</span></code></pre></div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div data-pagedtable="false">
@@ -2859,7 +2853,7 @@ R Tutorials
 </div>
 <p>Here is a nice graphical representation of the functions we just described now. Image <a href="https://rpubs.com/frasermyers/627597">source</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-18"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-17"></span>
 <img src="photos/joins.jpg" alt="Source: RPubs.com"  />
 <p class="caption">
 Figure 1: Source: RPubs.com
@@ -2867,7 +2861,7 @@ Figure 1: Source: RPubs.com
 </div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-19"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-18"></span>
 <img src="photos/joins1.jpg" alt="Source: RPubs.com"  />
 <p class="caption">
 Figure 2: Source: RPubs.com
@@ -2877,27 +2871,27 @@ Figure 2: Source: RPubs.com
 <h2 id="aditional-commands-for-joins">Aditional commands for joins</h2>
 <p>Additionally, you can specify which common columns to match.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>), <span class="at">z =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># match with column &#39;x&#39;</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(df2, <span class="at">by =</span> <span class="st">&quot;x&quot;</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>df4 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">b =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>), <span class="at">z =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># matching with column having different names, a and b in this case</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>df3 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(df4, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span> <span class="ot">=</span> <span class="st">&quot;b&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>), <span class="at">z =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># match with column &#39;x&#39;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(df2, <span class="at">by =</span> <span class="st">&quot;x&quot;</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>df4 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">b =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>), <span class="at">z =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># matching with column having different names, a and b in this case</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>df3 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(df4, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span> <span class="ot">=</span> <span class="st">&quot;b&quot;</span>))</span></code></pre></div>
 </div>
 <h2 id="set-operations">Set operations</h2>
 <p>Similar to the mutating join functions that we had seen, there are different functions related to set theory operations.</p>
 <h3 id="intersect">intersect()</h3>
 <p>Outputs common rows in the dataset.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>))</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>))</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">intersect</span>(df1, df2)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>))</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>))</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">intersect</span>(df1, df2)</span></code></pre></div>
 <pre><code>       x
 1: kevin
 2:   sam</code></pre>
@@ -2905,10 +2899,10 @@ Figure 2: Source: RPubs.com
 <h3 id="setdiff">setdiff()</h3>
 <p>Outputs rows in first data frame but not in second data frame.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>))</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>))</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>(df1, df2)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>(df1, df2)</span></code></pre></div>
 <pre><code>       x
 1:  john
 2: chris</code></pre>
@@ -2916,10 +2910,10 @@ Figure 2: Source: RPubs.com
 <h3 id="union">union()</h3>
 <p>Outputs all the rows in both dataframes</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>))</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>))</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">union</span>(df1, df2)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">union</span>(df1, df2)</span></code></pre></div>
 <pre><code>       x
 1:  john
 2: kevin
@@ -2930,10 +2924,10 @@ Figure 2: Source: RPubs.com
 <h3 id="setequal">setequal()</h3>
 <p>Checks whether two datasets have same number of rows.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>))</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>))</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setequal</span>(df1, df2)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>))</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;sam&quot;</span>, <span class="st">&quot;bob&quot;</span>))</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setequal</span>(df1, df2)</span></code></pre></div>
 <pre><code>[1] FALSE</code></pre>
 </div>
 <h2 id="summary">Summary</h2>

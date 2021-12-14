@@ -94,24 +94,14 @@ The functions that are described below have the same functionality as that of `b
 
 Mutating joins include `left_join()`, `right_join()`, `inner_join()` and `full_join()` and filtering joins include `semi_join()` and `anti_join()`.
 
-```{r, eval=FALSE}
-#making a dummy dataset
-df1 <- tidytable::data.table(x = c("john","kevin","chris","sam","sam"), y = 1:5)
-df2 <- tidytable::data.table(x = c("kevin","sam", "bob"), z = 10:12)
-
-df1 %>% left_join(df2)
-df1 %>% inner_join(df2)
-df1 %>% right_join(df2)
-df1 %>% full_join(df2)
-df1 %>% anti_join(df2)
-```
-
 ::: {.l-page}
 ::: {.panelset}
 ::: {.panel}
 ### left_join() {.panel-name}
 
-In the code below, matching variables of df2 are joined with df1. In the final data, you can see that only kevin and sam from df2 are matched with df1, and only those row values are joined with df1. For those variables which didn't get a match, the row values for those are filled with `NA`. You can interpret the variables with `NA` values as; both john and chris are not present in df2. If you are familiar with set theory in mathematics, what we are doing essentially is similar to $df1 \cap df2 \cup df1$.
+In the code below, matching variables of df2 are joined with df1. In the final data, you can see that only kevin and sam from df2 are matched with df1, and only those row values are joined with df1. For those variables which didn't get a match, the row values for those are filled with `NA`. You can interpret the variables with `NA` values as; both john and chris are not present in df2.
+
+If you are familiar with set theory in mathematics, what we are doing essentially is similar to $(df1 \cap df2) \cup df1$.
 
 ```{r, eval=FALSE}
 df1 <- tidytable::data.table(x = c("john","kevin","chris","sam","sam"), y = 1:5)
@@ -130,7 +120,9 @@ paged_table(df1 %>% left_join(df2))
 ::: {.panel}
 ### right_join() {.panel-name}
 
-Similar to `left_join()` but here, you will be joining matching values from df1 to df2, the opposite of what we did earlier. As you can see only kevin and sam from the df1 is matched with df2, and only those row values are joined with df2. For the variables which didn't get a match, the row values for those are filled with `NA`. You can interpret the variables with `NA` values as; bob is not present in df1. This function, in the manner used here, is similar to $df1 \cap df2 \cup df2$.
+Similar to `left_join()` but here, you will be joining matching values from df1 to df2, the opposite of what we did earlier. As you can see only kevin and sam from the df1 is matched with df2, and only those row values are joined with df2. For the variables which didn't get a match, the row values for those are filled with `NA`. You can interpret the variables with `NA` values as; bob is not present in df1. 
+
+This function, in the manner used here, is similar to $(df1 \cap df2) \cup df2$.
 
 ```{r, eval=FALSE}
 df1 <- tidytable::data.table(x = c("john","kevin","chris","sam","sam"), y = 1:5)
@@ -149,7 +141,9 @@ paged_table(df1 %>% right_join(df2))
 ::: {.panel}
 ### inner_join() {.panel-name}
 
-The function `inner_join()` compares both df1 and df2 variables and only joins rows with the same variables. Here only kevin and sam are common in both the dataframes so the row values of only those columns are joined and others are omitted. This function is similar to $df1 \cap df2$.  
+The function `inner_join()` compares both df1 and df2 variables and only joins rows with the same variables. Here only kevin and sam are common in both the dataframes so the row values of only those columns are joined and others are omitted. 
+
+This function is similar to $df1 \cap df2$.  
 
 ```{r, eval=FALSE}
 df1 <- tidytable::data.table(x = c("john","kevin","chris","sam","sam"), y = 1:5)
@@ -168,7 +162,9 @@ paged_table(df1 %>% inner_join(df2))
 ::: {.panel}
 ### full_join() {.panel-name}
 
-The function `full_join()` compares both df1 and df2 variables and joins all possible matches while retaining both mistakes in df1 and df2 with `NA` values. This function is similar to $df1 \cup df2$.
+The function `full_join()` compares both df1 and df2 variables and joins all possible matches while retaining both mistakes in df1 and df2 with `NA` values. 
+
+This function is similar to $df1 \cup df2$.
 
 ```{r, eval=FALSE}
 df1 <- tidytable::data.table(x = c("john","kevin","chris","sam","sam"), y = 1:5)
@@ -187,7 +183,9 @@ paged_table(df1 %>% full_join(df2))
 ::: {.panel}
 ### anti_join() {.panel-name}
 
-This is an example of filtering join. The function `anti_join()` compares df1 variables to and df2 variables and only outputs those variables of df1 which didn't get a match with df2. This function, in the manner used here, is similar to $df1 \cap df2^c$.
+This is an example of filtering join. The function `anti_join()` compares df1 variables to and df2 variables and only outputs those variables of df1 which didn't get a match with df2. 
+
+This function, in the manner used here, is similar to $df1 \cap df2^c$.
 
 ```{r, eval=FALSE}
 df1 <- tidytable::data.table(x = c("john","kevin","chris","sam","sam"), y = 1:5)
