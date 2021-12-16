@@ -518,6 +518,11 @@ paged_table(penguins %>% drop_na() %>%
 
 The `dplyr` package is the grammar of the data manipulation in R. It features well-made functions to help us summarise the data, group data by variables and manipulate columns and rows in the dataset. In this chapter, we learned in detail the different functions that help us manipulate data efficiently and have seen case examples also. In the next chapter, we will see the remaining set of functions in the `dplyr` package. See you!
 
+<br>  
+
+<a href="project6.html" class="btn button_round" style="float: right;">Next chapter:<br> 3. Data manipulation using dplyr (part 2)</a>
+<a href="project4.html" class="btn button_round" style="float: left;">Previous chapter:<br> 1. Data tidying using tidyr</a>
+
 ## References
 
 1. Hadley Wickham, Romain François, Lionel Henry and Kirill Müller (2021). dplyr: A Grammar of Data Manipulation. R

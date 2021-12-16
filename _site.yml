@@ -4,6 +4,10 @@ theme: style.css
 description: |
   From science articles to R tutorials
 base_url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
+repository_url: https://github.com/jeweljohnsonj/jeweljohnson.github.io
+twitter:
+  creator: "@jeweljohnsonj"
+
 collections:
   posts:
     categories: true
@@ -23,9 +27,6 @@ navbar:
       href: blog_posts.html
     - text: "R Tutorials"
       menu:
-        - text: "Basics of R"
-        - text: "Introduction to R"
-          href: project7.html
         - text: "Data visualization"
         - text: "Chapter 1: Data visualization using ggplot2"
           href: project1.html

@@ -10,9 +10,22 @@ css: [style.css]
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-<iframe scrolling = "no" src = "https://richpauloo.github.io/htmlwidgets/waves/index.html" style="border: 0px white;" width="100%"></iframe>
-> Animation by [Dr. Rich Pauloo](https://www.richpauloo.com/)
+ 
+## Welcome to One Carat Blog!
+ 
+```{r, echo=FALSE, layout="l-screen", fig.height=3}
+library(r2d3)
+r2d3(d3_version = 5, script = "voronoi/voronoi.js")
+```
 
-Welcome to my blog! My name is Jewel Johnson. In this blog you will find cool science literature and R language articles. So give this blog a try and let me know how it is! Thanks for visiting. Have a good day!
+Welcome to my blog! My name is Jewel Johnson and I am the founder of this blog. Here you will find cool science articles and data visualizations. If you want to learn about R programming, check out the R tutorial tab on top. For blog posts, check the blog section.
+
+So give this blog a try and let me know how it is! Thanks for visiting and have a good day!
+
+<center>Visitors<center>
+<center><div id="sfcxqmebarkplgkzwtm8bz2lp8pnnllbeal"></div>
+<script type="text/javascript" src="https://counter7.stat.ovh/private/counter.js?c=xqmebarkplgkzwtm8bz2lp8pnnllbeal&down=async" async></script>
+<noscript><a href="https://www.freecounterstat.com" title="website counter code"><img src="https://counter7.stat.ovh/private/freecounterstat.php?c=xqmebarkplgkzwtm8bz2lp8pnnllbeal" border="0" title="website counter code" alt="website counter code"></a></noscript>
+</div><center>
 
 

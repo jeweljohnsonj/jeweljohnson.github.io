@@ -35,6 +35,7 @@
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="One-carat Blog: Hello World!"/>
+  <meta property="twitter:creator" content="@jeweljohnsonj"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
@@ -2353,8 +2354,7 @@
 
   pre.plot {
     background-color: white !important;
-  }
-  </style>
+  }</style>
   <style type="text/css">
   /* base style */
 
@@ -2511,13 +2511,17 @@
   }</style>
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+  <script src="site_libs/r2d3-render-0.1.0/r2d3-render.js"></script>
+  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="site_libs/r2d3-binding-0.2.5/r2d3.js"></script>
+  <script src="site_libs/d3v5-5.9.2/d3.min.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
   <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
   <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
-  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
@@ -2552,8 +2556,6 @@ R Tutorials
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<span class="nav-dropdown-header">Basics of R</span>
-<a href="project7.html">Introduction to R</a>
 <span class="nav-dropdown-header">Data visualization</span>
 <a href="project1.html">Chapter 1: Data visualization using ggplot2</a>
 <a href="project2.html">Chapter 2: Customizing graphs in ggplot2</a>
@@ -2586,12 +2588,26 @@ R Tutorials
 
 
 <div class="d-article">
-<iframe scrolling="no" src="https://richpauloo.github.io/htmlwidgets/waves/index.html" style="border: 0px white;" width="100%">
-</iframe>
-<blockquote>
-<p>Animation by <a href="https://www.richpauloo.com/">Dr. Rich Pauloo</a></p>
-</blockquote>
-<p>Welcome to my blog! My name is Jewel Johnson. In this blog you will find cool science literature and R language articles. So give this blog a try and let me know how it is! Thanks for visiting. Have a good day!</p>
+<h2 id="welcome-to-one-carat-blog">Welcome to One Carat Blog!</h2>
+<div class="layout-chunk" data-layout="l-screen">
+<div id="htmlwidget-253ce7137be0f5303883" style="width:624px;height:288px;" class="r2d3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-253ce7137be0f5303883">{"x":{"data":null,"type":"NULL","container":"svg","options":null,"script":"var d3Script = function(d3, r2d3, data, svg, width, height, options, theme, console) {\nthis.d3 = d3;\n\nsvg = d3.select(svg.node());\n/* R2D3 Source File:  voronoi/voronoi.js */\n// !preview r2d3 d3_version = 5\n\n// Based on: https://bl.ocks.org/mbostock/4060366\n\nsvg.on(\"touchmove mousemove\", moved);\n\nvar sites = d3.range(100)\n    .map(function(d) { return [Math.random() * width, Math.random() * height]; });\n\nvar voronoi = d3.voronoi()\n    .extent([[-8, -8], [width + 8, height + 8]]);\n\nvar polygon = svg.append(\"g\")\n    .attr(\"class\", \"polygons\")\n  .selectAll(\"path\")\n  .data(voronoi.polygons(sites))\n  .enter().append(\"path\")\n    .call(redrawPolygon);\n\nvar link = svg.append(\"g\")\n    .attr(\"class\", \"links\")\n  .selectAll(\"line\")\n  .data(voronoi.links(sites))\n  .enter().append(\"line\")\n    .call(redrawLink);\n\nvar site = svg.append(\"g\")\n    .attr(\"class\", \"sites\")\n  .selectAll(\"circle\")\n  .data(sites)\n  .enter().append(\"circle\")\n    .attr(\"r\", 2.5)\n    .call(redrawSite);\n\nfunction moved() {\n  sites[0] = d3.mouse(this);\n  redraw();\n}\n\nfunction redraw() {\n  var diagram = voronoi(sites);\n  polygon = polygon.data(diagram.polygons()).call(redrawPolygon);\n  link = link.data(diagram.links()), link.exit().remove();\n  link = link.enter().append(\"line\").merge(link).call(redrawLink);\n  site = site.data(sites).call(redrawSite);\n}\n\nfunction redrawPolygon(polygon) {\n  polygon\n      .attr(\"d\", function(d) { return d ? \"M\" + d.join(\"L\") + \"Z\" : null; });\n}\n\nfunction redrawLink(link) {\n  link\n      .attr(\"x1\", function(d) { return d.source[0]; })\n      .attr(\"y1\", function(d) { return d.source[1]; })\n      .attr(\"x2\", function(d) { return d.target[0]; })\n      .attr(\"y2\", function(d) { return d.target[1]; });\n}\n\nfunction redrawSite(site) {\n  site\n      .attr(\"cx\", function(d) { return d[0]; })\n      .attr(\"cy\", function(d) { return d[1]; });\n}\n};","style":"/* R2D3 Source File:  voronoi/voronoi.css */\n.links {\n  stroke: #000;\n  stroke-opacity: 0.2;\n}\n\n.polygons {\n  fill: none;\n  stroke: #000;\n}\n\n.polygons :first-child {\n  fill: #301e64;\n}\n\n.sites {\n  fill: #000;\n  stroke: #fff;\n}\n\n.sites :first-child {\n  fill: #fff;\n}","version":5,"theme":{"default":{"background":"#FFFFFF","foreground":"#000000"},"runtime":null},"useShadow":true},"evals":[],"jsHooks":[]}</script>
+</div>
+<p>Welcome to my blog! My name is Jewel Johnson and I am the founder of this blog. Here you will find cool science articles and data visualizations. If you want to learn about R programming, check out the R tutorial tab on top. For blog posts, check the blog section.</p>
+<p>So give this blog a try and let me know how it is! Thanks for visiting and have a good day!</p>
+<center>
+Visitors
+<center>
+<center>
+<div id="sfcxqmebarkplgkzwtm8bz2lp8pnnllbeal">
+
+</div>
+<script type="text/javascript" src="https://counter7.stat.ovh/private/counter.js?c=xqmebarkplgkzwtm8bz2lp8pnnllbeal&down=async" async></script>
+<noscript>
+<a href="https://www.freecounterstat.com" title="website counter code"><img src="https://counter7.stat.ovh/private/freecounterstat.php?c=xqmebarkplgkzwtm8bz2lp8pnnllbeal" border="0" title="website counter code" alt="website counter code"></a>
+</noscript>
+</div>
+<center>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2603,7 +2619,10 @@ R Tutorials
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
 <!--radix_placeholder_appendices-->
-<div class="appendix-bottom"></div>
+<div class="appendix-bottom">
+<h3 id="updates-and-corrections">Corrections</h3>
+<p>If you see mistakes or want to suggest changes, please <a href="https://github.com/jeweljohnsonj/jeweljohnson.github.io/issues/new">create an issue</a> on the source repository.</p>
+</div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
 <div class="distill-site-nav distill-site-footer">

@@ -304,6 +304,10 @@ setequal(df1, df2)
 
 In this chapter, we have seen how to handle row names, how to combine columns and rows, what are mutating and filtering joins and various set operations. Thus to conclude this chapter, we have now learned almost all functions in the dplyr package and have seen how to manipulate data efficiently. With the knowledge of the pipe operator that we have seen in chapter 1, we are now equipped to write codes compactly and more clearly. I hope this chapter was useful for you and I will see you next time. Have a good day!  
 
+<br>  
+
+<a href="project5.html" class="btn button_round" style="float: left;">Previous chapter:<br> 2: Data manipulation using dplyr (part 1)</a>
+
 ## References
 
 1. Hadley Wickham, Romain François, Lionel Henry and Kirill Müller (2021). dplyr: A Grammar of Data Manipulation. R
