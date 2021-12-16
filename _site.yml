@@ -7,7 +7,7 @@ base_url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
 repository_url: https://github.com/jeweljohnsonj/jeweljohnson.github.io
 twitter:
   creator: "@jeweljohnsonj"
-
+favicon: photos/favicon.ico
 collections:
   posts:
     categories: true
