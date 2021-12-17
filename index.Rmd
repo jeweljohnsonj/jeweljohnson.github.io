@@ -4,7 +4,6 @@ output:
   distill::distill_article:
     toc: FALSE
 site: distill::distill_website
-preview: photos/uzumaki.png
 css: [style.css]
 ---
 

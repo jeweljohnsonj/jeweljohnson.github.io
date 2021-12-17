@@ -105,22 +105,20 @@ code span.wa { color: #bf0303; } /* Warning */
   <meta property="og:title" content="One-carat Blog: Chapter 2: Customizing graphs in ggplot2"/>
   <meta property="og:type" content="article"/>
   <meta property="og:description" content="Learn how to customize the aesthetics, labels and axes of a graph in ggplot2."/>
-  <meta property="og:image" content="https://jeweljohnsonj.github.io/jeweljohnson.github.io/./photos/ggplot2.jpeg"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="One-carat Blog"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
-  <meta property="twitter:card" content="summary_large_image"/>
+  <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="One-carat Blog: Chapter 2: Customizing graphs in ggplot2"/>
   <meta property="twitter:description" content="Learn how to customize the aesthetics, labels and axes of a graph in ggplot2."/>
-  <meta property="twitter:image" content="https://jeweljohnsonj.github.io/jeweljohnson.github.io/./photos/ggplot2.jpeg"/>
   <meta property="twitter:creator" content="@jeweljohnsonj"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","base_url","output","preview"]}},"value":[{"type":"character","attributes":{},"value":["Chapter 2: Customizing graphs in ggplot2"]},{"type":"character","attributes":{},"value":["Learn how to customize the aesthetics, labels and axes of a graph in ggplot2.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jewel Johnson"]}]}]},{"type":"character","attributes":{},"value":["2021-12-17"]},{"type":"character","attributes":{},"value":["https://jeweljohnsonj.github.io/jeweljohnson.github.io/"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc_depth"]}},"value":[{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["photos/ggplot2.jpeg"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","base_url","output","preview"]}},"value":[{"type":"character","attributes":{},"value":["Chapter 2: Customizing graphs in ggplot2"]},{"type":"character","attributes":{},"value":["Learn how to customize the aesthetics, labels and axes of a graph in ggplot2.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jewel Johnson"]}]}]},{"type":"character","attributes":{},"value":["2021-12-17"]},{"type":"character","attributes":{},"value":["https://jeweljohnsonj.github.io/jeweljohnson.github.io/"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc_depth"]}},"value":[{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["https://github.com/jeweljohnsonj/jeweljohnson.github.io/blob/main/photos/ggplot2.jpeg"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2601,6 +2599,38 @@ code span.wa { color: #bf0303; } /* Warning */
   <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
+  <script>
+     document.addEventListener("DOMContentLoaded", function () {
+       if (!/posts/.test(location.pathname)) {
+         return;
+       }
+
+       var script = document.createElement("script");
+       script.src = "https://giscus.app/client.js";
+       script.setAttribute("data-repo", "jeweljohnsonj/jeweljohnson.github.io");
+       script.setAttribute("data-repo-id", "R_kgDOGe0aIw");
+       script.setAttribute("data-category", "[ENTER CATEGORY NAME HERE]");
+       script.setAttribute("data-category-id", "[ENTER CATEGORY ID HERE]");
+       script.setAttribute("data-mapping", "pathname");
+       script.setAttribute("data-reactions-enabled", "1");
+       script.setAttribute("data-emit-metadata", "0");
+       script.setAttribute("data-theme", "light");
+       script.setAttribute("data-lang", "en");
+
+       /* wait for article to load, append script to article element */
+       var observer = new MutationObserver(function (mutations, observer) {
+         var article = document.querySelector("d-article");
+         if (article) {
+           observer.disconnect();
+           /* HACK: article scroll */
+           article.setAttribute("style", "overflow-y: hidden");
+           article.appendChild(script);
+         }
+       });
+
+       observer.observe(document.body, { childList: true });
+     });
+   </script>
   <!--/radix_placeholder_site_in_header-->
 
 
