@@ -5,6 +5,7 @@ output:
     toc: FALSE
 site: distill::distill_website
 css: [style.css]
+preview: photos/logo.png
 ---
 
 ```{r setup, include=FALSE}
