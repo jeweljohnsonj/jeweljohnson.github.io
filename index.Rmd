@@ -23,7 +23,7 @@ library(r2d3)
 r2d3(d3_version = 5, script = "voronoi/voronoi.js")
 ```
 
-Welcome to my blog! My name is Jewel Johnson and I am the founder of this blog. Here you will find cool science articles and data visualizations. If you want to learn about R programming, check out the R Tutorials tab on top. For blog posts, check the Blog section.
+Welcome to my blog! My name is Jewel Johnson and I am the founder of this blog. Here you will find cool science articles and data visualizations. If you want to learn about R programming, check out the [R Tutorials](https://jeweljohnsonj.github.io/jeweljohnson.github.io/project1.html) tab on top. For blog posts, check the [Blog](https://jeweljohnsonj.github.io/jeweljohnson.github.io/blog_posts.html) section.
 
 So give this blog a try and let me know how it is! Thanks for visiting and have a good day!
 
