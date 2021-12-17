@@ -10,7 +10,7 @@ date: 12-12-2021
 output:
   distill::distill_article:
     self_contained: false
-preview: photos/welcome_post.jpeg
+preview: https://github.com/jeweljohnsonj/jeweljohnson.github.io/blob/main/photos/welcome_post.jpg
 ---
 
 ```{r setup, include=FALSE}
