@@ -1,26 +1,31 @@
 ---
-title: "Welcome to One-carat Blog"
+title: "Welcome to One-carat Blog!"
 description: |
-  Welcome to our new blog, One-carat Blog. We hope you enjoy 
-  reading what we have to say!
+  Welcome to One-carat Blog! I hope you enjoy 
+  my blog.
 author:
-  - name: Nora Jones 
-    url: https://example.com/norajones
-    affiliation: Spacely Sprockets
-    affiliation_url: https://example.com/spacelysprokets
-date: 12-04-2021
+  - name: Jewel Johnson 
+    url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
+date: 12-12-2021
 output:
   distill::distill_article:
     self_contained: false
+preview: photos/welcome_post.jpeg
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-
-# Learn more about creating blogs with Distill at:
-# https://rstudio.github.io/distill/blog.html
-
 ```
+
+## Making of One-carat Blog
+
+My name is Jewel Johnson and this is my story of how this blog came into existence. While writing this article I am in search of a PhD position. So what does my PhD application has to do anything with my blog? It's a long story, so let me summarise it. From quitting science and seeking a paid job to finding that science is where I will find my happiness in my life, the year 2021 presented before me a wide range of experiences and emotions. While most of them were negative (sadly) it made me think about myself. After experiencing the death of someone whom I know personally well I started thinking about how I want to live my life before leaving this world (sounds very morbid, yes I know). I want to be good at something and now I know that I am not cut out for mugging up history, geography and law for the various recruitment exams in my country. So after carefully thinking about my future, I decided that I want to do a PhD. Science is one thing I know that I can do good, so I decided to pursue science for my career.
+
+With almost a two year gap in academia, I was scared if I even have a chance at getting back to it. But the conversation with my guide has given me faith in myself. The journey won't be easy as the competition is very high given the pandemic situation and this is when I decided to expand my repertoire of skills that I have to make myself an interesting candidate. Now acquiring skills is possible through hard work but to get validation for your skills is a little hard. This is where I have decided to make this blog where I write about the things that I have learned and mastered. From my college days, I started learning R and I decided to start from there and made a few tutorials on ggplot2, tidyr and dplyr packages which beginners in R programming can use.  I hope they are useful and effective. And for the other things, I have some plans and I am currently working on them. I will update the blog as soon as I am finished with them. I hope this blog will be useful for you and I welcome any suggestions or healthy criticisms of this blog to me. You can either raise it as the GitHub issue in the comment section or email me personally `jeweljohnsonj@gmail.com`. But I would prefer the GitHub way.
+
+Now why call this One Carat Blog? well, you know that already. With that said I welcome you to my blog. Have fun!
+
+
 
 
 

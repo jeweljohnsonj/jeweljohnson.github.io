@@ -5,6 +5,7 @@ description: |
 author:
   - name: Jewel Johnson 
 date: "`r Sys.Date()`"
+base_url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
 output: 
   distill::distill_article:
     toc_depth: 3
@@ -579,7 +580,7 @@ paged_table(dress_data_zero)
 
 So in this chapter, we learned what is tidy data and how we can make our data into tidy data. Making our data tidy is very important as it helps us to analyse and visualise the data in a very efficient manner. We also learned how to reshape our data, how to split or unite cells, how to complete and expand data and how to handle `NA` values. Hope this chapter was fruitful for you! 
 
---
+---
 #bottom buttons to guide to next/previous chapters. 
 ---
 <br>  

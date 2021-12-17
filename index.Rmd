@@ -13,15 +13,23 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
  
 ## Welcome to One Carat Blog!
- 
+
+---
+# The code below will plot a voronoi plot in the webpage which will extend to your screen as I specified 'l-screen' layout. If you want to have this plot in your webapage then copy this code and paste this where you want it to display. Also in my GitHub repo there is folder called 'voronoi' which contains the .js and .css files for the code. You can tweak the .js file to control how the polygons are arranged and the .css file to chnage the fill colour, node colour etc of the plot.
+---
+
 ```{r, echo=FALSE, layout="l-screen", fig.height=3}
 library(r2d3)
 r2d3(d3_version = 5, script = "voronoi/voronoi.js")
 ```
 
-Welcome to my blog! My name is Jewel Johnson and I am the founder of this blog. Here you will find cool science articles and data visualizations. If you want to learn about R programming, check out the R tutorial tab on top. For blog posts, check the blog section.
+Welcome to my blog! My name is Jewel Johnson and I am the founder of this blog. Here you will find cool science articles and data visualizations. If you want to learn about R programming, check out the R Tutorials tab on top. For blog posts, check the Blog section.
 
 So give this blog a try and let me know how it is! Thanks for visiting and have a good day!
+
+---
+# The code below will show the visitor count. If you want to have this in the webpage, then please go to _custom.html file in the repo where I have described the steps to get a visiter counter widget.
+---
 
 <center>Visitors<center>
 <center><div id="sfcxqmebarkplgkzwtm8bz2lp8pnnllbeal"></div>
