@@ -10,6 +10,7 @@ date: 12-12-2021
 output:
   distill::distill_article:
     self_contained: false
+preview: welcome.png
 ---
 
 ```{r setup, include=FALSE}

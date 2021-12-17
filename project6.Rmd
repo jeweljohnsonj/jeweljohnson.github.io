@@ -9,7 +9,7 @@ base_url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
 output: 
   distill::distill_article:
     toc_depth: 3
-preview: https://github.com/jeweljohnsonj/jeweljohnson.github.io/blob/main/photos/dplyr.jpeg
+preview: photos/dplyr.png
 ---
 ```{r setup, include=FALSE}
 library(dplyr)
