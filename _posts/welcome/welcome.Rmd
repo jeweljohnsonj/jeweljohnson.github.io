@@ -6,11 +6,11 @@ description: |
 author:
   - name: Jewel Johnson 
     url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
-date: 12-12-2021
+date: 12-17-2021
 output:
   distill::distill_article:
     self_contained: false
-preview: welcome.png
+preview: proud_of_you.gif
 ---
 
 ```{r setup, include=FALSE}
@@ -19,11 +19,21 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Making of One-carat Blog
 
-My name is Jewel Johnson and this is my story of how this blog came into existence. While writing this article I am in search of a PhD position. So what does my PhD application has to do anything with my blog? It's a long story, so let me summarise it. From quitting science and seeking a paid job to finding that science is where I will find my happiness in my life, the year 2021 presented before me a wide range of experiences and emotions. While most of them were negative (sadly) it made me think about myself. After experiencing the death of someone whom I know personally well I started thinking about how I want to live my life before leaving this world (sounds very morbid, yes I know). I want to be good at something and now I know that I am not cut out for mugging up history, geography and law for the various recruitment exams in my country. So after carefully thinking about my future, I decided that I want to do a PhD. Science is one thing I know that I can do good, so I decided to pursue science for my career.
+My name is Jewel Johnson and this is my story of how this blog was created. I wanted to have a space to share what I learned over time and that was one of the main reasons behind creating this blog. I will mostly write science articles that are focused on making complex information available to the public. Science communication is very important as it helps in making the public well informed about the advances in science. I am also an R enthusiast and therefore I will also be writing about R programming in this blog. I have already made tutorials describing how to use `ggplot2`, `tidyr` and `dplyr` packages in R for beginners. Overall this blog is still in its infancy and there is a lot of work to be done.
 
-With almost a two year gap in academia, I was scared if I even have a chance at getting back to it. But the conversation with my guide has given me faith in myself. The journey won't be easy as the competition is very high given the pandemic situation and this is when I decided to expand my repertoire of skills that I have to make myself an interesting candidate. Now acquiring skills is possible through hard work but to get validation for your skills is a little hard. This is where I have decided to make this blog where I write about the things that I have learned and mastered. From my college days, I started learning R and I decided to start from there and made a few tutorials on ggplot2, tidyr and dplyr packages which beginners in R programming can use.  I hope they are useful and effective. And for the other things, I have some plans and I am currently working on them. I will update the blog as soon as I am finished with them. I hope this blog will be useful for you and I welcome any suggestions or healthy criticisms of this blog to me. You can either raise it as the GitHub issue in the comment section or email me personally `jeweljohnsonj@gmail.com`. But I would prefer the GitHub way.
+## How was this blog made?
 
-Now why call this One Carat Blog? well, you know that already. With that said I welcome you to my blog. Have fun!
+I never thought that I will be making this blog when I started my venture to write science articles. Initially, I thought I will write articles on medium.com. But soon I scrapped that idea for two main reasons. The first reason was that The Medium is a paid and subscription-based service which will limit the reach of my articles. Most articles in the medium are mediocre and filled with click baits and is a waste of time. When I looked at some of the R programming articles in medium, most of them are plagiarized from the r-package websites and other tutorial websites. The second reason was medium is not a platform for writing coding oriented articles. There is syntax support for programming languages and it is cumbersome to work with it. These reasons swayed me to look for alternatives. 
+
+The first choice was 'blogger' from Google, but again it was not an elegant solution. That is when I learned about markdown files and how you can build a website with them. Now a website or blog needs three things for it to work. It needs a hosting service, a domain address and content. You can always make content on your own, it is limited by the creator. But you will be mostly spending money on hosting services for physical storage and a domain address for making your website available online. Now money is a problem for me, at least right now. So this is when I learned that you can host your website using GitHub, which was just amazing.
+
+So my journey began from using markdown and GitHub. But again markdown was not a very good choice for coding oriented articles. Also since I use R it is just cumbersome to copy-paste both the code as well as its output each and whenever I write some R code. But again all was not lost. From 'markdown', I began my journey to 'Rmarkdown'. Now Rmarkdown was everything I wanted to have. So I had made my first website using the `Rmarkdown` package in R and hosted it in GitHub. But again as you get to know something well you will also understand its limitations. Rmarkdown is an easy to use package which can be used to make amazing pdf and HTML pages. But it had its limitations in customisations and other features. So after some research, I found two other packages in R which can serve my goal. 
+
+The first was the `distill` package in R. Now coming from Rmakrdown to distill I soon began to appreciate its features. Distill is like the savvy sibling of Rmarkdown, which offered a lot of features out of the box and had an active developer community. The second package I learned about was `blogdown`. Now, blogdown has everything you can ask for while making a website. The websites created using the blogdown package was top-notch and professional but it was heavily dependent on a third-party service called `Hugothemes`. This made me select `distill` over `blogdown` and I have been enjoying the distill package very much. Also distill was first published just two years ago. It has miles to go in terms of improvements but has high potential. I began learning about distill package on Nov 26, 2021, and since then I have been working on improving my blog using it. I want to thank the wonderful team behind the development of the `distill` r-package and I also offer my gratitude to `GitHub` which is offering free hosting services which I am sure is very helpful to students like me.   
+
+## My vision
+
+I want to use this blog to showcase my skills and promote science communication. I will be writing about some amazing research and advancements in the science community. I am confident that the skillet I garnered overtime for these efforts will surely help me for PhD in the future. With that, I warmly welcome you to my blog and I hope you have as much fun reading these articles, as I had while creating these articles. If you find some articles helpful and you can share them with your friends who might enjoy them as much as you did. This blog has no ads so it is a perfect place for reading. I will strive to put forward high-quality articles as I respect your time as a reader. Thanks for visiting and I wish you the best!
 
 
 
