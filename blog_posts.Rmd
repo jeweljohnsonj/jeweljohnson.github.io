@@ -1,6 +1,5 @@
 ---
 title: "Blog Posts"
-site: distill::distill_website
 css: [style.css, bg_image.css]
 listing: posts
 ---
