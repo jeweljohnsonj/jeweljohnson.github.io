@@ -10,6 +10,8 @@ output:
     toc_depth: 3
 base_url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
 preview: photos/ggplot2.png
+twitter:
+  creator: "@jeweljohnsonj"
 ---
 ```{r setup, include=FALSE}
 library(Stat2Data)

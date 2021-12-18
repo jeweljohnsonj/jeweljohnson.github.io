@@ -49,7 +49,7 @@ library(ggplot2)
 
 All right we have the `ggplot2` package loaded, now we just need some data to plot. Most R programming tutorials use the `iris` dataset as an example. But this tutorial won't be like most tutorials. So let me introduce you to some lovely penguins from Palmer Station in Antarctica!
 
-For this tutorial, we will be installing the `palmerpenguins` package which showcases body measurements taken from three different species of penguins from Antarctica. This package was made possible by the efforts of [Dr. Allison Horst](https://www.allisonhorst.com/). The penguin data was collected by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/).
+For this tutorial, we will be installing the `palmerpenguins` package which showcases body measurements taken from three different species of penguins from Antarctica. This package was made possible by the efforts of [Dr. Allison Horst](https://www.allisonhorst.com/). The penguin data was collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/).
 
 * Install the `palmerpenguins` package and load it in R.
 
