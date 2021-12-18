@@ -1,2 +1,3 @@
-# Jewel Johnson
-Soruce files for my website / blog made using the `distill` r-package. 
+# One-carat Blog
+Soruce files for the [personal webiste of Jewel Johnson](https://jeweljohnsonj.github.io/jeweljohnson.github.io/)
+The webiste was made using the [`distill`](https://rstudio.github.io/distill/) package in [R](https://www.r-project.org) and is hosted in `GitHub`.
