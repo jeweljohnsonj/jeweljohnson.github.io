@@ -10,6 +10,7 @@ output:
   distill::distill_article:
     self_contained: false
 preview: proud_of_you.gif
+creative_commons: CC BY
 ---
 
 ```{r setup, include=FALSE}
