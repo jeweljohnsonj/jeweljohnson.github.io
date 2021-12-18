@@ -204,7 +204,7 @@ ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)) +
   theme_bw()
 ```
 
-## Saving you ggplot2 graphs
+## Saving your ggplot2 graphs
 
 * Use the command `ggsave()` to save the graph locally. In the code below, 'my_graph' is the ggplot element containing your graph. The plot will be saved in your working directory.
 
