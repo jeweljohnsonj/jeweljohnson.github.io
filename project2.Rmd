@@ -305,6 +305,25 @@ In this tutorial, we learned how to modify aesthetic present for different geoms
 <a href="project3.html" class="btn button_round" style="float: right;">Next chapter:<br> 3. Even more customizations in ggplot2</a>
 <a href="project1.html" class="btn button_round" style="float: left;">Previous chapter:<br> 1. Data visualization using ggplot2</a>
 
+<!-- adding share buttons on the right side of the page -->
+<!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style" style="right:0px; top:150px; data-a2a-url="https://jeweljohnsonj.github.io/jeweljohnson.github.io/" data-a2a-title="One-carat Blog">
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_whatsapp"></a>
+<a class="a2a_button_telegram"></a>
+<a class="a2a_button_google_gmail"></a>
+<a class="a2a_button_pinterest"></a>
+<a class="a2a_button_reddit"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_facebook_messenger"></a>
+</div>
+<script>
+var a2a_config = a2a_config || {};
+a2a_config.onclick = 1;
+</script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+
 ## References
 
 1. H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016. Read more about ggplot2 [here](https://ggplot2.tidyverse.org/). You can also look at the [cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf) for all the syntax used in `ggplot2`. Also check this [out](https://github.com/erikgahner/awesome-ggplot2).

@@ -3,8 +3,8 @@ title: "One-carat Blog"
 theme: style.css
 description: |
   From science articles to R tutorials
-base_url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
 repository_url: https://github.com/jeweljohnsonj/jeweljohnson.github.io
+base_url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
 preview: photos/logo.png
 twitter:
   creator: "@jeweljohnsonj"
@@ -14,7 +14,6 @@ collections:
     categories: true
     categories_metadata: true
     authors_metadata: false
-    share: [twitter]
     subscribe: _subscribe.html
     custom: _custom.html
 output_dir: "docs"
