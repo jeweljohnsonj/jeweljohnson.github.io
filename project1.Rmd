@@ -25,7 +25,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction to ggplot2 package
 
-In this chapter we will be plotting different types of graphs using a package called `ggplot2` in R. The **gg**plot2 package is based on '**grammar of graphics** plot' which provides a systematic way of doing data visualizations in R. With a few lines of code you can plot a simple graph and by adding more layers onto it you can create complex yet elegant data visualizations. The package was created and developed by [Dr. Hadley Wickham](http://hadley.nz/). 
+In this chapter we will be plotting different types of graphs using a package called `ggplot2` in R. The **gg**plot2 package is based on '**grammar of graphics** plot' which provides a systematic way of doing data visualizations in R. With a few lines of code you can plot a simple graph and by adding more layers onto it you can create complex yet elegant data visualizations. 
 
 A ggplot2 graph is made up of three components.
 
@@ -136,7 +136,7 @@ ggplot(data = penguins, aes(x = body_mass_g, fill = species)) +
   geom_density() + theme_bw()
 ```
 
-Since we plotted for all three species the graph looks clustered. Let us try plotting the same graph for only *gentoo* penguins. We will use the `dplyr` package to `filter()` data for *gentoo* penguins alone. The `dplyr` package comes in-built with R so just load the `dplyr` package using the command `library()`. The `dplyr` package was also developed by [Dr. Hadley Wickham](http://hadley.nz/).
+Since we plotted for all three species the graph looks clustered. Let us try plotting the same graph for only *gentoo* penguins. We will use the `dplyr` package to `filter()` data for *gentoo* penguins alone. The `dplyr` package comes in-built with R so just load the `dplyr` package using the command `library()`.
 
 ```{r warning = FALSE, message=FALSE, layout="l-body-outset"}
 library(dplyr)

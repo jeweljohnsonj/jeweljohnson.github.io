@@ -1,8 +1,7 @@
 ---
 title: "Welcome to One-carat Blog!"
 description: |
-  Welcome to One-carat Blog! I hope you enjoy 
-  my blog.
+  Welcome to One-carat Blog! Get to know the story behing this blog's creation.
 author:
   - name: Jewel Johnson 
     url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/

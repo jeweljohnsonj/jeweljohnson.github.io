@@ -97,8 +97,8 @@ code span.wa { color: #bf0303; } /* Warning */
   <link rel="icon" type="image/vnd.microsoft.icon" href="photos/favicon.ico"/>
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-12-17"/>
-  <meta property="article:created" itemprop="dateCreated" content="2021-12-17"/>
+  <meta property="article:published" itemprop="datePublished" content="2021-12-18"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-12-18"/>
   <meta name="article:author" content="Jewel Johnson"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -124,7 +124,7 @@ code span.wa { color: #bf0303; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","preview"]}},"value":[{"type":"character","attributes":{},"value":["Chapter 1: Data visualization using ggplot2"]},{"type":"character","attributes":{},"value":["Learn how to plot different types of graphs using the ggplot2 package.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jewel Johnson"]}]}]},{"type":"character","attributes":{},"value":["2021-12-17"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc_depth"]}},"value":[{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["photos/ggplot2.png"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","preview"]}},"value":[{"type":"character","attributes":{},"value":["Chapter 1: Data visualization using ggplot2"]},{"type":"character","attributes":{},"value":["Learn how to plot different types of graphs using the ggplot2 package.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jewel Johnson"]}]}]},{"type":"character","attributes":{},"value":["2021-12-18"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc_depth"]}},"value":[{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["photos/ggplot2.png"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2660,7 +2660,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Chapter 1: Data visualization using ggplot2","description":"Learn how to plot different types of graphs using the ggplot2 package.","authors":[{"author":"Jewel Johnson","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-17T00:00:00.000+05:30","citationText":"Johnson, 2021"}
+{"title":"Chapter 1: Data visualization using ggplot2","description":"Learn how to plot different types of graphs using the ggplot2 package.","authors":[{"author":"Jewel Johnson","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-18T00:00:00.000+05:30","citationText":"Johnson, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2714,7 +2714,7 @@ R Tutorials
 <div class="d-byline">
   Jewel Johnson  
   
-<br/>2021-12-17
+<br/>2021-12-18
 </div>
 
 <div class="d-article">
@@ -2742,7 +2742,7 @@ R Tutorials
 </nav>
 </div>
 <h2 id="introduction-to-ggplot2-package">Introduction to ggplot2 package</h2>
-<p>In this chapter we will be plotting different types of graphs using a package called <code>ggplot2</code> in R. The <strong>gg</strong>plot2 package is based on ‘<strong>grammar of graphics</strong> plot’ which provides a systematic way of doing data visualizations in R. With a few lines of code you can plot a simple graph and by adding more layers onto it you can create complex yet elegant data visualizations. The package was created and developed by <a href="http://hadley.nz/">Dr. Hadley Wickham</a>.</p>
+<p>In this chapter we will be plotting different types of graphs using a package called <code>ggplot2</code> in R. The <strong>gg</strong>plot2 package is based on ‘<strong>grammar of graphics</strong> plot’ which provides a systematic way of doing data visualizations in R. With a few lines of code you can plot a simple graph and by adding more layers onto it you can create complex yet elegant data visualizations.</p>
 <p>A ggplot2 graph is made up of three components.</p>
 <ol type="1">
 <li><strong>Data</strong>: Data of your choice that you want to visually summarise.</li>
@@ -2845,7 +2845,7 @@ R Tutorials
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
 <p><img src="project1_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
 </div>
-<p>Since we plotted for all three species the graph looks clustered. Let us try plotting the same graph for only <em>gentoo</em> penguins. We will use the <code>dplyr</code> package to <code>filter()</code> data for <em>gentoo</em> penguins alone. The <code>dplyr</code> package comes in-built with R so just load the <code>dplyr</code> package using the command <code>library()</code>. The <code>dplyr</code> package was also developed by <a href="http://hadley.nz/">Dr. Hadley Wickham</a>.</p>
+<p>Since we plotted for all three species the graph looks clustered. Let us try plotting the same graph for only <em>gentoo</em> penguins. We will use the <code>dplyr</code> package to <code>filter()</code> data for <em>gentoo</em> penguins alone. The <code>dplyr</code> package comes in-built with R so just load the <code>dplyr</code> package using the command <code>library()</code>.</p>
 <div class="layout-chunk" data-layout="l-body-outset">
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
