@@ -18,6 +18,8 @@ collections:
     custom: _custom.html
 output_dir: "docs"
 navbar:
+  logo:
+    image: photos/nav_logo.png
   search: true
   right:
     - text: "Home"
