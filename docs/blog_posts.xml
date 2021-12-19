@@ -4,7 +4,7 @@
     <title>One-carat Blog</title>
     <link>https://jeweljohnsonj.github.io/jeweljohnson.github.io/</link>
     <atom:link href="https://jeweljohnsonj.github.io/jeweljohnson.github.io/blog_posts.xml" rel="self" type="application/rss+xml"/>
-    <description>From science articles to R tutorials
+    <description>From science articles to R tutorials by Jewel Johnson
 </description>
     <image>
       <title>One-carat Blog</title>
@@ -18,6 +18,7 @@
       <dc:creator>Jewel Johnson</dc:creator>
       <link>https://jeweljohnsonj.github.io/jeweljohnson.github.io/posts/2021-12-18-quality-of-life-modifications-for-your-distill-webistes</link>
       <description>In this post, you can find simple but useful enhancements that can be applied to your distill website. I will show you how you can enhance your table of contents tab, how you can add a visitor counter, how to add a navigation button at the end of your distill article, how to add social media share buttons and finally how to show your Twitter feed.</description>
+      <category>distill</category>
       <guid>https://jeweljohnsonj.github.io/jeweljohnson.github.io/posts/2021-12-18-quality-of-life-modifications-for-your-distill-webistes</guid>
       <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
       <media:content url="https://jeweljohnsonj.github.io/jeweljohnson.github.io/posts/2021-12-18-quality-of-life-modifications-for-your-distill-webistes/meme.gif" medium="image" type="image/gif"/>
@@ -27,6 +28,7 @@
       <dc:creator>Jewel Johnson</dc:creator>
       <link>https://jeweljohnsonj.github.io/jeweljohnson.github.io/posts/welcome</link>
       <description>Welcome to One-carat Blog! Get to know the story behing this blog's creation.</description>
+      <category>distill</category>
       <guid>https://jeweljohnsonj.github.io/jeweljohnson.github.io/posts/welcome</guid>
       <pubDate>Fri, 17 Dec 2021 00:00:00 +0000</pubDate>
       <media:content url="https://jeweljohnsonj.github.io/jeweljohnson.github.io/posts/welcome/proud_of_you.gif" medium="image" type="image/gif"/>

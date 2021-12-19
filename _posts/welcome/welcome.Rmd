@@ -11,6 +11,8 @@ output:
     self_contained: false
 preview: proud_of_you.gif
 creative_commons: CC BY
+categories:
+  - distill
 ---
 
 ```{r setup, include=FALSE}
@@ -54,6 +56,4 @@ a2a_config.onclick = 1;
 </script>
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 <!-- AddToAny END -->
-
-
 

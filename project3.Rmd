@@ -4,14 +4,12 @@ description: |
   Learn how to customize the theme and colour palette of a graph in ggplot2.
 author:
   - name: Jewel Johnson 
-date: "`r Sys.Date()`"
+date: 12-09-2021
 output: 
   distill::distill_article:
     toc_depth: 3
 base_url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
 preview: photos/ggplot2.png
-twitter:
-  creator: "@jeweljohnsonj"
 ---
 ```{r setup, include=FALSE}
 library(Stat2Data)

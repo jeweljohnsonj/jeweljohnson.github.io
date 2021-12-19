@@ -13,6 +13,8 @@ output:
     toc_depth: 2
 preview: meme.gif
 creative_commons: CC BY
+categories:
+  - distill
 ---
 
 ```{r setup, include=FALSE}
@@ -85,7 +87,7 @@ If done properly then you will have a toc just like mine, which is shown on the 
 
 If you fancy a visitor counter on your website and additionally you would also like to know information like the location data of your visitors, how many people are currently online viewing your website etc. then you can add an HTML widget to your page which shows the visitor count. This can be done for free by following the steps below.
 
-1. Visit https://www.freecounterstat.com/ and click on 'originals'
+1. Visit https://www.freecounterstat.com/ and click on 'originals'. I chose this website as it requires no annoying sign-in or account creation. Plus it is a free service.
 
 ```{r, echo=FALSE, fig.cap="Front page of https://www.freecounterstat.com/"}
 knitr::include_graphics("step1.png")
@@ -153,7 +155,7 @@ You can also modify the button feature using the CSS code below. Add this code t
 
 You can display social media share buttons for easy sharing of your articles, like what I have, on the right side of this webpage.
 
-1. Visit https://www.addtoany.com/buttons/for/website and fill up relevant details and get your html code. 
+1. Visit https://www.addtoany.com/buttons/for/website and fill up relevant details and get your html code. The reason for choosing this website over others was that you could use their service for free without signing up for an account.
 2. Then simply paste that code directly anywhere in your distill article to enable the share buttons. 
 
 Have a look at my [file](https://github.com/jeweljohnsonj/jeweljohnson.github.io/blob/main/project1.Rmd) for reference.

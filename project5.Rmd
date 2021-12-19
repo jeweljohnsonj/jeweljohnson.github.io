@@ -4,13 +4,11 @@ description: |
   Learn how to manipulate your data with the dplyr package.
 author:
   - name: Jewel Johnson 
-date: "`r Sys.Date()`"
+date: 12-13-2021
 output: 
   distill::distill_article:
     toc_depth: 3
 preview: photos/dplyr.png
-twitter:
-  creator: "@jeweljohnsonj"
 ---
 ```{r setup, include=FALSE}
 library(dplyr)

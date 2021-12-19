@@ -2,7 +2,7 @@ name: "jeweljohnson.in"
 title: "One-carat Blog"
 theme: style.css
 description: |
-  From science articles to R tutorials
+  From science articles to R tutorials by Jewel Johnson
 repository_url: https://github.com/jeweljohnsonj/jeweljohnson.github.io
 base_url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
 preview: photos/logo.png
@@ -65,4 +65,5 @@ categories:
   - dplyr
   - tidyr
   - data visualization
+  - distill
   
