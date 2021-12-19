@@ -2749,11 +2749,12 @@ R Tutorials
 </nav>
 </div>
 <h2 id="quality-of-life-mods-for-distill-webistes">Quality of life mods for distill webistes</h2>
-<p>In my one month time of learning about the <code>distill</code> r-package, I was fascinated by how amazing it is. Without knowing much about HTML or CSS coding, one can build a website from scratch using it. What was every more amazing was that the package had an active and friendly community who have written excellent and easy to follow <a href="https://rstudio.github.io/distill/">tutorials</a> aiming at beginners like me. Almost everything I know about the <code>distill</code> package was thanks to these tutorials. Along the way, I also picked up how to implement a few interesting features that can make a distill website even better. As thanks to all the help, I have received from this community I would like to share some of my findings that might prove useful.</p>
+<p>In my one month time of learning about the <code>distill</code> r-package, I was fascinated by how amazing it is. Without knowing much about HTML or CSS coding, one can build a website from scratch using it. What was even more amazing was that the package had an active and friendly community who have written excellent and easy to follow <a href="https://rstudio.github.io/distill/">tutorials</a> aiming at beginners like me. Almost everything I know about the <code>distill</code> package was thanks to these tutorials. Along the way, I also learned how to implement a few interesting features that can make a distill website even better. As thank you for all the help I have received from this community, I would like to share some of my findings that might prove useful.</p>
 <h2 id="making-the-table-of-contents-more-useful">1. Making the table of contents more useful</h2>
-<p>If you had used the <code>Rmarkdown</code> package for making websites, before you began using the <code>distill</code> package, one thing you will immediately appreciate is the ‘table of contents (toc)’. Personally, I feel that the toc in <code>Rmarkdown</code> is better than the toc in <code>distill</code>. The purpose of a toc is for enabling quick navigation through the contents of an article via headers, so the toc should always be accessible to the reader. In distill articles, however, because of the way they manage the layout of the figures and other elements, a floating toc that is fixed even while scrolling is not possible out of the box. This <a href="https://github.com/rstudio/distill/issues/16">issue</a> is raised in GitHub and hopefully, the developers will find an elegant way to reintroduce the toc. Nevertheless, all is not lost, from a stack overflow <a href="https://stackoverflow.com/questions/67323162/floating-toc-in-distill-for-r/67387516?noredirect=1#comment119140135_67387516">question</a> on having a floating fixed toc for distill articles, the answer by <a href="https://stackoverflow.com/users/8367943/rich-pauloo">Dr Rich Pauloo</a> provides relief. The code provided by Dr Pauloo allows the toc to be fixed on the left side even when you scroll down. But then it will overlap over any element which is extending over the body layout. Also, the default font for the toc in distill is too small I feel, so if you increase the font size while using this code, it will create even more overlapping. So what can be done?</p>
+<p>If you had used the <code>Rmarkdown</code> package for making websites, before you began using the <code>distill</code> package, one thing you will immediately appreciate is the ‘table of contents (toc)’ in <code>Rmarkdown</code>. Personally, I feel that the toc in <code>Rmarkdown</code> is better than the toc in <code>distill</code>. The purpose of a toc is for enabling quick navigation through the contents of an article via the headers, so the toc should always be accessible to the reader. In distill articles however, because of the way they manage the layout of the figures and other elements, a floating toc that is fixed even while scrolling is not possible out of the box. This <a href="https://github.com/rstudio/distill/issues/16">issue</a> has been raised in GitHub and hopefully, the developers will find an elegant way to reimagine the toc. Nevertheless, all is not lost, from a stack overflow <a href="https://stackoverflow.com/questions/67323162/floating-toc-in-distill-for-r/67387516?noredirect=1#comment119140135_67387516">question</a> on having a floating fixed toc for distill articles, the answer by <a href="https://stackoverflow.com/users/8367943/rich-pauloo">Dr Rich Pauloo</a> provides relief. The code provided by Dr Pauloo allows the toc to be fixed on the left side even when you scroll down. But the down side is that by doing so, the toc will overlap over any element which is extending over the body layout. Also, the default font for the toc in distill is too small I feel, so if you increase the font size while using this code, it will create even more overlapping. So what can be done?</p>
 <p>So one thing I thought of implementing was that I will use the <a href="https://stackoverflow.com/questions/67323162/floating-toc-in-distill-for-r/67387516?noredirect=1#comment119140135_67387516">code</a> by Dr Pauloo and fix the toc on top-left but with a transparent background. But when I hover over the toc headers it should zoom in on the screen, making the font bigger but over a white background, so that it is more legible. I used white colour as that was my background colour in the article body. I also changed the scrolling behaviour from ‘smooth’ to ‘auto’ as it made navigating via toc snappier and more responsive.</p>
-<p>If you are adamant about having a fixed toc like me then you just have to tolerate the overlap problem. Another issue is that by using this code, when your website is viewed on mobile devices, the toc overlaps with the main text. But apart from that, I did not find any other major issues. The modified code is given below;</p>
+<p>If you are adamant about having a fixed toc like me then you just have to tolerate the overlap problem. Another issue is that by using this code, when your website is viewed on mobile devices, the toc overlaps with the main text. But apart from that, I did not find any other major issues. The modified code is given below.</p>
+<p>Either insert this code in your main theme CSS file, if you are using a custom theme for your distill website. Otherwise, make this as a separate .css file and insert it in the article where you want to implement this feature.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb1"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>html {</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  scroll-behavior: <span class="bu">auto</span><span class="op">;</span></span>
@@ -2826,7 +2827,7 @@ d-article {
 }
 </style>
 </div>
-<p>Either insert this code in your main theme CSS file, if you are using a custom theme for your distill website. Otherwise, make this as a separate .css file and insert it in the article where you want to implement this feature. For inserting multiple CSS files use the following code below.</p>
+<p>For inserting multiple CSS files use the following code.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;Untitled&quot;</span></span>
@@ -2835,9 +2836,9 @@ d-article {
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>css<span class="sc">:</span> [style.css, hover.css] <span class="co">#the hover.css file will be containing the above modified code</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
 </div>
-<p>If done properly then you will have a toc just like mine, which is shown on the left side of this page. If you come across any problems while implementing this feature please put it as a comment below this article. I will do my best to solve them.</p>
+<p>If done properly, you will have a toc just like mine, which is shown on the left side of this page. If you come across any problems while implementing this feature please put it as a comment below this article. I will do my best to solve them.</p>
 <h2 id="adding-a-visitor-counter">2. Adding a visitor counter</h2>
-<p>If you fancy a visitor counter on your website and additionally you would also like to know information like the location data of your visitors, how many people are currently online viewing your website etc. then you can add an HTML widget to your page which shows the visitor count. This can be done for free by following the steps below.</p>
+<p>If you fancy a visitor counter on your website and additionally you would also like to know information like the location data of your visitors, how many people are currently online viewing your website etc. then you can add an HTML widget to your page which shows the visitor count. This can be done by following the steps below.</p>
 <ol type="1">
 <li>Visit <a href="https://www.freecounterstat.com/" class="uri">https://www.freecounterstat.com/</a> and click on ‘originals’. I chose this website as it requires no annoying sign-in or account creation. Plus it is a free service.</li>
 </ol>
@@ -2879,7 +2880,7 @@ Figure 3: The code for the visitor counter widget
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>/* paste the code you copied here */</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/div&gt;&lt;center&gt;</span></span></code></pre></div>
 <h2 id="adding-nextprevious-button">3. Adding next/previous button</h2>
-<p>If you are making a tutorial and have sequential sections or chapters then you might need navigation buttons at the end of each chapter for easy navigation. You can see the picture where I used it for my R tutorial articles. Have a look at my <a href="https://github.com/jeweljohnsonj/jeweljohnson.github.io/blob/main/project1.Rmd">file</a> for reference.</p>
+<p>If you are making a tutorial and have sequential sections or chapters, then you might need navigation buttons at the end of each chapter for easy navigation. In the picture below you can see that I used it for my R tutorial articles. Have a look at my <a href="https://github.com/jeweljohnsonj/jeweljohnson.github.io/blob/main/project1.Rmd">file</a> for reference.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
 <img src="button.png" alt="Source: https://jeweljohnsonj.github.io/jeweljohnson.github.io/project1.html " width="496" />
@@ -2929,8 +2930,8 @@ Figure 4: Source: <a href="https://jeweljohnsonj.github.io/jeweljohnson.github.i
 <h2 id="having-social-media-share-buttons">4. Having social media share buttons</h2>
 <p>You can display social media share buttons for easy sharing of your articles, like what I have, on the right side of this webpage.</p>
 <ol type="1">
-<li>Visit <a href="https://www.addtoany.com/buttons/for/website" class="uri">https://www.addtoany.com/buttons/for/website</a> and fill up relevant details and get your html code. The reason for choosing this website over others was that you could use their service for free without signing up for an account.</li>
-<li>Then simply paste that code directly anywhere in your distill article to enable the share buttons.</li>
+<li><p>Visit <a href="https://www.addtoany.com/buttons/for/website" class="uri">https://www.addtoany.com/buttons/for/website</a> and fill up relevant details and get your html code. The reason for choosing this website over others was that you could use their service for free without signing up for an account.</p></li>
+<li><p>Then simply paste that code directly anywhere in your distill article to enable the share buttons.</p></li>
 </ol>
 <p>Have a look at my <a href="https://github.com/jeweljohnsonj/jeweljohnson.github.io/blob/main/project1.Rmd">file</a> for reference.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2968,7 +2969,7 @@ Figure 5: Source: <a href="https://www.addtoany.com/buttons/for/website" class="
 <h2 id="summary">Summary</h2>
 <p>So in short in this article we have learned;</p>
 <ol type="1">
-<li><p>How to modify the toc to have it fixed on the right side and zoom in, on hover</p></li>
+<li><p>How to modify the toc to have it fixed on the right side and zoom in on hover</p></li>
 <li><p>How to add a visitor counter</p></li>
 <li><p>How to add navigation buttons at the end of the page</p></li>
 <li><p>How to add social media share buttons</p></li>
