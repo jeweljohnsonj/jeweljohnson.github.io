@@ -49,7 +49,7 @@ navbar:
     - icon: fab fa-github
       href: https://github.com/jeweljohnsonj/jeweljohnson.github.io
     - icon: fa fa-rss
-      href: index.xml
+      href: blog_posts.xml
 output: 
   distill::distill_article:
     df_print: paged
