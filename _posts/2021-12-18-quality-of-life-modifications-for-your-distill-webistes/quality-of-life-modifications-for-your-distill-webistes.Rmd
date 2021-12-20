@@ -1,7 +1,7 @@
 ---
 title: "Quality of life modifications for your distill websites"
 description: |
-  In this post, you can find simple but useful enhancements that can be applied to your distill website. I will show you how you can enhance your table of contents tab, how you can add a visitor counter, how to add a navigation button at the end of your distill article, how to add social media share buttons, how to show your Twitter feed, how to add scrolling code chunk window and finally how to add a copy to clipboard button in source code chunks.
+  In this post, you can find simple but useful enhancements that can be applied to your distill website. From enhancing your table of contents tab to adding a 'copy to clipboard button' in source code chunks, learn how you can make your distill website even more awesome!
 author:
   - name: Jewel Johnson
     url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
