@@ -1,11 +1,11 @@
 ---
 title: "Quality of life modifications for your distill websites"
 description: |
-  In this post, you can find simple but useful enhancements that can be applied to your distill website. I will show you how you can enhance your table of contents tab, how you can add a visitor counter, how to add a navigation button at the end of your distill article, how to add social media share buttons and finally how to show your Twitter feed. 
+  In this post, you can find simple but useful enhancements that can be applied to your distill website. I will show you how you can enhance your table of contents tab, how you can add a visitor counter, how to add a navigation button at the end of your distill article, how to add social media share buttons, how to show your Twitter feed, how to add scrolling code chunk window and finally how to add a copy to clipboard button in source code chunks.
 author:
   - name: Jewel Johnson
     url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
-date: 2021-12-18
+date: 2021-12-20
 output:
   distill::distill_article:
     self_contained: false
@@ -21,9 +21,28 @@ categories:
 knitr::opts_chunk$set(echo = T)
 ```
 
-## Quality of life mods for distill webistes
+```{r, xaringanExtra-clipboard, echo=FALSE}
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clone fa-2x\" style=\"color: #301e64\"></i>",
+    success_text = "<i class=\"fa fa-check fa-2x\" style=\"color: #90BE6D\"></i>",
+    error_text = "<i class=\"fa fa-times fa-2x\" style=\"color: #F94144\"></i>"
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+```
 
-In my one month time of learning about the `distill` r-package, I was fascinated by how amazing it is. Without knowing much about HTML or CSS coding, one can build a website from scratch using it. What was even more amazing was that the package had an active and friendly community who have written excellent and easy to follow [tutorials](https://rstudio.github.io/distill/) aiming at beginners like me. Almost everything I know about the `distill` package was thanks to these tutorials. Along the way, I also learned how to implement a few interesting features that can make a distill website even better. As thank you for all the help I have received from this community, I would like to share some of my findings that might prove useful.
+---
+# xaringanExtra package will help us to have inbuilt tabs insdie the article
+---
+
+```{r panelset, echo=FALSE}
+xaringanExtra::use_panelset()
+```
+
+## Quality of life mods for distill websites
+
+In my one month time of learning about the `distill` r-package, I was fascinated by how amazing it is. Without knowing much about HTML or CSS coding, one can build a website from scratch using it. What was even more amazing was that the package had an active and friendly community who have written excellent and easy to follow [tutorials](https://rstudio.github.io/distill/) aiming at beginners like me. Almost everything I know about the `distill` package was thanks to these tutorials. Along the way, I also learned how to implement a few interesting features that can make a distill website even better. As thank you for all the help I have received from this community, I would like to share some of my findings that might prove useful. Most of these findings are born out of curiosity coupled with Google search and from the source codes of the brilliant websites featured in the [distill website showcase](https://jhelvy.github.io/distillery/showcase.html).
 
 ## 1. Making the table of contents more useful
 
@@ -174,7 +193,7 @@ If you want to display your tweet activity on your webpage then follow the steps
 1. First go to your Twitter profile and copy your Twitter profile link address. Then visit https://publish.twitter.com/#. Your profile link would look like this -> `'https://twitter.com/[YOUR TWITTER USERNAME]`
 2. Paste the link that you have copied on the input bar and press enter. 
 3. Select the 'embedded timeline' for showcasing the live feed of your Twitter activity and then copy the HTML widget code. 
-4. Now you can insert the code directly to anywhere on any distill page. As shown below.
+4. Now you can insert the code directly anywhere on any distill page. When done correctly you will get your own widget like mine as shown below. 
 
 <a class="twitter-timeline" data-width="300" data-height="600" data-theme="dark" href="https://twitter.com/jeweljohnsonj?ref_src=twsrc%5Etfw">Tweets by jeweljohnsonj</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -199,6 +218,84 @@ collections:
 
 Have a look at my [file](https://github.com/jeweljohnsonj/jeweljohnson.github.io/blob/main/_custom.html) for reference. If done properly you are now the proud owner of a Twitter feed widget in your distill website. Good job!
 
+## 6. Changing overflow to contain elements within the article body
+
+Sometimes you will have text in your code chunks that will go over the boundary of your article body. This is especially true if you add comments to your codes in the code chunks. You can see in the picture below, the earlier version of this page that you are viewing did not have the text contained within the article body, which made it messy to read at one time. But fear not! you can use the `overflow` property in CSS to fix this issue. When properly implemented it will convert the code chunks containing long text into a scrollable window chunk. Add the code below to your main CSS theme file. This code was inspired by the source codes of [Dr Joel Nitta's website](https://www.joelnitta.com/).
+
+```{css}
+/* making code chunks with scroll bar */
+
+/* the code below will change output chunk properties */
+d-article pre { 
+  border-radius: 5px; /* rounded chunk window*/
+  font-size: 12px; /* output text size */
+  color: black; /* output text colour */
+  background-color: #F5F5F5; /* output chunk background colour */
+  padding: 5px 5px 5px 18px; /* top,right,bottom,left padding values */
+  overflow: auto !important; /* enables scroll bar */ 
+}
+
+/* the code below will change source code chunk properties */
+d-article div.sourceCode pre { 
+  border-radius: 5px;
+  background-color: #F8F8FF;
+  color: black;
+  padding: 5px 5px 5px 18px;
+  overflow: auto !important;
+}
+```
+
+::: {.l-page}
+::: {.panelset}
+::: {.panel}
+## Before overflow change {.panel-name}
+
+> Before changing the overflow property, the comments in the code chuks overflowed the article body
+
+```{r, echo=FALSE, fig.cap="Earlier version of this page", fig.align = 'center', layout="l-body-outset"}
+knitr::include_graphics("before.png")
+```
+
+:::
+::: {.panel}
+## After overflow change {.panel-name}
+
+> After changing the overflow property, the comments in the code chunks are contained inside the code chunk via a scrollable window.
+
+```{r, echo=FALSE, fig.cap="Current version of this page", fig.align = 'center', layout="l-body-outset"}
+knitr::include_graphics("after.png")
+```
+
+:::
+:::
+:::
+
+## 7. Copy to clipboard button in source code chunks
+
+Gone are the days of dragging your mouse pointer to select text. A copy to clipboard button on your source code chunk will make everyone's life easy by allowing one to copy the whole code in the chunk window with a single click. This is extremely useful if you are making tutorial articles or learning materials for a course, where there is a high chance that students will want to copy and use your code. So for implementing the copy to clipboard button, follow the steps below.
+
+1. You will need the `xaringanExtra` and `htmltools` packages installed in your R library to make this work. If you have not installed the packages then run the code shown below.
+
+```{r, eval=FALSE}
+# install.packages("devtools")
+devtools::install_github("gadenbuie/xaringanExtra")
+install.packages("htmltools")
+```
+
+2. Then simply insert the code shown below directly to anywhere in your distill article. If you want to customize your icons then visit https://fontawesome.com/v4.7/icons/ and choose the icon of your liking, then change `fa-ICON NAME` in the code below. For example, changing 'fa-clone' to 'fa-coffee' will give a coffee cup icon as the copy to clipboard button. Also change the hex code in `color: ` to the colour of your liking. If done properly you will see a 'copy' button on the top-right position of your source code chunk.
+
+```` {.clike}
+```{r, xaringanExtra-clipboard, echo=FALSE}`r ''`
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clone fa-2x\" style=\"color: #301e64\"></i>",
+    success_text = "<i class=\"fa fa-check fa-2x\" style=\"color: #90BE6D\"></i>",
+    error_text = "<i class=\"fa fa-times fa-2x\" style=\"color: #F94144\"></i>"
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+```
+````
 
 ## Summary
 
@@ -214,7 +311,11 @@ So in short in this article we have learned;
 
 5. How to display your Twitter feed on your distill website
 
-I hope this was useful and in case you come across some problems, please specify it in the comments. I will try my best to fix them. Thanks!
+6. How to add a scrolling code chunk window
+
+7. How to add a copy to clipboard button in source code chunk
+
+I hope this was useful and in case you come across some problem implementing these features, please specify it in the comments. I will try my best to fix them. In case if anyone is wondering how I was able to make panel sets within this webpage just follow this amazing tutorial [guide](https://pkg.garrickadenbuie.com/xaringanExtra/#/panelset). They are features from the `xaringanExtra` r-package. Thanks!
 
 <!-- adding share buttons on the right side of the page -->
 

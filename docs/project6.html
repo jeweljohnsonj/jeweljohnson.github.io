@@ -2450,6 +2450,28 @@ code span.wa { color: #bf0303; } /* Warning */
       border-style: solid;
       border-color: black;
       border-width: 5px;
+  }
+
+  /* making code chunks with scroll bar */
+
+  /* the code below will change output chunk properties */
+  d-article pre { 
+    border-radius: 5px; /* rounded chunk */
+    font-size: 12px; /*output text size */
+    color: black; /* output text colour */
+    background-color: #F5F5F5; /* output chunk background colour */
+    padding: 5px 5px 5px 18px; /* top,right,bottom,left padding values */
+    overflow: auto !important; /* enable scroll bar */ 
+  }
+
+  /* the code below will change source code chunk properties */
+
+  d-article div.sourceCode pre { 
+    border-radius: 5px;
+    background-color: #F8F8FF;
+    color: black;
+    padding: 5px 5px 5px 18px;
+    overflow: auto !important;
   }</style>
   <style type="text/css">
   /* base style */
@@ -2607,6 +2629,12 @@ code span.wa { color: #bf0303; } /* Warning */
   }</style>
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/clipboard-2.0.6/clipboard.min.js"></script>
+  <link href="site_libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
+  <script src="site_libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
+  <script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-clone fa-2x\" style=\"color: #301e64\"><\/i>","success":"<i class=\"fa fa-check fa-2x\" style=\"color: #90BE6D\"><\/i>","error":"<i class=\"fa fa-times fa-2x\" style=\"color: #F94144\"><\/i>"})</script>
+  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
   <link href="site_libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
   <script src="site_libs/panelset-0.2.6/panelset.js"></script>
   <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
@@ -2740,7 +2768,7 @@ R Tutorials
 <li><a href="#bind_rows">bind_rows()</a></li>
 </ul></li>
 <li><a href="#mutating-joins-and-filtering-joins">Mutating joins and filtering joins</a></li>
-<li><a href="#aditional-commands-for-joins">Aditional commands for joins</a></li>
+<li><a href="#additional-commands-for-joins">Additional commands for joins</a></li>
 <li><a href="#set-operations">Set operations</a>
 <ul>
 <li><a href="#intersect">intersect()</a></li>
@@ -2752,6 +2780,9 @@ R Tutorials
 <li><a href="#references">References</a></li>
 </ul>
 </nav>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
 </div>
 <div class="layout-chunk" data-layout="l-body">
 
@@ -2926,7 +2957,7 @@ Figure 2: Source: RPubs.com
 </p>
 </div>
 </div>
-<h2 id="aditional-commands-for-joins">Aditional commands for joins</h2>
+<h2 id="additional-commands-for-joins">Additional commands for joins</h2>
 <p>Additionally, you can specify which common columns to match.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> tidytable<span class="sc">::</span><span class="fu">data.table</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;john&quot;</span>,<span class="st">&quot;kevin&quot;</span>,<span class="st">&quot;chris&quot;</span>,<span class="st">&quot;sam&quot;</span>,<span class="st">&quot;sam&quot;</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
