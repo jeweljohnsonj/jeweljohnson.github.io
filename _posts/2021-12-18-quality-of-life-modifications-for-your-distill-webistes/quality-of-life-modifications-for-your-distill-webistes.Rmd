@@ -95,7 +95,7 @@ If you fancy a visitor counter on your website and additionally you would also l
 knitr::include_graphics("step1.png")
 ```
 
-2. Pick the theme you like and customize the widget till you are content. Add relevant details like location, category of your website etc and remember to pick the 'standard' layout if you want the counter to be displayed horizontally. The difference between hit counter and visitor counter is that the hit counter only tracks visits for the page it is installed on whereas the visitor counter tracks all users who have visited any of your pages on your website. So select the 'visitor counter'. You can either make the stats public or private, choose public for as it also allows the readers to see your visitor data. Then finally prove that you are not a robot and press 'submit query'.
+2. Pick the theme you like and customize the widget till you are content. Add relevant details like location, category of your website etc and remember to pick the 'standard' layout if you want the counter to be displayed horizontally. The difference between hit counter and visitor counter is that the hit counter only tracks visits for the page it is installed on whereas the visitor counter tracks all users who have visited any of your pages on your website. So select the 'visitor counter'. You can either make the stats public or private, choose public for as it also allows the readers to see your visitor data. Then finally prove that 'you are not a robot' and press 'submit query'.
 
 ```{r, echo=FALSE, fig.cap="Customizing your widget"}
 knitr::include_graphics("step2.png")
@@ -107,7 +107,7 @@ knitr::include_graphics("step2.png")
 knitr::include_graphics("step3.png")
 ```
 
-4. Insert the copied code which displays the widget in your distill article of liking. For example, the code below will place the counter in the centre of the distill article and will have 'visitors' written above it. Paste the code that you copied between the `<center>` tags before and after the `<div>` tags as shown below. You can take a look at my [file](https://github.com/jeweljohnsonj/jeweljohnson.github.io/blob/main/index.Rmd) for reference.
+4. Insert the copied code which displays the widget in your distill article of liking. For example, the code below will place the counter in the centre of the distill article and will have 'visitors' written above it. Paste the code that you copied between the `<center>` tags before and after the `<div>` tags as shown below. You can take a look at my [file](https://github.com/jeweljohnsonj/jeweljohnson.github.io/blob/main/index.Rmd) for reference. If done properly you will have the visitor counter widget placed in the centre position like in this [page](https://jeweljohnsonj.github.io/jeweljohnson.github.io/). 
 
 ```html
 <center>Visitors<center>
@@ -134,7 +134,7 @@ Use the following code inside your distill article to get navigation buttons at 
 <a href="project1.html" class="btn button_round" style="float: left;">Previous chapter:
 <br> 1. Data visualization using ggplot2</a>
 ```
-You can also modify the button feature using the CSS code below. Add this code template to your main CSS theme file and modify it as you like. 
+You should also add the following code to your main CSS theme file. You can change the values in the code to modify the button as you like.
 
 ```{css}
 /* next and previous buttons at the end of the article */
