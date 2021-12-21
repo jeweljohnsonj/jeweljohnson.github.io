@@ -40,8 +40,6 @@ htmltools::tagList(
 xaringanExtra::use_panelset()
 ```
 
-> Note: This post was originally written by [Jewel Johnson](https://twitter.com/jeweljohnsonj) and copied here on {21-Dec-2021} - see the original post [here](https://jeweljohnsonj.github.io/jeweljohnson.github.io/posts/2021-12-18-quality-of-life-modifications-for-your-distill-webistes/) for a potentially updated version.
-
 ## Quality of life mods for distill websites
 
 In my one month time of learning about the `distill` r-package, I was fascinated by how amazing it is. Without knowing much about HTML or CSS coding, using the `distill` package, one can build a website from scratch. What was even more amazing was that the package had an active and friendly community who have written excellent and easy to follow [tutorials](https://rstudio.github.io/distill/) aiming at beginners like me. Almost everything I know about the `distill` package was thanks to these tutorials. Along the way, I also learned how to implement a few interesting features that can make a distill website even better. As a thank you for all the help I have received from this community, I would like to share some of my findings that might prove useful. Most of these findings are born out of curiosity coupled with Google search and from the source codes of the brilliant websites featured in the [distill website showcase](https://jhelvy.github.io/distillery/showcase.html).
