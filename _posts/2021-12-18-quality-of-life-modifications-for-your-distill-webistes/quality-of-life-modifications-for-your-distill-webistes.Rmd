@@ -328,7 +328,7 @@ So in short in this article we have learned;
 
 8. How to add a copy to clipboard button in source code chunk
 
-I hope this was useful and in case you come across some problem implementing these features, please specify them in the comments. I will try my best to fix them. In case if anyone is wondering how I was able to make panel sets within this webpage just follow this amazing tutorial [guide](https://pkg.garrickadenbuie.com/xaringanExtra/#/panelset). They are features from the `xaringanExtra` r-package. Thanks!
+I hope this was useful and in case you come across some problem while implementing these features, please specify them in the comments. I will try my best to fix them. In case if anyone is wondering how I was able to make panel sets within this webpage just follow this amazing tutorial [guide](https://pkg.garrickadenbuie.com/xaringanExtra/#/panelset). They are features from the `xaringanExtra` r-package. Thanks!
 
 ## Last updated on {.appendix}
 
