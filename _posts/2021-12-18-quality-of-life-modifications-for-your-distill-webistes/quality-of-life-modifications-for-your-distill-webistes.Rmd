@@ -5,7 +5,7 @@ description: |
 author:
   - name: Jewel Johnson
     url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
-date: 2021-12-20
+date: 2021-12-19
 output:
   distill::distill_article:
     self_contained: false
@@ -39,6 +39,8 @@ htmltools::tagList(
 ```{r panelset, echo=FALSE}
 xaringanExtra::use_panelset()
 ```
+
+> Note: This post was originally written by [Jewel Johnson](https://twitter.com/jeweljohnsonj) and copied here on {21-Dec-2021} - see the original post [here](https://jeweljohnsonj.github.io/jeweljohnson.github.io/posts/2021-12-18-quality-of-life-modifications-for-your-distill-webistes/) for a potentially updated version.
 
 ## Quality of life mods for distill websites
 
