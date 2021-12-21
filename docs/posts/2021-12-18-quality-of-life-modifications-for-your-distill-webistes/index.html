@@ -2773,10 +2773,14 @@ R Tutorials
 <li><a href="#adding-a-visitor-counter">2. Adding a visitor counter</a></li>
 <li><a href="#adding-nextprevious-button">3. Adding next/previous button</a></li>
 <li><a href="#having-social-media-share-buttons">4. Having social media share buttons</a></li>
-<li><a href="#displaying-your-twitter-feed">5. Displaying your twitter feed</a></li>
-<li><a href="#changing-overflow-to-contain-elements-within-the-article-body">6. Changing overflow to contain elements within the article body</a></li>
-<li><a href="#copy-to-clipboard-button-in-source-code-chunks">7. Copy to clipboard button in source code chunks</a></li>
+<li><a href="#adding-last-updated-date-in-the-appendix">5. Adding last updated date in the appendix</a></li>
+<li><a href="#displaying-your-twitter-feed">6. Displaying your twitter feed</a></li>
+<li><a href="#changing-overflow-to-contain-elements-within-the-article-body">7. Changing overflow to contain elements within the article body</a></li>
+<li><a href="#copy-to-clipboard-button-in-source-code-chunks">8. Copy to clipboard button in source code chunks</a></li>
 <li><a href="#summary">Summary</a></li>
+<li><a href="#last-updated-on">Last updated on</a></li>
+<li><a href="#acknowledgments">Acknowledgments</a></li>
+<li><a href="#references">References</a></li>
 </ul>
 </nav>
 </div>
@@ -2787,10 +2791,10 @@ R Tutorials
 
 </div>
 <h2 id="quality-of-life-mods-for-distill-websites">Quality of life mods for distill websites</h2>
-<p>In my one month time of learning about the <code>distill</code> r-package, I was fascinated by how amazing it is. Without knowing much about HTML or CSS coding, one can build a website from scratch using it. What was even more amazing was that the package had an active and friendly community who have written excellent and easy to follow <a href="https://rstudio.github.io/distill/">tutorials</a> aiming at beginners like me. Almost everything I know about the <code>distill</code> package was thanks to these tutorials. Along the way, I also learned how to implement a few interesting features that can make a distill website even better. As thank you for all the help I have received from this community, I would like to share some of my findings that might prove useful. Most of these findings are born out of curiosity coupled with Google search and from the source codes of the brilliant websites featured in the <a href="https://jhelvy.github.io/distillery/showcase.html">distill website showcase</a>.</p>
+<p>In my one month time of learning about the <code>distill</code> r-package, I was fascinated by how amazing it is. Without knowing much about HTML or CSS coding, using the <code>distill</code> package, one can build a website from scratch. What was even more amazing was that the package had an active and friendly community who have written excellent and easy to follow <a href="https://rstudio.github.io/distill/">tutorials</a> aiming at beginners like me. Almost everything I know about the <code>distill</code> package was thanks to these tutorials. Along the way, I also learned how to implement a few interesting features that can make a distill website even better. As a thank you for all the help I have received from this community, I would like to share some of my findings that might prove useful. Most of these findings are born out of curiosity coupled with Google search and from the source codes of the brilliant websites featured in the <a href="https://jhelvy.github.io/distillery/showcase.html">distill website showcase</a>.</p>
 <h2 id="making-the-table-of-contents-more-useful">1. Making the table of contents more useful</h2>
-<p>If you had used the <code>Rmarkdown</code> package for making websites, before you began using the <code>distill</code> package, one thing you will immediately appreciate is the ‘table of contents (toc)’ in <code>Rmarkdown</code>. Personally, I feel that the toc in <code>Rmarkdown</code> is better than the toc in <code>distill</code>. The purpose of a toc is for enabling quick navigation through the contents of an article via the headers, so the toc should always be accessible to the reader. In distill articles however, because of the way they manage the layout of the figures and other elements, a floating toc that is fixed even while scrolling is not possible out of the box. This <a href="https://github.com/rstudio/distill/issues/16">issue</a> has been raised in GitHub and hopefully, the developers will find an elegant way to reimagine the toc. Nevertheless, all is not lost, from a stack overflow <a href="https://stackoverflow.com/questions/67323162/floating-toc-in-distill-for-r/67387516?noredirect=1#comment119140135_67387516">question</a> on having a floating fixed toc for distill articles, the answer by <a href="https://stackoverflow.com/users/8367943/rich-pauloo">Dr Rich Pauloo</a> provides relief. The code provided by Dr Pauloo allows the toc to be fixed on the left side even when you scroll down. But the down side is that by doing so, the toc will overlap over any element which is extending over the body layout. Also, the default font for the toc in distill is too small I feel, so if you increase the font size while using this code, it will create even more overlapping. So what can be done?</p>
-<p>So one thing I thought of implementing was that I will use the <a href="https://stackoverflow.com/questions/67323162/floating-toc-in-distill-for-r/67387516?noredirect=1#comment119140135_67387516">code</a> by Dr Pauloo and fix the toc on top-left but with a transparent background. But when I hover over the toc headers it should zoom in on the screen, making the font bigger but over a white background, so that it is more legible. I used white colour as that was my background colour in the article body. I also changed the scrolling behaviour from ‘smooth’ to ‘auto’ as it made navigating via toc snappier and more responsive.</p>
+<p>If you had used the <code>Rmarkdown</code> package for making websites before you began using the <code>distill</code> package, one thing you will immediately appreciate is the ‘table of contents (toc)’ in <code>Rmarkdown</code>. Personally, I feel that the toc in <code>Rmarkdown</code> is better than the toc in <code>distill</code>. The purpose of a toc is for enabling quick navigation through the contents of an article via the headers, so the toc should always be accessible to the reader. In distill articles however, because of the way they manage the layout of the figures and other elements, a floating toc that is fixed even while scrolling is not possible out of the box. This <a href="https://github.com/rstudio/distill/issues/16">issue</a> has been raised in GitHub and hopefully, the developers will find an elegant way to reimagine the toc. Nevertheless, all is not lost, from a stack overflow <a href="https://stackoverflow.com/questions/67323162/floating-toc-in-distill-for-r/67387516?noredirect=1#comment119140135_67387516">question</a> on having a floating fixed toc for distill articles, the answer by <a href="https://stackoverflow.com/users/8367943/rich-pauloo">Dr Rich Pauloo</a> provides relief. The code provided by Dr Pauloo allows the toc to be fixed on the left side even when you scroll down. But the down side is that by doing so, the toc will overlap over any element which is extending over the body layout. Also, the default font for the toc in distill is too small I feel, so if you increase the font size while using this code, it will create even more overlapping. So what can be done?</p>
+<p>One thing I thought of implementing was that I will use the <a href="https://stackoverflow.com/questions/67323162/floating-toc-in-distill-for-r/67387516?noredirect=1#comment119140135_67387516">code</a> by Dr Pauloo and fix the toc on top-left but with a transparent background. But when I hover over the toc headers it should zoom in on the screen, making the font bigger but over a white background, so that it is more legible. I used white colour as that was my background colour in the article body. I also changed the scrolling behaviour from ‘smooth’ to ‘auto’ as it made navigating via toc snappier and more responsive.</p>
 <p>If you are adamant about having a fixed toc like me then you just have to tolerate the overlap problem. Another issue is that by using this code, when your website is viewed on mobile devices, the toc overlaps with the main text. But apart from that, I did not find any other major issues. The modified code is given below.</p>
 <p>Either insert this code in your main theme CSS file, if you are using a custom theme for your distill website. Otherwise, make this as a separate .css file and insert it in the article where you want to implement this feature.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2874,7 +2878,7 @@ d-article {
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>css<span class="sc">:</span> [style.css, hover.css] <span class="co">#the hover.css file will be containing the above modified code</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
 </div>
-<p>If done properly, you will have a toc just like mine, which is shown on the left side of this page. If you come across any problems while implementing this feature please put it as a comment below this article. I will do my best to solve them.</p>
+<p>If done properly, you will have a toc just like mine, which is shown on the left side of this page. If you come across any problems while implementing this feature please put them as a comment below this article. I will do my best to solve them.</p>
 <h2 id="adding-a-visitor-counter">2. Adding a visitor counter</h2>
 <p>If you fancy a visitor counter on your website and additionally you would also like to know information like the location data of your visitors, how many people are currently online viewing your website etc. then you can add an HTML widget to your page which shows the visitor count. This can be done by following the steps below.</p>
 <ol type="1">
@@ -2882,20 +2886,20 @@ d-article {
 </ol>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
-<img src="step1.png" alt="Front page of https://www.freecounterstat.com/" width="960" />
+<img src="step1.png" alt="Figure from the Front page of https://www.freecounterstat.com/" width="960" />
 <p class="caption">
-Figure 1: Front page of <a href="https://www.freecounterstat.com/" class="uri">https://www.freecounterstat.com/</a>
+Figure 1: Figure from the Front page of <a href="https://www.freecounterstat.com/" class="uri">https://www.freecounterstat.com/</a>
 </p>
 </div>
 </div>
 <ol start="2" type="1">
-<li>Pick the theme you like and customize the widget till you are content. Add relevant details like location, category of your website etc and remember to pick the ‘standard’ layout if you want the counter to be displayed horizontally. The difference between hit counter and visitor counter is that the hit counter only tracks visits for the page it is installed on whereas the visitor counter tracks all users who have visited any of your pages on your website. So select the ‘visitor counter’. You can either make the stats public or private, choose public for as it also allows the readers to see your visitor data. Then finally prove that ‘you are not a robot’ and press ‘submit query’.</li>
+<li>Pick the theme you like and customize the widget till you are content. Add relevant details like location, category of your website etc and remember to pick the ‘standard’ layout if you want the counter to be displayed horizontally. The difference between hit counter and visitor counter is that the hit counter only tracks visits for the page it is installed on whereas the visitor counter tracks all users who have visited any of your pages on your website. So select the ‘visitor counter’. You can either make the stats public or private, choose public as it also allows the readers to see your visitor data. Then finally prove that ‘you are not a robot’ and press ‘submit query’.</li>
 </ol>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
-<img src="step2.png" alt="Customizing your widget" width="670" />
+<img src="step2.png" alt="Customizing your widget, Figure from the Front page of https://www.freecounterstat.com/" width="670" />
 <p class="caption">
-Figure 2: Customizing your widget
+Figure 2: Customizing your widget, Figure from the Front page of <a href="https://www.freecounterstat.com/" class="uri">https://www.freecounterstat.com/</a>
 </p>
 </div>
 </div>
@@ -2904,9 +2908,9 @@ Figure 2: Customizing your widget
 </ol>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
-<img src="step3.png" alt="The code for the visitor counter widget" width="960" />
+<img src="step3.png" alt="The code for the visitor counter widget, Figure from https://www.freecounterstat.com/" width="960" />
 <p class="caption">
-Figure 3: The code for the visitor counter widget
+Figure 3: The code for the visitor counter widget, Figure from <a href="https://www.freecounterstat.com/" class="uri">https://www.freecounterstat.com/</a>
 </p>
 </div>
 </div>
@@ -2968,7 +2972,7 @@ Figure 4: Source: <a href="https://jeweljohnsonj.github.io/jeweljohnson.github.i
 <h2 id="having-social-media-share-buttons">4. Having social media share buttons</h2>
 <p>You can display social media share buttons for easy sharing of your articles, like what I have, on the right side of this webpage.</p>
 <ol type="1">
-<li><p>Visit <a href="https://www.addtoany.com/buttons/for/website" class="uri">https://www.addtoany.com/buttons/for/website</a> and fill up relevant details and get your html code. The reason for choosing this website over others was that you could use their service for free without signing up for an account.</p></li>
+<li><p>Visit <a href="https://www.addtoany.com/buttons/for/website" class="uri">https://www.addtoany.com/buttons/for/website</a> and fill up the relevant details and get your html code. The reason for choosing this website over others was that you could use their service for free without signing up for an account.</p></li>
 <li><p>Then simply paste that code directly anywhere in your distill article to enable the share buttons.</p></li>
 </ol>
 <p>Have a look at my <a href="https://github.com/jeweljohnsonj/jeweljohnson.github.io/blob/main/project1.Rmd">file</a> for reference.</p>
@@ -2980,7 +2984,14 @@ Figure 5: Source: <a href="https://www.addtoany.com/buttons/for/website" class="
 </p>
 </div>
 </div>
-<h2 id="displaying-your-twitter-feed">5. Displaying your twitter feed</h2>
+<h2 id="adding-last-updated-date-in-the-appendix">5. Adding last updated date in the appendix</h2>
+<p>Showing when your article was last updated can prove useful for returning visitors. As it will allow them to see that the article has been modified. You can include this information in the appendix using the code below. Insert this code directly to your distill article.</p>
+<pre class="clike"><code>## Last updated on {.appendix}
+```{r,echo=FALSE}
+Sys.time()
+```</code></pre>
+<p>Now, this might not be very elegant, but it gets the job done in just one line of code. There is a more elegant way of including the “last updated date” in the appendix as explained by <a href="https://djnavarro.net/">Dr Danielle Navarro</a>. You can read more about it <a href="https://blog.djnavarro.net/posts/2021-09-30_on-blogging-reproducibly/#step-5-let-your-readers-know">here</a>. But it requires setting up a few prerequisites.</p>
+<h2 id="displaying-your-twitter-feed">6. Displaying your twitter feed</h2>
 <p>If you want to display your tweet activity on your webpage then follow the steps below.</p>
 <ol type="1">
 <li>First go to your Twitter profile and copy your Twitter profile link address. Then visit <a href="https://publish.twitter.com/#" class="uri">https://publish.twitter.com/#</a>. Your profile link would look like this -&gt; <code>'https://twitter.com/[YOUR TWITTER USERNAME]</code></li>
@@ -2992,19 +3003,21 @@ Figure 5: Source: <a href="https://www.addtoany.com/buttons/for/website" class="
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <p>I placed my Twitter feed on the blog page where my posts are listed. By following the <a href="https://rstudio.github.io/distill/blog.html#custom-html">guide</a> from the distill package tutorial, which allows one to add custom HTML files to the side section of a page, I was able to place the twitter feed on the right side of my <a href="https://jeweljohnsonj.github.io/jeweljohnson.github.io/blog_posts.html">blog page</a>.</p>
 <p>To do the same, first, open a text file in R Studio and using the template code below, paste the HTML code that you copied between the <code>&lt;div&gt;</code> tags in the code.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;sidebar-section custom&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!--place the code here --&gt;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/div&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;sidebar-section custom&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!--place the code here --&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/div&gt;</span></span></code></pre></div>
 <p>Then save the file as twitter.html (or in any name you like but save as an HTML file) and then include it in the distill blog list page by modifying your collection section in your _site.yml file, like shown below.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>collections<span class="sc">:</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  posts<span class="sc">:</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    subscribe<span class="sc">:</span> _subscribe.html</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    custom<span class="sc">:</span> twitter.html <span class="co">#the html file containing the twitter feed widget code, add this code</span></span></code></pre></div>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>collections</span><span class='op'>:</span>
+  <span class='va'>posts</span><span class='op'>:</span>
+    <span class='va'>custom</span><span class='op'>:</span> <span class='va'>twitter.html</span> <span class='co'>#the html file containing the twitter feed widget code, add this code</span>
+</code></pre>
+</div>
 </div>
 <p>Have a look at my <a href="https://github.com/jeweljohnsonj/jeweljohnson.github.io/blob/main/_custom.html">file</a> for reference. If done properly you are now the proud owner of a Twitter feed widget in your distill website. Good job!</p>
-<h2 id="changing-overflow-to-contain-elements-within-the-article-body">6. Changing overflow to contain elements within the article body</h2>
+<h2 id="changing-overflow-to-contain-elements-within-the-article-body">7. Changing overflow to contain elements within the article body</h2>
 <p>Sometimes you will have text in your code chunks that will go over the boundary of your article body. This is especially true if you add comments to your codes in the code chunks. You can see in the picture below, the earlier version of this page that you are viewing did not have the text contained within the article body, which made it messy to read at one time. But fear not! you can use the <code>overflow</code> property in CSS to fix this issue. When properly implemented it will convert the code chunks containing long text into a scrollable window chunk. Add the code below to your main CSS theme file. This code was inspired by the source codes of <a href="https://www.joelnitta.com/">Dr Joel Nitta’s website</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb8"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* making code chunks with scroll bar */</span></span>
@@ -3082,7 +3095,7 @@ Figure 7: Current version of this page
 </section>
 </div>
 </div>
-<h2 id="copy-to-clipboard-button-in-source-code-chunks">7. Copy to clipboard button in source code chunks</h2>
+<h2 id="copy-to-clipboard-button-in-source-code-chunks">8. Copy to clipboard button in source code chunks</h2>
 <p>Gone are the days of dragging your mouse pointer to select text. A copy to clipboard button on your source code chunk will make everyone’s life easy by allowing one to copy the whole code in the chunk window with a single click. This is extremely useful if you are making tutorial articles or learning materials for a course, where there is a high chance that students will want to copy and use your code. So for implementing the copy to clipboard button, follow the steps below.</p>
 <ol type="1">
 <li>You will need the <code>xaringanExtra</code> and <code>htmltools</code> packages installed in your R library to make this work. If you have not installed the packages then run the code shown below.</li>
@@ -3111,15 +3124,33 @@ htmltools::tagList(
 <h2 id="summary">Summary</h2>
 <p>So in short in this article we have learned;</p>
 <ol type="1">
-<li><p>How to modify the toc to have it fixed on the right side and zoom in on hover</p></li>
+<li><p>How to modify the toc to have it fixed on the left side and zoom in on hover</p></li>
 <li><p>How to add a visitor counter</p></li>
 <li><p>How to add navigation buttons at the end of the page</p></li>
 <li><p>How to add social media share buttons</p></li>
+<li><p>How to add last updated date in the appendix</p></li>
 <li><p>How to display your Twitter feed on your distill website</p></li>
 <li><p>How to add a scrolling code chunk window</p></li>
 <li><p>How to add a copy to clipboard button in source code chunk</p></li>
 </ol>
-<p>I hope this was useful and in case you come across some problem implementing these features, please specify it in the comments. I will try my best to fix them. In case if anyone is wondering how I was able to make panel sets within this webpage just follow this amazing tutorial <a href="https://pkg.garrickadenbuie.com/xaringanExtra/#/panelset">guide</a>. They are features from the <code>xaringanExtra</code> r-package. Thanks!</p>
+<p>I hope this was useful and in case you come across some problem implementing these features, please specify them in the comments. I will try my best to fix them. In case if anyone is wondering how I was able to make panel sets within this webpage just follow this amazing tutorial <a href="https://pkg.garrickadenbuie.com/xaringanExtra/#/panelset">guide</a>. They are features from the <code>xaringanExtra</code> r-package. Thanks!</p>
+<h2 class="appendix" id="last-updated-on">Last updated on</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>[1] &quot;2021-12-21 11:06:53 IST&quot;</code></pre>
+</div>
+<h2 class="appendix" id="acknowledgments">Acknowledgments</h2>
+<p>I would like to thank <a href="https://twitter.com/AwantiShastri">Awanti Shastri</a> for taking her valuable time to proofread this article. I also appreciate the valuable feedback and suggestions she gave for this article.</p>
+<h2 class="appendix" id="references">References</h2>
+<ol type="1">
+<li><p>The stackoverflow question on fixed toc in distill articles: <a href="https://stackoverflow.com/questions/67323162/floating-toc-in-distill-for-r/67387516?noredirect=1#comment119140135_67387516" class="uri">https://stackoverflow.com/questions/67323162/floating-toc-in-distill-for-r/67387516?noredirect=1#comment119140135_67387516</a></p></li>
+<li><p>Visiter counter source: <a href="https://www.freecounterstat.com/" class="uri">https://www.freecounterstat.com/</a></p></li>
+<li><p>Social media share buttons source: <a href="https://www.addtoany.com/buttons/for/website" class="uri">https://www.addtoany.com/buttons/for/website</a></p></li>
+<li><p>Twitter feed widget source: <a href="https://publish.twitter.com/#" class="uri">https://publish.twitter.com/#</a></p></li>
+<li><p>For changing the icons visit: <a href="https://fontawesome.com/v4.7/icons/" class="uri">https://fontawesome.com/v4.7/icons/</a></p></li>
+<li><p>For implementing panelsets in distill articles: <a href="https://pkg.garrickadenbuie.com/xaringanExtra/#/panelset" class="uri">https://pkg.garrickadenbuie.com/xaringanExtra/#/panelset</a></p></li>
+<li><p>JJ Allaire, Rich Iannone, Alison Presmanes Hill and Yihui Xie (2021). distill: ‘R Markdown’ Format for Scientific and Technical Writing. R package version 1.3. <a href="https://CRAN.R-project.org/package=distill" class="uri">https://CRAN.R-project.org/package=distill</a></p></li>
+<li><p>Garrick Aden-Buie and Matthew T. Warkentin (2021). xaringanExtra: Extras And Extensions for Xaringan Slides. R package version 0.5.5. <a href="https://github.com/gadenbuie/xaringanExtra" class="uri">https://github.com/gadenbuie/xaringanExtra</a></p></li>
+</ol>
 <!-- adding share buttons on the right side of the page -->
 <!-- AddToAny BEGIN -->
 <div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style" style="right:0px; top:150px; data-a2a-url="https://jeweljohnsonj.github.io/jeweljohnson.github.io/" data-a2a-title="One-carat Blog">
@@ -3138,20 +3169,8 @@ a2a_config.onclick = 1;
 </script>
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 <!-- AddToAny END -->
-<div class="sourceCode" id="cb10"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
-<div class="article-footer">
-  <p>
-    <div class="subscribe"><form method='post' action='https://blogtrottr.com'>
-  <p>Enjoy this blog? Get notified of new posts via email:</p>
-  <input type='text' name='btr_email' />
-  <input type='hidden' name='btr_url'
-         value='https://jeweljohnsonj.github.io/jeweljohnson.github.io/index.xml'/>
-  <input type='hidden' name='schedule_type' value='0' />
-  <input type='submit' value='Subscribe' />
-</form></div>
-  </p>
-</div>
 <!--/radix_placeholder_article_footer-->
 </div>
 

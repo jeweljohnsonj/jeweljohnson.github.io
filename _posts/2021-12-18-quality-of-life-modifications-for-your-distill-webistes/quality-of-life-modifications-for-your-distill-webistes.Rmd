@@ -42,13 +42,13 @@ xaringanExtra::use_panelset()
 
 ## Quality of life mods for distill websites
 
-In my one month time of learning about the `distill` r-package, I was fascinated by how amazing it is. Without knowing much about HTML or CSS coding, one can build a website from scratch using it. What was even more amazing was that the package had an active and friendly community who have written excellent and easy to follow [tutorials](https://rstudio.github.io/distill/) aiming at beginners like me. Almost everything I know about the `distill` package was thanks to these tutorials. Along the way, I also learned how to implement a few interesting features that can make a distill website even better. As thank you for all the help I have received from this community, I would like to share some of my findings that might prove useful. Most of these findings are born out of curiosity coupled with Google search and from the source codes of the brilliant websites featured in the [distill website showcase](https://jhelvy.github.io/distillery/showcase.html).
+In my one month time of learning about the `distill` r-package, I was fascinated by how amazing it is. Without knowing much about HTML or CSS coding, using the `distill` package, one can build a website from scratch. What was even more amazing was that the package had an active and friendly community who have written excellent and easy to follow [tutorials](https://rstudio.github.io/distill/) aiming at beginners like me. Almost everything I know about the `distill` package was thanks to these tutorials. Along the way, I also learned how to implement a few interesting features that can make a distill website even better. As a thank you for all the help I have received from this community, I would like to share some of my findings that might prove useful. Most of these findings are born out of curiosity coupled with Google search and from the source codes of the brilliant websites featured in the [distill website showcase](https://jhelvy.github.io/distillery/showcase.html).
 
 ## 1. Making the table of contents more useful
 
-If you had used the `Rmarkdown` package for making websites, before you began using the `distill` package, one thing you will immediately appreciate is the 'table of contents (toc)' in `Rmarkdown`. Personally, I feel that the toc in `Rmarkdown` is better than the toc in `distill`. The purpose of a toc is for enabling quick navigation through the contents of an article via the headers, so the toc should always be accessible to the reader. In distill articles however, because of the way they manage the layout of the figures and other elements, a floating toc that is fixed even while scrolling is not possible out of the box. This [issue](https://github.com/rstudio/distill/issues/16) has been raised in GitHub and hopefully, the developers will find an elegant way to reimagine the toc. Nevertheless, all is not lost, from a stack overflow [question](https://stackoverflow.com/questions/67323162/floating-toc-in-distill-for-r/67387516?noredirect=1#comment119140135_67387516) on having a floating fixed toc for distill articles, the answer by [Dr Rich Pauloo](https://stackoverflow.com/users/8367943/rich-pauloo) provides relief. The code provided by Dr Pauloo allows the toc to be fixed on the left side even when you scroll down. But the down side is that by doing so, the toc will overlap over any element which is extending over the body layout. Also, the default font for the toc in distill is too small I feel, so if you increase the font size while using this code, it will create even more overlapping. So what can be done? 
+If you had used the `Rmarkdown` package for making websites before you began using the `distill` package, one thing you will immediately appreciate is the 'table of contents (toc)' in `Rmarkdown`. Personally, I feel that the toc in `Rmarkdown` is better than the toc in `distill`. The purpose of a toc is for enabling quick navigation through the contents of an article via the headers, so the toc should always be accessible to the reader. In distill articles however, because of the way they manage the layout of the figures and other elements, a floating toc that is fixed even while scrolling is not possible out of the box. This [issue](https://github.com/rstudio/distill/issues/16) has been raised in GitHub and hopefully, the developers will find an elegant way to reimagine the toc. Nevertheless, all is not lost, from a stack overflow [question](https://stackoverflow.com/questions/67323162/floating-toc-in-distill-for-r/67387516?noredirect=1#comment119140135_67387516) on having a floating fixed toc for distill articles, the answer by [Dr Rich Pauloo](https://stackoverflow.com/users/8367943/rich-pauloo) provides relief. The code provided by Dr Pauloo allows the toc to be fixed on the left side even when you scroll down. But the down side is that by doing so, the toc will overlap over any element which is extending over the body layout. Also, the default font for the toc in distill is too small I feel, so if you increase the font size while using this code, it will create even more overlapping. So what can be done? 
 
-So one thing I thought of implementing was that I will use the [code](https://stackoverflow.com/questions/67323162/floating-toc-in-distill-for-r/67387516?noredirect=1#comment119140135_67387516) by Dr Pauloo and fix the toc on top-left but with a transparent background. But when I hover over the toc headers it should zoom in on the screen, making the font bigger but over a white background, so that it is more legible. I used white colour as that was my background colour in the article body. I also changed the scrolling behaviour from 'smooth' to 'auto' as it made navigating via toc snappier and more responsive. 
+One thing I thought of implementing was that I will use the [code](https://stackoverflow.com/questions/67323162/floating-toc-in-distill-for-r/67387516?noredirect=1#comment119140135_67387516) by Dr Pauloo and fix the toc on top-left but with a transparent background. But when I hover over the toc headers it should zoom in on the screen, making the font bigger but over a white background, so that it is more legible. I used white colour as that was my background colour in the article body. I also changed the scrolling behaviour from 'smooth' to 'auto' as it made navigating via toc snappier and more responsive. 
 
 If you are adamant about having a fixed toc like me then you just have to tolerate the overlap problem. Another issue is that by using this code, when your website is viewed on mobile devices, the toc overlaps with the main text. But apart from that, I did not find any other major issues. The modified code is given below. 
 
@@ -102,7 +102,7 @@ css: [style.css, hover.css] #the hover.css file will be containing the above mod
 ---
 ```
 
-If done properly, you will have a toc just like mine, which is shown on the left side of this page. If you come across any problems while implementing this feature please put it as a comment below this article. I will do my best to solve them.
+If done properly, you will have a toc just like mine, which is shown on the left side of this page. If you come across any problems while implementing this feature please put them as a comment below this article. I will do my best to solve them.
 
 ## 2. Adding a visitor counter
 
@@ -110,19 +110,19 @@ If you fancy a visitor counter on your website and additionally you would also l
 
 1. Visit https://www.freecounterstat.com/ and click on 'originals'. I chose this website as it requires no annoying sign-in or account creation. Plus it is a free service.
 
-```{r, echo=FALSE, fig.cap="Front page of https://www.freecounterstat.com/"}
+```{r, echo=FALSE, fig.cap="Figure from the Front page of https://www.freecounterstat.com/"}
 knitr::include_graphics("step1.png")
 ```
 
-2. Pick the theme you like and customize the widget till you are content. Add relevant details like location, category of your website etc and remember to pick the 'standard' layout if you want the counter to be displayed horizontally. The difference between hit counter and visitor counter is that the hit counter only tracks visits for the page it is installed on whereas the visitor counter tracks all users who have visited any of your pages on your website. So select the 'visitor counter'. You can either make the stats public or private, choose public for as it also allows the readers to see your visitor data. Then finally prove that 'you are not a robot' and press 'submit query'.
+2. Pick the theme you like and customize the widget till you are content. Add relevant details like location, category of your website etc and remember to pick the 'standard' layout if you want the counter to be displayed horizontally. The difference between hit counter and visitor counter is that the hit counter only tracks visits for the page it is installed on whereas the visitor counter tracks all users who have visited any of your pages on your website. So select the 'visitor counter'. You can either make the stats public or private, choose public as it also allows the readers to see your visitor data. Then finally prove that 'you are not a robot' and press 'submit query'.
 
-```{r, echo=FALSE, fig.cap="Customizing your widget"}
+```{r, echo=FALSE, fig.cap="Customizing your widget, Figure from the Front page of https://www.freecounterstat.com/"}
 knitr::include_graphics("step2.png")
 ```
 
 3. The first code shown inside the red rectangle in the figure below has a javascript code that allows you to access various interesting information about the visitors to your webpage. Copy the first code.
 
-```{r, echo=FALSE, fig.cap="The code for the visitor counter widget"}
+```{r, echo=FALSE, fig.cap="The code for the visitor counter widget, Figure from https://www.freecounterstat.com/"}
 knitr::include_graphics("step3.png")
 ```
 
@@ -176,7 +176,7 @@ You should also add the following code to your main CSS theme file. You can chan
 
 You can display social media share buttons for easy sharing of your articles, like what I have, on the right side of this webpage.
 
-1. Visit https://www.addtoany.com/buttons/for/website and fill up relevant details and get your html code. The reason for choosing this website over others was that you could use their service for free without signing up for an account.
+1. Visit https://www.addtoany.com/buttons/for/website and fill up the relevant details and get your html code. The reason for choosing this website over others was that you could use their service for free without signing up for an account.
 
 2. Then simply paste that code directly anywhere in your distill article to enable the share buttons. 
 
@@ -186,7 +186,19 @@ Have a look at my [file](https://github.com/jeweljohnsonj/jeweljohnson.github.io
 knitr::include_graphics("share_code.png")
 ```
 
-## 5. Displaying your twitter feed
+## 5. Adding last updated date in the appendix
+
+Showing when your article was last updated can prove useful for returning visitors. As it will allow them to see that the article has been modified. You can include this information in the appendix using the code below. Insert this code directly to your distill article.
+
+```` {.clike}
+## Last updated on {.appendix}
+```{r,echo=FALSE}`r ''`
+Sys.time()
+```
+````
+Now, this might not be very elegant, but it gets the job done in just one line of code. There is a more elegant way of including the "last updated date" in the appendix as explained by [Dr Danielle Navarro](https://djnavarro.net/). You can read more about it [here](https://blog.djnavarro.net/posts/2021-09-30_on-blogging-reproducibly/#step-5-let-your-readers-know). But it requires setting up a few prerequisites. 
+
+## 6. Displaying your twitter feed
 
 If you want to display your tweet activity on your webpage then follow the steps below.
 
@@ -212,13 +224,12 @@ Then save the file as twitter.html (or in any name you like but save as an HTML 
 ```{r, eval=FALSE}
 collections:
   posts:
-    subscribe: _subscribe.html
     custom: twitter.html #the html file containing the twitter feed widget code, add this code
 ```
 
 Have a look at my [file](https://github.com/jeweljohnsonj/jeweljohnson.github.io/blob/main/_custom.html) for reference. If done properly you are now the proud owner of a Twitter feed widget in your distill website. Good job!
 
-## 6. Changing overflow to contain elements within the article body
+## 7. Changing overflow to contain elements within the article body
 
 Sometimes you will have text in your code chunks that will go over the boundary of your article body. This is especially true if you add comments to your codes in the code chunks. You can see in the picture below, the earlier version of this page that you are viewing did not have the text contained within the article body, which made it messy to read at one time. But fear not! you can use the `overflow` property in CSS to fix this issue. When properly implemented it will convert the code chunks containing long text into a scrollable window chunk. Add the code below to your main CSS theme file. This code was inspired by the source codes of [Dr Joel Nitta's website](https://www.joelnitta.com/).
 
@@ -270,7 +281,7 @@ knitr::include_graphics("after.png")
 :::
 :::
 
-## 7. Copy to clipboard button in source code chunks
+## 8. Copy to clipboard button in source code chunks
 
 Gone are the days of dragging your mouse pointer to select text. A copy to clipboard button on your source code chunk will make everyone's life easy by allowing one to copy the whole code in the chunk window with a single click. This is extremely useful if you are making tutorial articles or learning materials for a course, where there is a high chance that students will want to copy and use your code. So for implementing the copy to clipboard button, follow the steps below.
 
@@ -301,7 +312,7 @@ htmltools::tagList(
 
 So in short in this article we have learned;
 
-1. How to modify the toc to have it fixed on the right side and zoom in on hover
+1. How to modify the toc to have it fixed on the left side and zoom in on hover
 
 2. How to add a visitor counter
 
@@ -309,13 +320,44 @@ So in short in this article we have learned;
 
 4. How to add social media share buttons
 
-5. How to display your Twitter feed on your distill website
+5. How to add last updated date in the appendix
 
-6. How to add a scrolling code chunk window
+6. How to display your Twitter feed on your distill website
 
-7. How to add a copy to clipboard button in source code chunk
+7. How to add a scrolling code chunk window
 
-I hope this was useful and in case you come across some problem implementing these features, please specify it in the comments. I will try my best to fix them. In case if anyone is wondering how I was able to make panel sets within this webpage just follow this amazing tutorial [guide](https://pkg.garrickadenbuie.com/xaringanExtra/#/panelset). They are features from the `xaringanExtra` r-package. Thanks!
+8. How to add a copy to clipboard button in source code chunk
+
+I hope this was useful and in case you come across some problem implementing these features, please specify them in the comments. I will try my best to fix them. In case if anyone is wondering how I was able to make panel sets within this webpage just follow this amazing tutorial [guide](https://pkg.garrickadenbuie.com/xaringanExtra/#/panelset). They are features from the `xaringanExtra` r-package. Thanks!
+
+## Last updated on {.appendix}
+
+```{r, echo=FALSE}
+Sys.time()
+```
+
+## Acknowledgments {.appendix}
+I would like to thank [Awanti Shastri](https://twitter.com/AwantiShastri) for taking her valuable time to proofread this article. I also appreciate the valuable feedback and suggestions she gave for this article.
+
+## References {.appendix}
+
+1. The stackoverflow question on fixed toc in distill articles: https://stackoverflow.com/questions/67323162/floating-toc-in-distill-for-r/67387516?noredirect=1#comment119140135_67387516
+
+2. Visiter counter source: https://www.freecounterstat.com/
+
+3. Social media share buttons source: https://www.addtoany.com/buttons/for/website
+
+4. Twitter feed widget source: https://publish.twitter.com/#
+
+5. For changing the icons visit: https://fontawesome.com/v4.7/icons/
+
+6. For implementing panelsets in distill articles: https://pkg.garrickadenbuie.com/xaringanExtra/#/panelset
+
+7. JJ Allaire, Rich Iannone, Alison Presmanes Hill and Yihui Xie (2021). distill: 'R Markdown' Format for Scientific and
+  Technical Writing. R package version 1.3. https://CRAN.R-project.org/package=distill
+  
+8. Garrick Aden-Buie and Matthew T. Warkentin (2021). xaringanExtra: Extras And Extensions for Xaringan Slides. R package
+  version 0.5.5. https://github.com/gadenbuie/xaringanExtra
 
 <!-- adding share buttons on the right side of the page -->
 

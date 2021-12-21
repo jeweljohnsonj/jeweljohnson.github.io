@@ -345,3 +345,9 @@ a2a_config.onclick = 1;
 1. Hadley Wickham, Romain François, Lionel Henry and Kirill Müller (2021). dplyr: A Grammar of Data Manipulation. R
   package version 1.0.7. https://CRAN.R-project.org/package=dplyr
   Here is the [link](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf) to the cheat sheet explaining each function in `dplyr`.
+
+## Last updated on {.appendix}
+
+```{r, echo=FALSE}
+Sys.time()
+```

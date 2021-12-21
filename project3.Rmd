@@ -1236,3 +1236,10 @@ a2a_config.onclick = 1;
 
 7. Nan Xiao (2018). ggsci: Scientific Journal and Sci-Fi Themed Color Palettes for 'ggplot2'. R package version 2.9.
   https://CRAN.R-project.org/package=ggsci
+  
+## Last updated on {.appendix}
+
+```{r, echo=FALSE}
+Sys.time()
+```
+
