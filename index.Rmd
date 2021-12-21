@@ -35,7 +35,8 @@ PS: If you are viewing this website through a mobile device some of the features
 ---
 
 <center>Visitors<center>
-<center><div id="sfcxqmebarkplgkzwtm8bz2lp8pnnllbeal"></div>
+<center>
+<div id="sfcxqmebarkplgkzwtm8bz2lp8pnnllbeal"></div>
 <script type="text/javascript" src="https://counter7.stat.ovh/private/counter.js?c=xqmebarkplgkzwtm8bz2lp8pnnllbeal&down=async" async></script>
 <noscript><a href="https://www.freecounterstat.com" title="website counter code"><img src="https://counter7.stat.ovh/private/freecounterstat.php?c=xqmebarkplgkzwtm8bz2lp8pnnllbeal" border="0" title="website counter code" alt="website counter code"></a></noscript>
 </div><center>

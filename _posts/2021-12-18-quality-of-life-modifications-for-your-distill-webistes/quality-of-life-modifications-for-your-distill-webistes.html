@@ -1523,10 +1523,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h2 id="quality-of-life-mods-for-distill-websites">Quality of life mods for distill websites</h2>
 <p>In my one month time of learning about the <code>distill</code> r-package, I was fascinated by how amazing it is. Without knowing much about HTML or CSS coding, using the <code>distill</code> package, one can build a website from scratch. What was even more amazing was that the package had an active and friendly community who have written excellent and easy to follow <a href="https://rstudio.github.io/distill/">tutorials</a> aiming at beginners like me. Almost everything I know about the <code>distill</code> package was thanks to these tutorials. Along the way, I also learned how to implement a few interesting features that can make a distill website even better. As a thank you for all the help I have received from this community, I would like to share some of my findings that might prove useful. Most of these findings are born out of curiosity coupled with Google search and from the source codes of the brilliant websites featured in the <a href="https://jhelvy.github.io/distillery/showcase.html">distill website showcase</a>.</p>
 <h2 id="making-the-table-of-contents-more-useful">1. Making the table of contents more useful</h2>
-<p>If you had used the <code>Rmarkdown</code> package for making websites before you began using the <code>distill</code> package, one thing you will immediately appreciate is the ‘table of contents (toc)’ in <code>Rmarkdown</code>. Personally, I feel that the toc in <code>Rmarkdown</code> is better than the toc in <code>distill</code>. The purpose of a toc is for enabling quick navigation through the contents of an article via the headers, so the toc should always be accessible to the reader. In distill articles however, because of the way they manage the layout of the figures and other elements, a floating toc that is fixed even while scrolling is not possible out of the box. This <a href="https://github.com/rstudio/distill/issues/16">issue</a> has been raised in GitHub and hopefully, the developers will find an elegant way to reimagine the toc. Nevertheless, all is not lost, from a stack overflow <a href="https://stackoverflow.com/questions/67323162/floating-toc-in-distill-for-r/67387516?noredirect=1#comment119140135_67387516">question</a> on having a floating fixed toc for distill articles, the answer by <a href="https://stackoverflow.com/users/8367943/rich-pauloo">Dr Rich Pauloo</a> provides relief. The code provided by Dr Pauloo allows the toc to be fixed on the left side even when you scroll down. But the down side is that by doing so, the toc will overlap over any element which is extending over the body layout. Also, the default font for the toc in distill is too small I feel, so if you increase the font size while using this code, it will create even more overlapping. So what can be done?</p>
+<p>If you had used the <code>Rmarkdown</code> package for making websites before you began using the <code>distill</code> package, one thing you will immediately appreciate is the ‘table of contents (toc)’ in <code>Rmarkdown</code>. I feel that the toc in <code>Rmarkdown</code> is better than the toc in <code>distill</code>. The purpose of a toc is for enabling quick navigation through the contents of an article via the headers, so the toc should always be accessible to the reader. In distill articles, however, because of the way they manage the layout of the figures and other elements, a floating toc that is fixed even when the page is scrolled down is not possible out of the box. This <a href="https://github.com/rstudio/distill/issues/16">issue</a> has been raised in GitHub and hopefully, the developers will find an elegant way to reimagine the toc. Nevertheless, all is not lost, from a stack overflow <a href="https://stackoverflow.com/questions/67323162/floating-toc-in-distill-for-r/67387516?noredirect=1#comment119140135_67387516">question</a> on having a floating fixed toc for distill articles, the answer by <a href="https://stackoverflow.com/users/8367943/rich-pauloo">Dr Rich Pauloo</a> provides relief. The code provided by Dr Pauloo allows the toc to be fixed on the left side even when you scroll down the page. But the down side is that by doing so, the toc will overlap over any element which is extending over the body layout. Also, the default font for the toc in distill is too small I feel, so if you increase the font size while using this code, it will create even more overlapping. So what can be done?</p>
 <p>One thing I thought of implementing was that I will use the <a href="https://stackoverflow.com/questions/67323162/floating-toc-in-distill-for-r/67387516?noredirect=1#comment119140135_67387516">code</a> by Dr Pauloo and fix the toc on top-left but with a transparent background. But when I hover over the toc headers it should zoom in on the screen, making the font bigger but over a white background, so that it is more legible. I used white colour as that was my background colour in the article body. I also changed the scrolling behaviour from ‘smooth’ to ‘auto’ as it made navigating via toc snappier and more responsive.</p>
 <p>If you are adamant about having a fixed toc like me then you just have to tolerate the overlap problem. Another issue is that by using this code, when your website is viewed on mobile devices, the toc overlaps with the main text. But apart from that, I did not find any other major issues. The modified code is given below.</p>
-<p>Either insert this code in your main theme CSS file, if you are using a custom theme for your distill website. Otherwise, make this as a separate .css file and insert it in the article where you want to implement this feature.</p>
+<p>Either insert the code below to your main theme CSS file, if you are using a custom theme for your distill website. Otherwise, insert the code in a separate .css file and insert it in the article where you want to implement this feature.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb1"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>html {</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  scroll-behavior: <span class="bu">auto</span><span class="op">;</span></span>
@@ -1538,7 +1538,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">/* the value in left: will allow you to change the left edge gap */</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">/* try using the value I have provided and check if the text goes beyond */</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">/* the edge of the screen when you hover over using the mouse pointer */</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">/* otherwise modify the values till you get desirable result */</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">/* otherwise modify the values till you get a desirable result */</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="pp">#TOC</span> {</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">position</span>: <span class="dv">fixed</span><span class="op">;</span></span>
@@ -1573,7 +1573,7 @@ d-article {
 /* the value in left: will allow you to change the left edge gap */
 /* try using the value I have provided and check if the text goes beyond */
 /* the edge of the screen when you hover over using the mouse pointer */
-/* otherwise modify the values till you get desirable result */
+/* otherwise modify the values till you get a desirable result */
 
 #TOC {
   position: fixed;
@@ -1645,7 +1645,7 @@ Figure 3: The code for the visitor counter widget, Figure from <a href="https://
 </div>
 </div>
 <ol start="4" type="1">
-<li>Insert the copied code which displays the widget in your distill article of liking. For example, the code below will place the counter in the centre of the distill article and will have ‘visitors’ written above it. Paste the code that you copied between the <code>&lt;center&gt;</code> tags before and after the <code>&lt;div&gt;</code> tags as shown below. You can take a look at my <a href="https://github.com/jeweljohnsonj/jeweljohnson.github.io/blob/main/index.Rmd">file</a> for reference. If done properly you will have the visitor counter widget placed in the centre position like in this <a href="https://jeweljohnsonj.github.io/jeweljohnson.github.io/">page</a>.</li>
+<li>Insert the copied code which displays the widget in your distill article of liking. For example, the code below will place the counter in the centre of the distill article and will have ‘visitors’ written above it. Paste the code that you have copied between the <code>&lt;center&gt;</code> tags. You can take a look at my <a href="https://github.com/jeweljohnsonj/jeweljohnson.github.io/blob/main/index.Rmd">file</a> for reference. If done properly you will have the visitor counter widget placed in the centre position like in this <a href="https://jeweljohnsonj.github.io/jeweljohnson.github.io/">page</a>.</li>
 </ol>
 <div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;center&gt;</span>Visitors<span class="kw">&lt;center&gt;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;center&gt;</span></span>
@@ -1661,7 +1661,7 @@ Figure 4: Source: <a href="https://jeweljohnsonj.github.io/jeweljohnson.github.i
 </p>
 </div>
 </div>
-<p>Use the following code inside your distill article to get navigation buttons at the end of your page. Change the href values to your respective html files and change the text accordingly for right and left sided buttons</p>
+<p>Use the following code inside your distill article to get navigation buttons at the end of your page. Change the href values to your respective html files and change the text accordingly for right and left sided buttons. Insert the code given below at the end of your article.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;br&gt;</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;a</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;project3.html&quot;</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;btn button_round&quot;</span> <span class="er">style</span><span class="ot">=</span><span class="st">&quot;float: right;&quot;</span><span class="kw">&gt;</span>Next chapter:</span>
@@ -1682,7 +1682,7 @@ Figure 4: Source: <a href="https://jeweljohnsonj.github.io/jeweljohnson.github.i
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span>: <span class="dv">inline-block</span><span class="op">;</span></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">.button_round</span> {<span class="kw">border-radius</span>: <span class="dv">12</span><span class="dt">px</span><span class="op">;</span>}</span></code></pre></div>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">.button_round</span> {<span class="kw">border-radius</span>: <span class="dv">12</span><span class="dt">px</span><span class="op">;</span>} <span class="co">/* makes the button round */</span></span></code></pre></div>
 <style type="text/css">
 /* next and previous buttons at the end of the article */
 
@@ -1695,12 +1695,12 @@ Figure 4: Source: <a href="https://jeweljohnsonj.github.io/jeweljohnson.github.i
   display: inline-block;
 }
 
-.button_round {border-radius: 12px;}
+.button_round {border-radius: 12px;} /* makes the button round */
 
 </style>
 </div>
 <h2 id="having-social-media-share-buttons">4. Having social media share buttons</h2>
-<p>You can display social media share buttons for easy sharing of your articles, like what I have, on the right side of this webpage.</p>
+<p>You can display social media share buttons for enabling easy sharing of your articles, like what I have, on the right side of this webpage.</p>
 <ol type="1">
 <li><p>Visit <a href="https://www.addtoany.com/buttons/for/website" class="uri">https://www.addtoany.com/buttons/for/website</a> and fill up the relevant details and get your html code. The reason for choosing this website over others was that you could use their service for free without signing up for an account.</p></li>
 <li><p>Then simply paste that code directly anywhere in your distill article to enable the share buttons.</p></li>
@@ -1737,7 +1737,7 @@ Sys.time()
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!--place the code here --&gt;</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/div&gt;</span></span></code></pre></div>
-<p>Then save the file as twitter.html (or in any name you like but save as an HTML file) and then include it in the distill blog list page by modifying your collection section in your _site.yml file, like shown below.</p>
+<p>Then save the file as twitter.html (or in any name you like but save it as an HTML file) and then include it in the distill blog list page by modifying your collection section in your _site.yml file, like shown below.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>collections</span><span class='op'>:</span>
@@ -1839,7 +1839,7 @@ Figure 7: Current version of this page
 </div>
 </div>
 <ol start="2" type="1">
-<li>Then simply insert the code shown below directly to anywhere in your distill article. If you want to customize your icons then visit <a href="https://fontawesome.com/v4.7/icons/" class="uri">https://fontawesome.com/v4.7/icons/</a> and choose the icon of your liking, then change <code>fa-ICON NAME</code> in the code below. For example, changing ‘fa-clone’ to ‘fa-coffee’ will give a coffee cup icon as the copy to clipboard button. Also change the hex code in <code>color:</code> to the colour of your liking. If done properly you will see a ‘copy’ button on the top-right position of your source code chunk.</li>
+<li>Then simply insert the code shown below directly to anywhere in your distill article. If you want to customize your icons then visit <a href="https://fontawesome.com/v4.7/icons/" class="uri">https://fontawesome.com/v4.7/icons/</a> and choose the icon of your liking, then change <code>fa-ICON NAME</code> in the code below. For example, changing ‘fa-clone’ to ‘fa-coffee’ will give a coffee cup icon as the ‘copy to clipboard button’. Also change the hex code in <code>color:</code> to the colour of your liking. If done properly you will see a ‘copy’ button on the top-right position of your source code chunk.</li>
 </ol>
 <pre class="clike"><code>```{r, xaringanExtra-clipboard, echo=FALSE}
 htmltools::tagList(
@@ -1858,15 +1858,15 @@ htmltools::tagList(
 <li><p>How to add a visitor counter</p></li>
 <li><p>How to add navigation buttons at the end of the page</p></li>
 <li><p>How to add social media share buttons</p></li>
-<li><p>How to add last updated date in the appendix</p></li>
+<li><p>How to add last updated date of a article in the appendix</p></li>
 <li><p>How to display your Twitter feed on your distill website</p></li>
 <li><p>How to add a scrolling code chunk window</p></li>
-<li><p>How to add a copy to clipboard button in source code chunk</p></li>
+<li><p>How to add a copy to clipboard button in source code chunks</p></li>
 </ol>
 <p>I hope this was useful and in case you come across some problem while implementing these features, please specify them in the comments. I will try my best to fix them. In case if anyone is wondering how I was able to make panel sets within this webpage just follow this amazing tutorial <a href="https://pkg.garrickadenbuie.com/xaringanExtra/#/panelset">guide</a>. They are features from the <code>xaringanExtra</code> r-package. Thanks!</p>
 <h2 class="appendix" id="last-updated-on">Last updated on</h2>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>[1] &quot;2021-12-21 11:58:13 IST&quot;</code></pre>
+<pre><code>[1] &quot;2021-12-21 13:49:08 IST&quot;</code></pre>
 </div>
 <h2 class="appendix" id="acknowledgments">Acknowledgments</h2>
 <p>I would like to thank <a href="https://twitter.com/AwantiShastri">Awanti Shastri</a> for taking her valuable time to proofread this article. I also appreciate the valuable feedback and suggestions she gave for this article.</p>
