@@ -40,5 +40,3 @@ PS: If you are viewing this website through a mobile device some of the features
 <script type="text/javascript" src="https://counter7.stat.ovh/private/counter.js?c=xqmebarkplgkzwtm8bz2lp8pnnllbeal&down=async" async></script>
 <noscript><a href="https://www.freecounterstat.com" title="website counter code"><img src="https://counter7.stat.ovh/private/freecounterstat.php?c=xqmebarkplgkzwtm8bz2lp8pnnllbeal" border="0" title="website counter code" alt="website counter code"></a></noscript>
 </div><center>
-
-

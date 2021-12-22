@@ -42,7 +42,7 @@ navbar:
         - text: "Chapter 3: Data manipulation using dplyr (part 2)"
           href: project6.html
     - text: "About"
-      href: about.html
+      href: https://jeweljohnsonj.github.io/jewel_resume/
     - text: "CV"
       href: Jewel_cv_2021.pdf
     - icon: fab fa-github
