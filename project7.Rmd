@@ -637,7 +637,7 @@ ggarrange(plot, text_plot,
 
 You can use the `ggarrange()` function to place different plots together.
 
-```{r,fig.align='center', fig.height= 8, fig.width= 8}
+```{r,fig.align='center', fig.height= 8, fig.width= 11}
 # install.packages("palmerpenguins")
 # library(palmerpenguins)
 bar_plot <- ggbarplot(penguins,
@@ -678,7 +678,7 @@ ggarrange(bar_plot, histogram,
 
 If you are arranging three graphs it is better to use the `grid.arrange()` function from the `gridExtra` package in R.
 
-```{r,fig.align='center', fig.height= 8, fig.width= 8}
+```{r,fig.align='center', fig.height= 8, fig.width= 11}
 # install.packages("palmerpenguins")
 # library(palmerpenguins)
 bar_plot <- ggbarplot(penguins,
