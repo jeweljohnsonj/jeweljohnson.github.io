@@ -34,6 +34,8 @@ navbar:
           href: project2.html
         - text: "Chapter 3: Even more customizations in ggplot2"
           href: project3.html
+        - text: "Chapter 4: Publication ready plots using ggpubr"
+          href: project7.html
         - text: "Data manipulation"
         - text: "Chapter 1: Data tidying using tidyr"
           href: project4.html

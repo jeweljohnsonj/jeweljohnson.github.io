@@ -1,0 +1,99 @@
+---
+title: " "
+description: |
+  Learn how to 
+author:
+  - name: Jewel Johnson 
+date: 12-23-2021
+base_url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
+output: 
+  distill::distill_article:
+    toc_depth: 3
+preview: photos/dplyr.png
+---
+```{r setup, include=FALSE}
+library(dplyr)
+library(tidyr)
+library(palmerpenguins)
+library(rmarkdown)
+library(knitr)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, xaringanExtra-clipboard, echo=FALSE}
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clone fa-2x\" style=\"color: #301e64\"></i>",
+    success_text = "<i class=\"fa fa-check fa-2x\" style=\"color: #90BE6D\"></i>",
+    error_text = "<i class=\"fa fa-times fa-2x\" style=\"color: #F94144\"></i>"
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+```
+
+---
+# xaringanExtra package will help us to have inbuilt tabs insdie the article
+---
+
+```{r panelset, echo=FALSE}
+xaringanExtra::use_panelset()
+```
+
+---
+# loading javascipt file which helps in folding outputs similar to code folding
+---
+<script src="js/output_folding.js"></script>
+
+
+---
+#start editing from here
+---
+
+## Heading 1
+
+
+
+## Summary
+
+
+---
+# buttons for navigation
+---
+
+<br>  
+
+<a href="project5.html" class="btn button_round" style="float: left;">Previous chapter:<br> 2: Data manipulation using dplyr (part 1)</a>
+
+## References
+
+
+
+## Last updated on {.appendix}
+
+```{r, echo=FALSE}
+Sys.time()
+```
+
+---
+# social media share buttons
+---
+
+<!-- adding share buttons on the right side of the page -->
+<!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style" style="right:0px; top:150px; data-a2a-url="https://jeweljohnsonj.github.io/jeweljohnson.github.io/" data-a2a-title="One-carat Blog">
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_whatsapp"></a>
+<a class="a2a_button_telegram"></a>
+<a class="a2a_button_google_gmail"></a>
+<a class="a2a_button_pinterest"></a>
+<a class="a2a_button_reddit"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_facebook_messenger"></a>
+</div>
+<script>
+var a2a_config = a2a_config || {};
+a2a_config.onclick = 1;
+</script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+
