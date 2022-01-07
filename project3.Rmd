@@ -1194,6 +1194,7 @@ I hope you are now able to customize a theme of a graph with ease. In this chapt
 ---
 <br>  
 
+<a href="project7.html" class="btn button_round" style="float: right;">Next chapter:<br> 4. Publication ready plots using ggpubr</a>
 <a href="project2.html" class="btn button_round" style="float: left;">Previous chapter:<br> 2. Customizing graphs in ggplot2</a>
 
 <!-- adding share buttons on the right side of the page -->
