@@ -1,0 +1,279 @@
+---
+title: "The World Happiness Report 2021"
+description: |
+  Exploratory data analysis on World Happiness Report 2021. Plotting world map and interative world map using {ggplot2}, {sf} and {leaflet} packages in R.
+author:
+  - name: Jewel Johnson
+    url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
+date: 2022-01-17
+output:
+  distill::distill_article:
+    self_contained: true
+    toc: true
+preview: meme.gif
+creative_commons: CC BY
+categories:
+  - worldmap
+  - leaflet
+  - sf
+---
+
+```{r setup, include=FALSE}
+library(readr)
+library(tidyverse)
+library(viridis)
+library(leaflet)
+library(sf)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, xaringanExtra-clipboard, echo=FALSE}
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clone fa-2x\" style=\"color: #301e64\"></i>",
+    success_text = "<i class=\"fa fa-check fa-2x\" style=\"color: #90BE6D\"></i>",
+    error_text = "<i class=\"fa fa-times fa-2x\" style=\"color: #F94144\"></i>"
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+```
+
+## Getting the data
+
+In this post we will do some exploratory data visualizations using data from [The World Happiness Report 2021](https://worldhappiness.report/ed/2021/). You can download the `.csv` file from [here](https://www.kaggle.com/ajaypalsinghlo/world-happiness-report-2021).
+
+**World Happiness Report 2021** shows which are the happiest countries in the year 2021. By statistically analysing six key parameters, each country is given a score (which is called 'Ladder score' within the dataset). The higher the score, the happier the country is and vice versa. The six key parameters which are taken into analysis for determining the score are;
+
+1. Gross domestic product per capita
+2. Social support
+3. Healthy life expectancy
+4. Freedom to make your own life choices
+5. Generosity of the general population
+6. Perceptions of internal and external corruption levels.
+
+Finland is ranked first among 149 countries with an overall score of 7.84. Despite COVID 19 wrecking havoc around the world, citizens of Finland have persevered through it and they have been maintaining first rank since 2016. Afghanistan is at the lowest rank with a score of 2.52. With complications from COVID 19 pandemic and the Taliban take over, Afghanistan is going through one of the worst humanitarian crisis in human history and this ranking is a result of that.   
+
+## Plotting a world map
+
+We will plot a world map with a scalable colour palette based on the ladder score where greater scores indicated happier countries and vice versa.
+
+```{r, eval=FALSE}
+# Load and install necessary packages
+library(readr)
+library(tidyverse)
+#install.packages("viridis")
+library(viridis)
+```
+
+In short what we are doing is, we are going to join the World Happiness Report 2021 dataset with the map data and plot it using the `{ggplot2}` package. The `map_data` function helps us easily turn data from the `{maps}` package in to a data frame suitable for plotting with ggplot2.
+
+```{r, layout= "l-page", preview=TRUE}
+# load the dataset which you have downloaded
+# please change the location to where your downloaded file is kept
+hap_pre <- read.csv("/home/jeweljohnson/Work/datasets/world-happiness-report-2021.csv")
+
+# renaming column names of ease of use
+colnames(hap_pre)[1] <- "country"
+colnames(hap_pre)[3] <- "score"
+
+# selecting country and score columns
+hap <- hap_pre %>% select(country,score)
+
+# loading map
+map_world <- map_data('world')
+# remove Antarctica
+map_world <- map_world[!map_world$region =="Antarctica",]
+
+# checking which country names are a mismatch between map data and the downloaded dataset
+anti_join(hap, map_world,  by = c("country" = "region"))
+
+# display all country names in the dataset
+# useful to locate correct country names
+#map_world %>% group_by(region) %>% summarise() %>% print(n = Inf)
+
+# correcting country names
+# here we are matching the country names of downloaded dataset with the map data
+correct_names <- c("United Kingdom" = "UK",
+                   "United States" = "USA",
+                   "Taiwan Province of China"  = "Taiwan",
+                   "North Cyprus"= "Cyprus",
+                   "Congo (Brazzaville)"= "Republic of Congo",
+                   "Palestinian Territories" = "Palestine")
+
+# recoding country names 
+hap2 <- hap %>% mutate(country = recode(country, !!!correct_names))
+
+# joining map and the data
+world_hap <- left_join(map_world, hap2, by = c("region" = "country"))
+
+# creating a function to add line in text, for the caption
+addline_format <- function(x,...){
+  gsub(',','\n',x)}
+
+# plotting the world map
+ggplot(world_hap, aes(long, lat)) + geom_polygon(aes(fill = score, group = group)) +
+  scale_fill_viridis(option = "viridis") + theme_void() +
+  theme(plot.background = element_rect(fill = "aliceblue"),
+        legend.position="bottom") + 
+  labs(title = "Happiness scores of countries in 2021",
+       subtitle = addline_format("Higher scores indicate happier countries and vice versa,Grey colour represents countries with no data"),
+       fill = "Score",
+       caption = addline_format("Source: World Happiness Report 2021, Visualization by Jewel Johnson"))
+```
+
+## Plotting an interactive world map
+
+Rather than a static plot let us try to plot an interactive map using the `{leaflet}` package in R. Most of the steps I followed was from [here](https://www.r-graph-gallery.com/183-choropleth-map-with-leaflet.html). Instead of `{rgdal}` I will be using `{sf}` package as the former is retiring in the future.
+
+```{r, eval=FALSE}
+# Download the zip file containing shape file. A .shp file is a vector storage format for geographic location
+# Please change the 'destfile' location to where your zip file is downloaded
+download.file("http://thematicmapping.org/downloads/TM_WORLD_BORDERS_SIMPL-0.3.zip" , destfile="shp/world_shape_file.zip")
+# You now have it in your current working directory. Mine I placed it in a sub folder called 'shp' in my working directory
+
+# Unzip this file into shp directory. You can do it with R (as below).
+unzip("shp/world_shape_file.zip", exdir = "shp/")
+# Your .shp file is this --> TM_WORLD_BORDERS_SIMPL-0.3.shp
+```
+
+Now let us plot the interactive map.
+
+```{r, fig.height= 8, fig.width= 11}
+# Read this shape file with the sf library.
+# since {rgdal} is retiring I am using {sf}
+
+#install.packages("sf")
+library(sf)
+world_spdf <- st_read(paste0(getwd(),"/shp/TM_WORLD_BORDERS_SIMPL-0.3.shp"), stringsAsFactors = FALSE)
+
+# load the dataset which you have downloaded
+# please change the location accordingly
+hap_pre <- read.csv(paste0(getwd(),"/datasets/world-happiness-report-2021.csv"))
+
+# renaming column names of ease of use
+colnames(hap_pre)[1] <- "country"
+colnames(hap_pre)[3] <- "score"
+
+# selecting country and score columns
+hap <- hap_pre %>% select(country,score)
+# assigning ranks based on ladder score
+hap <- hap %>% mutate(rank = rank(-score))
+
+# checking which country names are a mismatch between map data and the downloaded dataset
+# this is an important check as we have to join the happiness dataset and shp file with country names
+anti_join(hap, world_spdf,  by = c("country" = "NAME"))
+
+# correcting country names, note that some countries are not available in the shp file
+# the list below are the ones that are available in the shp file
+correct_names <- c("Taiwan Province of China" = "Taiwan",
+                   "South Korea" = "Korea, Republic of",
+                   "Moldova"  = "Republic of Moldova",
+                   "Hong Kong S.A.R. of China"= "Hong Kong",
+                   "Vietnam" = "Viet Nam",
+                   "Congo (Brazzaville)" = "Congo",
+                   "Laos" = "Lao People's Democratic Republic",
+                   "Iran" = "Iran (Islamic Republic of)",
+                   "Palestinian Territories" = "Palestine",
+                   "Myanmar" = "Burma",
+                   "Tanzania" = "United Republic of Tanzania")
+
+# recoding country names 
+hap2 <- hap %>% mutate(country = recode(country, !!!correct_names))
+
+# the command below shows which countries are not joined
+# unfortunately we cannot add these countries unless we change the shp file
+# for now let us omit these countries
+anti_join(hap2, world_spdf,  by = c("country" = "NAME"))
+
+# joining shp file and the happiness data
+world_hap <-  left_join(world_spdf, hap2, by = c("NAME" = "country"))
+
+fill_col <- colorNumeric(palette="viridis", domain=world_hap$score, na.color="transparent")
+
+# Prepare the text for tooltips:
+text <- paste(
+  "Country: ", world_hap$NAME,"<br/>", 
+  "Score: ", world_hap$score, "<br/>", 
+  "Rank: ", world_hap$rank, 
+  sep="") %>%
+  lapply(htmltools::HTML)
+
+#install.packages("leaflet")
+library(leaflet)
+
+# plotting interactive map
+leaflet(world_hap) %>% 
+  addTiles()  %>% 
+  setView( lat=10, lng=0 , zoom=2) %>%
+  addPolygons( 
+    fillColor = ~fill_col(score), 
+    stroke=TRUE, 
+    fillOpacity = 0.9, 
+    color="white", 
+    weight=0.3,
+    label = text,
+    labelOptions = labelOptions( 
+      style = list("font-weight" = "normal", padding = "3px 8px"), 
+      textsize = "13px", 
+      direction = "auto"
+    )
+  ) %>%
+  addLegend( pal=fill_col, values=~score, opacity=0.9, title = "Score", position = "bottomleft" )
+```
+
+## Summary
+
+I hope this post was helpful to you in understanding how to plot world maps in R. In short using `{ggplot2}` we have first plot a static world map using the data from The World Happiness Report 2021, then similarly using the `{leaflet}` and `{sf}` packages we plotted an interactive world map.
+
+## References {.appendix}
+
+1. H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.
+
+2. Joe Cheng, Bhaskar Karambelkar and Yihui Xie (2021). leaflet: Create Interactive Web Maps with the JavaScript 'Leaflet'
+  Library. R package version 2.0.4.1. https://CRAN.R-project.org/package=leaflet
+  
+3. Pebesma, E., 2018. Simple Features for R: Standardized Support for Spatial Vector Data. The R Journal 10 (1), 439-446,
+  https://doi.org/10.32614/RJ-2018-009
+  
+4. [Tutorial](https://www.r-graph-gallery.com/183-choropleth-map-with-leaflet.html) on plotting interactive maps in R.
+
+5. [The World Happiness Report](https://worldhappiness.report/)
+
+6. [Source](https://www.kaggle.com/ajaypalsinghlo/world-happiness-report-2021) for `.csv` file of World Happiness Score of countries 2021. Compiled by Ajaypal Singh in Kaggle.com.
+
+## Last updated on {.appendix}
+
+```{r, echo=FALSE}
+Sys.time()
+```
+
+---
+# social media share buttons
+---
+
+<!-- adding share buttons on the right side of the page -->
+
+<!-- AddToAny BEGIN -->
+
+```{=html}
+<div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style" style="right:0px; top:150px; data-a2a-url="https://jeweljohnsonj.github.io/jeweljohnson.github.io/" data-a2a-title="One-carat Blog">
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_whatsapp"></a>
+<a class="a2a_button_telegram"></a>
+<a class="a2a_button_google_gmail"></a>
+<a class="a2a_button_pinterest"></a>
+<a class="a2a_button_reddit"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_facebook_messenger"></a>
+</div>
+```
+```{=html}
+<script>
+var a2a_config = a2a_config || {};
+a2a_config.onclick = 1;
+</script>
+```
+```{=html}
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+```
+<!-- AddToAny END -->

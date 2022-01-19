@@ -65,4 +65,7 @@ categories:
   - tidyr
   - data visualization
   - distill
+  - leaflet
+  - sf
+  - worldmap
   

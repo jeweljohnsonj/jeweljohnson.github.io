@@ -1,0 +1,115 @@
+---
+title: "Chapter 5: Graphs with stats expressions using ggstatsplot "
+description: |
+  Learn how to plot graphs which contain statitscal test results embedded inside using the ggstatsplot package in R.
+author:
+  - name: Jewel Johnson 
+date: 01-7-2022
+base_url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
+output: 
+  distill::distill_article:
+    toc_depth: 3
+preview: photos/dplyr.png
+---
+```{r setup, include=FALSE}
+library(dplyr)
+library(tidyr)
+library(palmerpenguins)
+library(rmarkdown)
+library(knitr)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, xaringanExtra-clipboard, echo=FALSE}
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clone fa-2x\" style=\"color: #301e64\"></i>",
+    success_text = "<i class=\"fa fa-check fa-2x\" style=\"color: #90BE6D\"></i>",
+    error_text = "<i class=\"fa fa-times fa-2x\" style=\"color: #F94144\"></i>"
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+```
+
+---
+# xaringanExtra package will help us to have inbuilt tabs insdie the article
+---
+
+```{r panelset, echo=FALSE}
+xaringanExtra::use_panelset()
+```
+
+---
+# loading javascipt file which helps in folding outputs similar to code folding
+---
+<script src="js/output_folding.js"></script>
+
+
+---
+#start editing from here
+---
+
+## Introduction to ggstatsplot package
+
+From previous chapters we got a glimpse of how to use `ggplot2` and `ggpubr` packages in R. More specifically we also saw how to embed statistical results inside the graphs at its basic level. In this chapter we will step up our game in summarising statistical results within graphs. We will be using the elegant `ggstatsplot` package in R made by Dr Indrajeet Patil. I first came across this package during the last year of masters when I was working on my thesis. My first reaction after seeing the graphs from this package was "wow! just beautiful". After learning how to use the package I was also very impressed by how easy it is to use. Coming from my journey with `ggplot2` package I immediately realised how elegant `ggstatsplot` package is! 
+
+So if you are in need of publication level graphs which have their statistical test summary embedded inside, then this chapter is for you! But I would refrain from using the graphs made from this package for presentations or for general talks as they are information packed and would need some time to fully comprehend. If you have experience in using `ggplot2` package then this chapter will be a breeze for you as the syntax is almost the same. Also it becomes easy to customize your graphs. Let us see what this package has to offer.
+
+## Types of plots
+
+In summary, plots that can be made using the `ggstatsplot` package depends upon the type of data. Roughly the graphs revolve around 5 types of data. They are;
+
+1. Comparisons (both between groups and within a group)
+2. Distribution
+3. Correlation
+4. Categorical
+5. Regression
+
+### 1. 
+
+
+## Summary
+
+
+---
+# buttons for navigation
+---
+
+<br>  
+
+<a href="project7.html" class="btn button_round" style="float: right;">Next chapter:<br> 4. Publication ready plots using ggpubr</a>
+<a href="project5.html" class="btn button_round" style="float: left;">Previous chapter:<br> 2: Data manipulation using dplyr (part 1)</a>
+
+## References
+
+
+
+## Last updated on {.appendix}
+
+```{r, echo=FALSE}
+Sys.time()
+```
+
+---
+# social media share buttons
+---
+
+<!-- adding share buttons on the right side of the page -->
+<!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style" style="right:0px; top:150px; data-a2a-url="https://jeweljohnsonj.github.io/jeweljohnson.github.io/" data-a2a-title="One-carat Blog">
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_whatsapp"></a>
+<a class="a2a_button_telegram"></a>
+<a class="a2a_button_google_gmail"></a>
+<a class="a2a_button_pinterest"></a>
+<a class="a2a_button_reddit"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_facebook_messenger"></a>
+</div>
+<script>
+var a2a_config = a2a_config || {};
+a2a_config.onclick = 1;
+</script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+
