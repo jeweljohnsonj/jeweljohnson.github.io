@@ -24,6 +24,8 @@ library(tidyverse)
 library(viridis)
 library(leaflet)
 library(sf)
+library(ggstatsplot)
+library(ggpubr)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -67,7 +69,7 @@ library(viridis)
 
 In short what we are doing is, we are going to join the World Happiness Report 2021 dataset with the map data and plot it using the `{ggplot2}` package. The `map_data()` function helps us easily turn data from the `{maps}` package in to a data frame suitable for plotting with ggplot2.
 
-```{r, layout= "l-page"}
+```{r, fig.height= 5, fig.width= 9}
 # load the dataset which you have downloaded
 # please change the location to where your downloaded file is kept
 hap_pre <- read.csv("/home/jeweljohnson/Work/datasets/world-happiness-report-2021.csv")
@@ -118,7 +120,7 @@ ggplot(world_hap, aes(long, lat)) + geom_polygon(aes(fill = score, group = group
   labs(title = "Happiness scores of countries in 2021",
        subtitle = addline_format("Higher scores indicate happier countries and vice versa,Grey colour represents countries with no data"),
        fill = "Score",
-       caption = addline_format("Source: World Happiness Report 2021, Visualization by Jewel Johnson"))
+       caption = addline_format("Source: World Happiness Report 2021,Visualization by Jewel Johnson"))
 ```
 
 ## Plotting an interactive world map
@@ -147,7 +149,7 @@ library(sf)
 world_spdf <- st_read(paste0(getwd(),"/shp/TM_WORLD_BORDERS_SIMPL-0.3.shp"), stringsAsFactors = FALSE)
 
 # load the dataset which you have downloaded
-# please change the location accordingly
+# please change the location accordingly to where your file is
 hap_pre <- read.csv(paste0(getwd(),"/datasets/world-happiness-report-2021.csv"))
 
 # renaming column names of ease of use
@@ -221,11 +223,46 @@ leaflet(world_hap) %>%
   addLegend( pal=fill_col, values=~score, opacity=0.9, title = "Score", position = "bottomleft" )
 ```
 
-You can download the .R script file of the above code [here](https://github.com/jeweljohnsonj/jeweljohnson.github.io/blob/main/R_scripts/world_happiness_2021.R).
+You can download the .R script file for the above code [here](https://github.com/jeweljohnsonj/jeweljohnson.github.io/blob/main/R_scripts/world_happiness_2021.R).
+
+
+## Plotting a correlalogram
+
+Using the `{ggstatsplot}` package we can use the `ggcorrmat()` function to plot a correlation matrix showing correlations between the different variables in the dataset. We are interested to see out of the six variables chosen to calculate the happiness score, which variable might have strongly influenced the happiness score.
+
+```{r, fig.height= 8, fig.width= 8}
+#install.packages('ggcorrplot')
+#install.packages("ggstatsplot")
+library(ggstatsplot)
+
+# load the dataset which you have downloaded
+# please change the location accordingly to where your file is
+hap_pre <- read.csv(paste0(getwd(),"/datasets/world-happiness-report-2021.csv"))
+
+hap_cor <- hap_pre %>% select(Ladder.score,
+                              Healthy.life.expectancy,
+                              Logged.GDP.per.capita,
+                              Social.support,
+                              Freedom.to.make.life.choices,
+                              Generosity,
+                              Perceptions.of.corruption)
+
+addline_format <- function(x,...){
+  gsub(',','\n',x)}
+
+ggcorrmat(
+  data     = hap_cor,
+  colors   = c("#FC4E07","white","#00AFBB"),
+  title    = "Correlalogram for World Happiness Report 2021 dataset",
+  caption  = addline_format("Source: World Happiness Report 2021,Visualization by Jewel Johnson")
+)
+```
+
+From the graph we can see that the happiness score is positively correlated against variables such as life expectancy, GDP per capita, social support and freedom to make life choices. Perceptions of corruptions is negatively correlated against happiness score which is expected. Surprisingly generosity variable does not seem to affect happiness score in countries. 
 
 ## Summary
 
-I hope this post was helpful to you in understanding how to plot world maps in R. In short using `{ggplot2}` we have first plot a static world map using the data from The World Happiness Report 2021, then similarly using the `{leaflet}` and `{sf}` packages we plotted an interactive world map.
+I hope this post was helpful to you in understanding how to plot world maps in R. In short using `{ggplot2}` we have first plot a static world map using the data from The World Happiness Report 2021, then similarly using the `{leaflet}` and `{sf}` packages we plotted an interactive world map. Finally we plot a correlalogram using the `{ggstatsplot}` package to see which variables are correlated to happiness score.
 
 ## References {.appendix}
 
@@ -237,11 +274,14 @@ I hope this post was helpful to you in understanding how to plot world maps in R
 3. Pebesma, E., 2018. Simple Features for R: Standardized Support for Spatial Vector Data. The R Journal 10 (1), 439-446,
   https://doi.org/10.32614/RJ-2018-009
   
-4. [Tutorial](https://www.r-graph-gallery.com/183-choropleth-map-with-leaflet.html) on plotting interactive maps in R.
+4. Patil, I. (2021). Visualizations with statistical details: The 'ggstatsplot' approach. Journal of Open Source Software,
+  6(61), 3167, doi:10.21105/joss.03167
+  
+5. [Tutorial](https://www.r-graph-gallery.com/183-choropleth-map-with-leaflet.html) on plotting interactive maps in R.
 
-5. [The World Happiness Report](https://worldhappiness.report/)
+6. [The World Happiness Report](https://worldhappiness.report/)
 
-6. [Source](https://www.kaggle.com/ajaypalsinghlo/world-happiness-report-2021) for `.csv` file of World Happiness Score of countries 2021. Compiled by Ajaypal Singh in Kaggle.com.
+7. [Source](https://www.kaggle.com/ajaypalsinghlo/world-happiness-report-2021) for `.csv` file of World Happiness Score of countries 2021. Compiled by Ajaypal Singh in Kaggle.com.
 
 ## Last updated on {.appendix}
 
