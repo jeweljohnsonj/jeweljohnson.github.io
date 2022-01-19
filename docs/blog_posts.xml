@@ -17,7 +17,7 @@
       <title>The World Happiness Report 2021</title>
       <dc:creator>Jewel Johnson</dc:creator>
       <link>https://jeweljohnsonj.github.io/jeweljohnson.github.io/posts/2022-01-17-the-world-happiness-report-2021</link>
-      <description>Exploratory data analysis on World Happiness Report 2021. Plotting world map and interative world map.</description>
+      <description>Exploratory data analysis on World Happiness Report 2021. Plotting world map and interative world map using {ggplot2}, {sf} and {leaflet} packages in R.</description>
       <category>worldmap</category>
       <category>leaflet</category>
       <category>sf</category>

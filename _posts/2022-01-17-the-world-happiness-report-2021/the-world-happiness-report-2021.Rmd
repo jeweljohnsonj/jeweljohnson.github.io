@@ -65,9 +65,9 @@ library(tidyverse)
 library(viridis)
 ```
 
-In short what we are doing is, we are going to join the World Happiness Report 2021 dataset with the map data and plot it using the `{ggplot2}` package. The `map_data` function helps us easily turn data from the `{maps}` package in to a data frame suitable for plotting with ggplot2.
+In short what we are doing is, we are going to join the World Happiness Report 2021 dataset with the map data and plot it using the `{ggplot2}` package. The `map_data()` function helps us easily turn data from the `{maps}` package in to a data frame suitable for plotting with ggplot2.
 
-```{r, layout= "l-page", preview=TRUE}
+```{r, layout= "l-page"}
 # load the dataset which you have downloaded
 # please change the location to where your downloaded file is kept
 hap_pre <- read.csv("/home/jeweljohnson/Work/datasets/world-happiness-report-2021.csv")
@@ -138,7 +138,7 @@ unzip("shp/world_shape_file.zip", exdir = "shp/")
 
 Now let us plot the interactive map.
 
-```{r, fig.height= 8, fig.width= 11}
+```{r, fig.height= 5, fig.width= 10, preview=TRUE}
 # Read this shape file with the sf library.
 # since {rgdal} is retiring I am using {sf}
 
@@ -220,6 +220,8 @@ leaflet(world_hap) %>%
   ) %>%
   addLegend( pal=fill_col, values=~score, opacity=0.9, title = "Score", position = "bottomleft" )
 ```
+
+You can download the .R script file of the above code [here](https://github.com/jeweljohnsonj/jeweljohnson.github.io/blob/main/R_scripts/world_happiness_2021.R).
 
 ## Summary
 

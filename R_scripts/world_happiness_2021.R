@@ -1,3 +1,15 @@
+# How to plot an interative world map by Jewel Johnson
+# Link to the blog post: https://jeweljohnsonj.github.io/jeweljohnson.github.io/posts/2022-01-17-the-world-happiness-report-2021/
+
+# Download the zip file containing shape file. A .shp file is a vector storage format for geographic location
+# Please change the 'destfile' location to where your zip file is downloaded
+download.file("http://thematicmapping.org/downloads/TM_WORLD_BORDERS_SIMPL-0.3.zip" , destfile="shp/world_shape_file.zip")
+# You now have it in your current working directory. Mine I placed it in a sub folder called 'shp' in my working directory
+
+# Unzip this file into shp directory. You can do it with R (as below).
+unzip("shp/world_shape_file.zip", exdir = "shp/")
+# Your .shp file is this --> TM_WORLD_BORDERS_SIMPL-0.3.shp
+
 # Read this shape file with the sf library.
 # since {rgdal} is retiring I am using {sf}
 
