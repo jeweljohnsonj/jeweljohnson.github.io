@@ -1,7 +1,7 @@
 ---
 title: "The World Happiness Report 2021"
 description: |
-  Exploratory data analysis on World Happiness Report 2021. Plotting world map and interative world map using {ggplot2}, {sf} and {leaflet} packages in R.
+  Exploratory data analysis on World Happiness Report 2021. Plotting world map and interative world map using {ggplot2}, {sf} and {leaflet} packages in R and correlalogram using {ggstatsplot}.
 author:
   - name: Jewel Johnson
     url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
@@ -16,6 +16,7 @@ categories:
   - worldmap
   - leaflet
   - sf
+  - ggstatsplot
 ---
 
 ```{r setup, include=FALSE}
