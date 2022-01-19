@@ -227,7 +227,7 @@ leaflet(world_hap) %>%
 You can download the .R script file for the above code [here](https://github.com/jeweljohnsonj/jeweljohnson.github.io/blob/main/R_scripts/world_happiness_2021.R).
 
 
-## Plotting a correlalogram
+## Plotting a correlogram
 
 Using the `{ggstatsplot}` package we can use the `ggcorrmat()` function to plot a correlation matrix showing correlations between the different variables in the dataset. We are interested to see out of the six variables chosen to calculate the happiness score, which variable might have strongly influenced the happiness score.
 
@@ -254,7 +254,7 @@ addline_format <- function(x,...){
 ggcorrmat(
   data     = hap_cor,
   colors   = c("#FC4E07","white","#00AFBB"),
-  title    = "Correlalogram for World Happiness Report 2021 dataset",
+  title    = "Correlogram for World Happiness Report 2021 dataset",
   caption  = addline_format("Source: World Happiness Report 2021,Visualization by Jewel Johnson")
 )
 ```
@@ -263,7 +263,7 @@ From the graph we can see that the happiness score is positively correlated agai
 
 ## Summary
 
-I hope this post was helpful to you in understanding how to plot world maps in R. In short using `{ggplot2}` we have first plot a static world map using the data from The World Happiness Report 2021, then similarly using the `{leaflet}` and `{sf}` packages we plotted an interactive world map. Finally we plot a correlalogram using the `{ggstatsplot}` package to see which variables are correlated to happiness score.
+I hope this post was helpful to you in understanding how to plot world maps in R. In short using `{ggplot2}` we have first plot a static world map using the data from The World Happiness Report 2021, then similarly using the `{leaflet}` and `{sf}` packages we plotted an interactive world map. Finally we plotted a correlogram using the `{ggstatsplot}` package to see which variables are correlated to happiness score.
 
 ## References {.appendix}
 
