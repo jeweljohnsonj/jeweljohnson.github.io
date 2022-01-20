@@ -190,6 +190,10 @@ anti_join(hap2, world_spdf,  by = c("country" = "NAME"))
 # joining shp file and the happiness data
 world_hap <-  left_join(world_spdf, hap2, by = c("NAME" = "country"))
 
+#install.packages("leaflet")
+library(leaflet)
+
+# making colour palette for filling
 fill_col <- colorNumeric(palette="viridis", domain=world_hap$score, na.color="transparent")
 
 # Prepare the text for tooltips:
@@ -200,9 +204,6 @@ text <- paste(
   sep="") %>%
   lapply(htmltools::HTML)
 
-#install.packages("leaflet")
-library(leaflet)
-
 # plotting interactive map
 leaflet(world_hap) %>% 
   addTiles()  %>% 
@@ -211,7 +212,7 @@ leaflet(world_hap) %>%
     fillColor = ~fill_col(score), 
     stroke=TRUE, 
     fillOpacity = 0.9, 
-    color="white", 
+    color= "grey", 
     weight=0.3,
     label = text,
     labelOptions = labelOptions( 
@@ -220,7 +221,7 @@ leaflet(world_hap) %>%
       direction = "auto"
     )
   ) %>%
-  addLegend( pal=fill_col, values=~score, opacity=0.9, title = "Score", position = "bottomleft" )
+  addLegend( pal=fill_col, values=~score, opacity=0.7, title = "Score", position = "bottomleft" )
 ```
 
 You can download the .R script file for the above code [here](https://github.com/jeweljohnsonj/jeweljohnson.github.io/blob/main/R_scripts/world_happiness_2021.R).
@@ -231,7 +232,7 @@ You can download the .R script file for the above code [here](https://github.com
 Using the `{ggstatsplot}` package we can use the `ggcorrmat()` function to plot a correlation matrix showing correlations between the different variables in the dataset. We are interested to see out of the six variables chosen to calculate the happiness score, which variable might have strongly influenced the happiness score.
 
 ```{r, fig.height= 8, fig.width= 8}
-#install.packages('ggcorrplot')
+#install.packages("ggcorrplot")
 #install.packages("ggstatsplot")
 library(ggstatsplot)
 

@@ -25,6 +25,7 @@ hap_pre <- read.csv(paste0(getwd(),"/datasets/world-happiness-report-2021.csv"))
 colnames(hap_pre)[1] <- "country"
 colnames(hap_pre)[3] <- "score"
 
+library(dplyr)
 # selecting country and score columns
 hap <- hap_pre %>% select(country,score)
 # assigning ranks based on ladder score
@@ -59,6 +60,8 @@ anti_join(hap2, world_spdf,  by = c("country" = "NAME"))
 # joining shp file and the happiness data
 world_hap <-  left_join(world_spdf, hap2, by = c("NAME" = "country"))
 
+#install.packages("leaflet")
+library(leaflet)
 fill_col <- colorNumeric(palette="viridis", domain=world_hap$score, na.color="transparent")
 
 # Prepare the text for tooltips:
@@ -69,9 +72,6 @@ text <- paste(
   sep="") %>%
   lapply(htmltools::HTML)
 
-#install.packages("leaflet")
-library(leaflet)
-
 # plotting interactive map
 leaflet(world_hap) %>% 
   addTiles()  %>% 
@@ -80,7 +80,7 @@ leaflet(world_hap) %>%
     fillColor = ~fill_col(score), 
     stroke=TRUE, 
     fillOpacity = 0.9, 
-    color="white", 
+    color= "grey", 
     weight=0.3,
     label = text,
     labelOptions = labelOptions( 
@@ -89,4 +89,4 @@ leaflet(world_hap) %>%
       direction = "auto"
     )
   ) %>%
-  addLegend( pal=fill_col, values=~score, opacity=0.9, title = "Score", position = "bottomleft" )
+  addLegend( pal=fill_col, values=~score, opacity=0.7, title = "Score", position = "bottomleft" )
