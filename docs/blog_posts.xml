@@ -12,7 +12,19 @@
       <link>https://jeweljohnsonj.github.io/jeweljohnson.github.io/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 16 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 May 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>The World Happiness Report 2022</title>
+      <dc:creator>Jewel Johnson</dc:creator>
+      <link>https://jeweljohnsonj.github.io/jeweljohnson.github.io/posts/2022-05-16-the-world-happiness-report-2022</link>
+      <description>Second series in exploratory data visualizations on World Happiness Report 2022 using the {leaflet} packages in R.</description>
+      <category>worldmap</category>
+      <category>leaflet</category>
+      <category>sf</category>
+      <guid>https://jeweljohnsonj.github.io/jeweljohnson.github.io/posts/2022-05-16-the-world-happiness-report-2022</guid>
+      <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://jeweljohnsonj.github.io/jeweljohnson.github.io/posts/2022-05-16-the-world-happiness-report-2022/map.png" medium="image" type="image/png" width="710" height="497"/>
+    </item>
     <item>
       <title>The World Happiness Report 2021</title>
       <dc:creator>Jewel Johnson</dc:creator>
@@ -23,7 +35,7 @@
       <category>sf</category>
       <category>ggstatsplot</category>
       <guid>https://jeweljohnsonj.github.io/jeweljohnson.github.io/posts/2022-01-17-the-world-happiness-report-2021</guid>
-      <pubDate>Sun, 16 Jan 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 17 Jan 2022 00:00:00 +0000</pubDate>
       <media:content url="https://jeweljohnsonj.github.io/jeweljohnson.github.io/posts/2022-01-17-the-world-happiness-report-2021/the-world-happiness-report-2021_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1728" height="960"/>
     </item>
     <item>

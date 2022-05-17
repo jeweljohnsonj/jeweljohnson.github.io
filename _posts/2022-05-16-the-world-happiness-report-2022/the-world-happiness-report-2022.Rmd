@@ -1,0 +1,224 @@
+---
+title: "The World Happiness Report 2022"
+description: |
+  Second series in exploratory data visualizations on World Happiness Report 2022 using the {leaflet} packages in R.
+author:
+  - name: Jewel Johnson
+    url: https://jeweljohnsonj.github.io/jeweljohnson.github.io/
+date: 2022-05-16
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+creative_commons: CC BY
+preview: map.png
+categories:
+  - worldmap
+  - leaflet
+  - sf
+---
+
+```{r setup, include=FALSE}
+library(readr)
+library(tidyverse)
+library(viridis)
+library(leaflet)
+library(sf)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, xaringanExtra-clipboard, echo=FALSE}
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clone fa-2x\" style=\"color: #301e64\"></i>",
+    success_text = "<i class=\"fa fa-check fa-2x\" style=\"color: #90BE6D\"></i>",
+    error_text = "<i class=\"fa fa-times fa-2x\" style=\"color: #F94144\"></i>"
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+```
+
+## Getting the data
+
+Similar to the [previous post](https://jeweljohnsonj.github.io/jeweljohnson.github.io/posts/2022-01-17-the-world-happiness-report-2021/) we will plot an interactive map using the `{leaflet}` package in R with the world happiness report data 2022.
+
+With the effects of COVID-19 finally getting subdued via mass vaccination drives and other precautionary measures taken by the governments around the world, the happiness data of 2022 shows light on how different countries are doing in the recovery stage.
+
+Like last time, Finland is again ranked first among 149 countries with an overall score of 7.82 and Afghanistan ranked the last with a score of 2.40. 
+
+## Plotting an interactive world map
+
+Lets plot an interactive world map with happiness score as a variable, where greater scores indicates happier countries and vice versa. We will be using the `{leaflet}` package in R for plotting the world map.
+
+First lets download and import the data into R. You can download the .csv file using this [link.](https://www.kaggle.com/datasets/mathurinache/world-happiness-report?select=2022.csv) Then we have to download the world map data which comes as a `.shp` file. 
+
+Run the codes given below to download the `.shp` file and load the `.csv` file required to plot the map. I will be reusing the codes from the [previous post](https://jeweljohnsonj.github.io/jeweljohnson.github.io/posts/2022-01-17-the-world-happiness-report-2021/). For0 plotting the interactive map, we will be using the `{sf}` package for reading the `.shp` file and the `{leaflet}` package for plotting the map.
+
+```{r, fig.height= 5, fig.width= 10, preview=TRUE}
+library(readr)
+library(dplyr)
+
+# loading the .csv file which was downloaded
+# please change the location to where your .csv file is kept
+hap_pre <- read.csv("/home/jeweljohnson/Work/datasets/2022.csv")
+
+# renaming column names of ease of use
+colnames(hap_pre)[1] <- "rank"
+colnames(hap_pre)[2] <- "country"
+colnames(hap_pre)[3] <- "score"
+hap_pre <- hap_pre[-147,]
+
+# the score values are separated by commas
+# let us change that to dots
+hap_pre$score <- scan(text=hap_pre$score, dec=",", sep=".")
+
+# selecting country and score columns
+hap <- hap_pre %>% select(rank,country,score)
+
+# downloading and loading the .shp file
+# please change the 'destfile' location to where your zip file is located
+download.file("http://thematicmapping.org/downloads/TM_WORLD_BORDERS_SIMPL-0.3.zip" , destfile="shp/world_shape_file.zip")
+
+# unzip the file into a directory. You can do it with R (as below).
+# the directory of my choice was folder named 'shp'
+unzip("shp/world_shape_file.zip", exdir = "shp/")
+
+# Read the shape file with 'sf'
+#install.packages("sf")
+library(sf)
+world_spdf <- st_read(paste0(getwd(),"/shp/TM_WORLD_BORDERS_SIMPL-0.3.shp"), stringsAsFactors = FALSE)
+
+# checking which country names are a mismatch between map data and the downloaded dataset
+# this is an important check as we have to join the happiness dataset and .shp file with country names
+anti_join(hap, world_spdf,  by = c("country" = "NAME"))
+
+# correcting country names, note that some countries are not available in the .shp file
+
+correct_names <- c("Luxembourg*" = "Luxembourg",
+                   "Czechia" = "Czech Republic",
+                   "Taiwan Province of China" = "Taiwan",
+                   "Guatemala*" = "Guatemala",
+                   "Kuwait*" = "Kuwait",
+                   "South Korea" = "Korea, Republic of",
+                   "Moldova"  = "Republic of Moldova",
+                   "Belarus*" = "Belarus",
+                   "Vietnam" = "Viet Nam",
+                   "Turkmenistan*" = "Turkmenistan",
+                   "Hong Kong S.A.R. of China"= "Hong Kong",
+                   "Libya*" = "Libyan Arab Jamahiriya",
+                   "Ivory Coast" = "Cote d'Ivoire",
+                   "North Macedonia" = "The former Yugoslav Republic of Macedonia",
+                   "Azerbaijan*" = "Azerbaijan",
+                   "Gambia*" = "Gambia",
+                   "Liberia*" = "Liberia",
+                   "Laos" = "Lao People's Democratic Republic",
+                   "Niger*" = "Niger",
+                   "Iran" = "Iran (Islamic Republic of)",
+                   "Comoros*" = "Comoros",
+                   "Palestinian Territories*" = "Palestine",
+                   "Eswatini, Kingdom of*" = "Swaziland",
+                   "Myanmar" = "Burma",
+                   "Madagascar*" = "Madagascar",
+                   "Chad*" = "Chad",
+                   "Yemen*" = "Yemen",
+                   "Mauritania*" = "Mauritania",
+                   "Tanzania" = "United Republic of Tanzania",
+                   "Lesotho*" = "Lesotho",
+                   "Botswana*" = "Botswana",
+                   "Rwanda*" = "Rwanda")
+
+# recoding country names 
+hap2 <- hap %>% mutate(country = recode(country, !!!correct_names))
+
+# joining .shp file and the happiness data
+world_hap <-  left_join(world_spdf, hap2, by = c("NAME" = "country"))
+
+#install.packages("leaflet")
+library(leaflet)
+library(viridis)
+
+# making colour palette for filling
+fill_col <- colorNumeric(palette="magma", domain=world_hap$score, na.color="transparent")
+
+# Prepare the text for tooltips:
+text <- paste(
+  "Country: ", world_hap$NAME,"<br/>", 
+  "Score: ", world_hap$score, "<br/>", 
+  "Rank: ", world_hap$rank, 
+  sep="") %>%
+  lapply(htmltools::HTML)
+
+# plotting interactive map
+leaflet(world_hap) %>% 
+  addTiles()  %>% 
+  setView( lat=10, lng=0 , zoom=2) %>%
+  addPolygons( 
+    fillColor = ~fill_col(score), 
+    stroke=TRUE, 
+    fillOpacity = 0.9, 
+    color= "grey", 
+    weight=0.3,
+    label = text,
+    labelOptions = labelOptions( 
+      style = list("font-weight" = "normal", padding = "3px 8px"), 
+      textsize = "13px", 
+      direction = "auto"
+    )
+  ) %>%
+  addLegend( pal=fill_col, values=~score, opacity=0.7, title = "Score", position = "bottomleft" )
+```
+
+## Summary
+
+In continuation with my [previous post](https://jeweljohnsonj.github.io/jeweljohnson.github.io/posts/2022-01-17-the-world-happiness-report-2021/), this post showcases an interactive map for the latest happiness index data for 2022. 
+
+## References {.appendix}
+
+1.  H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.
+
+2.  Joe Cheng, Bhaskar Karambelkar and Yihui Xie (2021). leaflet: Create Interactive Web Maps with the JavaScript 'Leaflet' Library. R package version 2.0.4.1. <https://CRAN.R-project.org/package=leaflet>
+
+3.  Pebesma, E., 2018. Simple Features for R: Standardized Support for Spatial Vector Data. The R Journal 10 (1), 439-446, <https://doi.org/10.32614/RJ-2018-009>
+
+4.  [Tutorial](https://www.r-graph-gallery.com/183-choropleth-map-with-leaflet.html) on plotting interactive maps in R.
+
+5.  [The World Happiness Report 2022](https://worldhappiness.report/ed/2022/)
+
+7.  [Source](https://www.kaggle.com/datasets/mathurinache/world-happiness-report?select=2022.csv) for `.csv` file of World Happiness Score of countries 2022. Compiled by Mathurin Aché in Kaggle.com
+
+## Last updated on {.appendix}
+
+```{r, echo=FALSE}
+Sys.time()
+```
+
+---
+# social media share buttons
+---
+
+<!-- adding share buttons on the right side of the page -->
+
+<!-- AddToAny BEGIN -->
+
+```{=html}
+<div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style" style="right:0px; top:150px; data-a2a-url="https://jeweljohnsonj.github.io/jeweljohnson.github.io/" data-a2a-title="One-carat Blog">
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_whatsapp"></a>
+<a class="a2a_button_telegram"></a>
+<a class="a2a_button_google_gmail"></a>
+<a class="a2a_button_pinterest"></a>
+<a class="a2a_button_reddit"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_facebook_messenger"></a>
+</div>
+```
+```{=html}
+<script>
+var a2a_config = a2a_config || {};
+a2a_config.onclick = 1;
+</script>
+```
+```{=html}
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+```
+<!-- AddToAny END -->
