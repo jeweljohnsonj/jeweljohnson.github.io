@@ -28,7 +28,7 @@ Welcome to my blog! My name is Jewel Johnson and I am the founder of this blog. 
 
 So give this blog a try and let me know how it is! Thanks for visiting and have a good day!
 
-PS: If you are viewing this website through a mobile device some of the features might not work well. This website is best viewed through a computer/laptop device.
+PS: I have moved from `{distill}` to `{quarto}` and have migrated my blog. I will update the new link of the blog soon!
 
 ---
 # The code below will show the visitor count. If you want to have this in the webpage, then please go to _custom.html file in the repo where I have described the steps to get a visiter counter widget.
