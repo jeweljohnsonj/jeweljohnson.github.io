@@ -11,8 +11,8 @@
       "path": "index.html",
       "title": "Hello World!",
       "author": [],
-      "contents": "\nWelcome to One Carat Blog\n\n\n\nWelcome to my blog! My name is Jewel Johnson and I am the founder of\nthis blog. Here you will find cool science articles and data\nvisualizations. If you want to learn about R programming, check out the\nR\nTutorials tab on top. For blog posts, check the Blog\nsection.\nSo give this blog a try and let me know how it is! Thanks for\nvisiting and have a good day!\nPS: I have moved from {distill} to {quarto}\nand have migrated my blog. I will update the new link of the blog\nsoon!\n\nVisitors\n\n\n\n\n\n\n\n\n",
-      "last_modified": "2022-05-20T22:23:57+05:30"
+      "contents": "\nWelcome to One Carat Blog\n\n\n\nWelcome to my blog! My name is Jewel Johnson and I am the founder of\nthis blog. Here you will find cool science articles and data\nvisualizations. If you want to learn about R programming, check out the\nR\nTutorials tab on top. For blog posts, check the Blog\nsection.\nSo give this blog a try and let me know how it is! Thanks for\nvisiting and have a good day!\nPS: I have moved from {distill} to {quarto}\nand have migrated my blog. The link for the new blog: Click\nhere\n\nVisitors\n\n\n\n\n\n\n\n\n",
+      "last_modified": "2022-05-26T07:34:47+05:30"
     },
     {
       "path": "project1.html",
